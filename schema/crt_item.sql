@@ -6,6 +6,6 @@ CREATE TABLE item (
 	description VARCHAR2(1024),
 	price NUMBER(16) NOT NULL,
 	end_time DATE,
-	FOREIGN KEY (seller_id)	REFERENCES domer(user_id) ON DELETE CASCADE
+	FOREIGN KEY (seller_id)	REFERENCES domer(user_id)
 )
 ;
