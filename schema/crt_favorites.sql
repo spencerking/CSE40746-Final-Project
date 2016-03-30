@@ -1,0 +1,5 @@
+CREATE TABLE favorites (
+	user_id NUMBER(16) NOT NULL PRIMARY KEY,
+	item_id NUMBER(16) NOT NULL
+)
+;
