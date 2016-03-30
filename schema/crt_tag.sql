@@ -1,4 +1,4 @@
 CREATE TABLE tag (
-	tag_name VARCHAR2(32)
+	tag_name VARCHAR2(32) PRIMARY KEY
 )
 ;
