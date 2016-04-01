@@ -29,7 +29,7 @@ if (password_verify($password, $password_hash)) {
 else {
 	// they don't match, redirect
 	$_SESSION["msg"] = "Incorrect email or password";
-	header('Location: '); // WHERE DO WE WANT TO REDIRECT TO?
+	header('Location: signin.html'); // WHERE DO WE WANT TO REDIRECT TO?
 }
 
 ?>

@@ -27,7 +27,7 @@ oci_fetch($query);
 if (strcmp($new_email, $email)) {
 	// return an error
 	$_SESSION["msg"] = "Email address is already registered";
-	header('Location: '); // WHERE DO WE WANT TO REDIRECT TO?
+	header('Location: signin.html'); // WHERE DO WE WANT TO REDIRECT TO?
 }
 
 // Create the password hash
