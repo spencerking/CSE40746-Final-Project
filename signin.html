@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="icon" href="">
 
-    <title>NDBay</title>
+    <title>NDBay - Sign In</title>
 
     <!-- Bootstrap core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
@@ -36,11 +36,12 @@
           </div>
 
           <form class="form-signin" action="signin_backend.php" method="post">
-            <h2 class="form-signin-heading">Login</h2>
+            <h2 class="form-heading">Login</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="you@nd.edu" required autofocus>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="you@nd.edu" autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="password">
+            <div class="error"><ul></ul></div>
             <div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
@@ -50,17 +51,18 @@
           </form>
 
           <form class="form-signup" action="signup_backend.php" method="post">
-            <h2 class="form-signin-heading">Signup</h2>
+            <h2 class="form-heading">Signup</h2>
             <label for="inputFirstName" class="sr-only">First name</label>
-            <input id="inputFirstName" class="form-control" placeholder="first name" required>
+            <input type="name" id="inputFirstName" name="firstName" class="form-control" placeholder="first name">
             <label for="inputLastName" class="sr-only">Last name</label>
-            <input id="inputLastName" class="form-control" placeholder="last name" required>
+            <input type="name" id="inputLastName" name="lastName" class="form-control" placeholder="last name">
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="you@nd.edu" required>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="you@nd.edu">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="password">
             <label for="inputConfirmPassword" class="sr-only">Confirm password</label>
-            <input type="confirm-password" id="inputConfirmPassword" class="form-control" placeholder="confirm password" required>
+            <input type="password" id="inputConfirmPassword" name="confirmPassword" class="form-control" placeholder="confirm password">
+            <div class="error"><ul></ul></div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Go</button>
           </form>
 
@@ -69,18 +71,88 @@
               <p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.2.2.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-2.2.2.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
+    <script>
+    $.validator.addMethod('passwordMatch', function(value, element) {
+      var password = $('.form-signup #inputPassword').val();
+      var confirmPassword = $('.form-signup #inputConfirmPassword').val();
+      return (password == confirmPassword);
+    });
+    $('.form-signin').validate({
+      errorContainer: $('.form-signin div.error'),
+      errorLabelContainer: $('ul', $('.form-signin div.error')),
+      wrapper: 'li',
+      rules: {
+        email: {
+          required: true
+        },
+        password: {
+          required: true
+        }
+      },
+      messages: {
+        email: {
+          required: 'Email is required.'
+        },
+        password: {
+          required: 'Password is required.'
+        }
+      }
+    });
+    $('.form-signup').validate({
+      errorContainer: $('.form-signup div.error'),
+      errorLabelContainer: $('ul', $('.form-signup div.error')),
+      wrapper: 'li',
+      rules: {
+        firstName: {
+          required: true
+        },
+        lastName: {
+          required: true
+        },
+        email: {
+          required: true
+        },
+        password: {
+          required: true,
+          minlength: 8
+        },
+        confirmPassword: {
+          required: true,
+          minlength: 8,
+          passwordMatch: true
+        }
+      },
+      messages: {
+        firstName: {
+          required: 'First name is required.'
+        },
+        lastName: {
+          required: 'Last name is required.'
+        },
+        email: {
+          required: 'Email is required.'
+        },
+        password: {
+          required: 'Password is required.',
+          minlength: 'Password must be at least 8 characters.'
+        },
+        confirmPassword: {
+          required: 'Password confirmation is required.',
+          passwordMatch: 'Passwords must match.'
+        }
+      }
+    });
+    </script>
   </body>
 </html>
