@@ -16,7 +16,7 @@ if (!$conn) {
 // Get the hashed password
 $query = oci_parse($conn, 'select password_hash from domer where email = :email');
 oci_bind_by_name($query, ":email", $email);
-oci_define_by_name($query, "password_hash", $password_hash)
+oci_define_by_name($query, "password_hash", $password_hash);
 oci_execute($query);
 oci_fetch($query);
 
