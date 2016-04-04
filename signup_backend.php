@@ -1,5 +1,5 @@
 <?php
-require 'PHPMailerAutoload.php';
+require_once 'PHPMailer/PHPMailerAutoload.php';
 
 // SMTP needs accurate times, and the PHP time zone MUST be set
 date_default_timezone_set('Etc/UTC');
@@ -19,7 +19,7 @@ if (!$conn) {
 // Check if the email already exists
 $query = oci_parse($conn, 'select email from domer where email = :new_email');
 oci_bind_by_name($query, ":new_email", $new_email);
-oci_define_by_name($query, "email", $email)
+oci_define_by_name($query, "email", $email);
 oci_execute($query);
 oci_fetch($query);
 
@@ -35,8 +35,8 @@ $new_pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
 // If the username does not already exist add it to the db
 $query = oci_parse($conn, 'insert into domer (password_hash, email) values(:new_pass, :new_email)');
-oci_bind_by_name($query, :new_pass, $new_pass);
-oci_bind_by_name($query, :new_email, $new_email);
+oci_bind_by_name($query, ":new_pass", $new_pass);
+oci_bind_by_name($query, ":new_email", $new_email);
 oci_execute($query);
 
 oci_close($conn);
