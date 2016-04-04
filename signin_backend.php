@@ -24,7 +24,8 @@ oci_close($conn);
 
 if (password_verify($password, $password_hash)) {
 	// they match so login
-	header('Location: '); // WHERE DO WE WANT TO REDIRECT TO?
+	$_SESSION["logged_in"] = 1;
+	header('Location: home.html');
 }
 else {
 	// they don't match, redirect

@@ -45,7 +45,7 @@ oci_close($conn);
 
 $mail = new PHPMailer;
 
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  					  // Specify main and backup SMTP servers
@@ -77,6 +77,6 @@ if(!$mail->send()) {
 }
 
 $_SESSION["msg"] = "Your account has been created.";
-header('Location: '); // WHERE DO WE WANT TO REDIRECT TO?
+header('Location: home.html'); // WHERE DO WE WANT TO REDIRECT TO?
 
 ?>
