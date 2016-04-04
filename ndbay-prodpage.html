@@ -15,8 +15,37 @@
 
   <!-- Custom styles for this template -->
   <link href="styles/index.css" rel="stylesheet"/>
-  <link rel="stylesheet" type="text/css" href="styles/shams.css"/>
-  <script type="text/javascript" src="js/shams.js"></script>
+
+  <script type="text/javascript">
+    $(function() 
+    {        
+      $('input[type=submit]').click(function() 
+      {
+        $('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
+        $('span.stars').stars();
+      });       
+      $('input[type=submit]').click();
+    });
+
+    $.fn.shams = function() 
+    {
+      return $(this).each(function() 
+      {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+    });
+  }
+  </script>
+  <style type="text/css">
+    span.shams, span.shams span {
+      display: block;
+      background: url(images/shams.png) 0 -16px repeat-x;
+      width: 80px;
+      height: 16px;
+    }
+    span.shams span {
+      background-position: 0 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -59,7 +88,8 @@
             </div>
             <div class="col-sm-4">
               <h5 class="text">Condition:</h5>
-              <span class="shams">4.5</span>
+              <span class="shams">2.5</span>
+              <span class="shams">3.5</span>
             </div>
           </div>
           <div class="col-sm-12">
