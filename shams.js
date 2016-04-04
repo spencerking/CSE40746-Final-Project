@@ -9,4 +9,4 @@ $.fn.stars = function() {
         // Replace the numerical value with stars
         $(this).html($span);
     });
-}
+};
