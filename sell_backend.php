@@ -32,7 +32,8 @@ $r = oci_execute($query);
 
 // error catching
 if (!$r) {
-	echo oci_error($query);
+	$err = oci_error($query);
+	trigger_error(htmlentities($err['message']), E_USER_ERROR);
 }
 
 oci_close($conn);
