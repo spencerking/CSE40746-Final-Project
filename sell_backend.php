@@ -22,7 +22,7 @@ $price = $_POST["itemPrice"];
 $end_time = $_POST["itemEndTime"];
 
 // Add the item to the DB
-$query = oci_parse($conn, 'insert into item (seller_id, name, condition, description, price, end_time) values(:seller_id, :name, :condition, :description, :price, :end_time)');
+$query = oci_parse($conn, "insert into item (seller_id, name, condition, description, price, end_time) values(:seller_id, :name, :condition, :description, :price, :end_time)");
 oci_bind_by_name($query, ":seller_id", $seller_id);
 oci_bind_by_name($query, ":name", $name);
 oci_bind_by_name($query, ":condition", $condition);
@@ -33,8 +33,12 @@ $r = oci_execute($query);
 
 // error catching
 if (!$r) {
-	$err = oci_error($query);
-	trigger_error(htmlentities($err['message']), E_USER_ERROR);
+	$e = oci_error($query);  // For oci_execute errors pass the statement handle
+    print htmlentities($e['message']);
+    print "\n<pre>\n";
+    print htmlentities($e['sqltext']);
+    printf("\n%".($e['offset']+1)."s", "^");
+    print  "\n</pre>\n";
 }
 
 oci_close($conn);
