@@ -10,7 +10,8 @@ if (!$conn) {
     trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
-oci_fetch($query);
+// Why was this line here? (below)
+//oci_fetch($query);
 
 // Get the variables
 $seller_id = $_SESSION["user_id"];
