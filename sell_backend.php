@@ -22,7 +22,7 @@ $end_time = $_POST["itemEndTime"];
 
 // Add the item to the DB
 $query = oci_parse($conn, 'insert into item (seller_id, name, condition, description, price, end_time) values(:seller_id, :name, :condition, :description, :price, :end_time)');
-oci_bind_by_name($query, ":seller_id", $seller_id)
+oci_bind_by_name($query, ":seller_id", $seller_id);
 oci_bind_by_name($query, ":name", $name);
 oci_bind_by_name($query, ":condition", $condition);
 oci_bind_by_name($query, ":description", $description);
