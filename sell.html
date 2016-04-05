@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NDBay - Search</title>
+    <title>NDBay - Sell</title>
 
     <!-- Bootstrap core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,10 @@
     }
     footer {
       text-align: center;
+    }
+    .form-sell {
+      margin-top: 20px;
+      max-width: 330px;
     }
     </style>
   </head>
@@ -41,7 +45,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="sell.html">Sell</a></li>
+            <li class="active"><a href="sell.html">Sell</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -62,30 +66,42 @@
     </nav>
 
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h2><a>Heading</a></h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <form class="form-sell" action="sell_backend.php" method="post">
+        <div class="form-group">
+          <label for="inputItemName">Name</label>
+          <input type="text" class="form-control" id="inputItemName" name="itemName">
         </div>
-        <div class="col-md-4">
-          <h2><a>Heading</a></h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <div class="form-group">
+          <label for="inputItemCondition">Condition</label>
+          <select name="inputItemCondition" class="form-control">
+            <option value="0">Meh</option>
+            <option value="1">Pretty OK</option>
+            <option value="2">Great</option>
+          </select>
         </div>
-        <div class="col-md-4">
-          <h2><a>Heading</a></h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <div class="form-group">
+          <label for="inputItemDescription">Description</label>
+          <input type="textarea" class="form-control" id="inputItemDescription" name="itemDescription">
         </div>
-
-        <div class="text-center">
-        <nav>
-          <ul class="pagination">
-            <li class="active"><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-          </ul>
-        </nav>
+        <div class="form-group">
+          <label for="inputItemPrice">Price</label>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="number" class="form-control" min="0" id="inputItemPrice" name="itemPrice">
+            <span class="input-group-addon">.00</span>
+          </div>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="inputItemEndTime">Sell-by Date</label>
+          <input type="date" class="form-control" id="inputItemEndTime" name="itemEndTime">
+        </div>
+        <div class="form-group">
+          <label for="inputItemPhoto">Upload Photo</label>
+          <input type="file" class="form-control-file">
+        </div>
+        <div class="error"><ul></ul></div>
+        <button type="submit" class="btn btn-primary">Create Listing</button>
+      </form>
 
       <hr>
 
@@ -94,11 +110,15 @@
       </footer>
     </div>
 
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.2.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
+    <script>
+
+    </script>
   </body>
 </html>

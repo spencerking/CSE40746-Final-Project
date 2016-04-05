@@ -22,13 +22,11 @@
   z-index: 2;
 }
 .form-signin input[id="inputEmail"],
-.form-signup input[id="inputFirstName"] {
+.form-signup input[id="inputEmail"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form-signup input[id="inputLastName"],
-.form-signup input[id="inputEmail"],
 .form-signup input[id="inputPassword"] {
   margin-bottom: -1px;
   border-radius: 0;
