@@ -26,107 +26,126 @@
   </style>
 
   <script type="text/javascript">
-    $(function() 
-    {        
-      $('input[type=submit]').click(function() 
-      {
-        $('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
-        $('span.stars').stars();
-      });       
-      $('input[type=submit]').click();
-    });
-
-    $.fn.shams = function() 
+  $(function() 
+  {        
+    $('input[type=submit]').click(function() 
     {
-      return $(this).each(function() 
-      {
-        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+      $('p').html('<span class="shams">'+parseFloat($('input[name=amount]').val())+'</span>');
+      $('span.shams').shams();
+    });       
+    $('input[type=submit]').click();
+  });
+
+  $.fn.shams = function() 
+  {
+    return $(this).each(function() 
+    {
+      $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
     });
   };
   </script>
   <style type="text/css">
-    span.shams, span.shams span {
-      display: block;
-      background: url(images/shams.png) 0 -16px repeat-x;
-      width: 80px;
-      height: 16px;
-    }
-    span.shams span {
-      background-position: 0 0;
-    }
+  span.shams, span.shams span {
+    display: block;
+    background: url(images/shams.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+  }
+  span.shams span {
+    background-position: 0 0;
+  }
   </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="home.html">NDBay</a>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="home.html">NDBay</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="sell.html">Sell</a></li>
+          <li class="dropwdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="account.html">Account</a></li>
+              <li><a href="">Sign out</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" placeholder="Search" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-default">Go</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="col-sm-6">
+    <img class="img-thumbnail" src="http://placehold.it/650x350" alt="Item Image">
+  </div> <!-- END col-sm-6 -->
+
+  <div class="col-sm-6">
+    <div class="col-sm-12">
+      <h1 class="cover-heading text-left">Item Name</h1>
+      <div class="col-sm-6">
+        <p class="text-left">This item is sooooo goooooood!!!! Lava lamp garkunkle monkey business shows the importance of gargeling water in the twilight. Lorem ipsum la die da die da.</p>
+      </div>  
+      <div class="col-sm-6">
+        <button class="btn btn-primary center" type="button">Buy It!!!</button>
+      </div>
+      <div class="col-sm-12">
+        <hr/>
+        <h4 class="text-left">Item Properties:</h4> 
+        <div class="col-sm-6">
+          <h5 class="text-left">Price:</h5>
+          <p class="text-left">$3.50</p>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="sell.html">Sell</a></li>
-            <li class="dropwdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="account.html">Account</a></li>
-                <li><a href="">Sign out</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-              <input type="text" placeholder="Search" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-default">Go</button>
-          </form>
-        </div>
+        <div class="col-sm-6">
+          <h5 class="text">Condition:</h5>
+          <span class="shams">2.5</span>
         </div>
       </div>
-    </nav>
-
-      <div class="container">
+      <div class="col-sm-12">
+        <hr/>
+        <h4 class="text-left">Seller:</h4>
         <div class="col-sm-6">
-          <img class="img-thumbnail" src="http://placehold.it/650x350" alt="Item Image">
-        </div> <!-- END col-sm-6 -->
+          <h5 class="text-left">Name:</h5>
+          <a href="#" class="text-left">Michael Jordan</a>
+        </div>
         <div class="col-sm-6">
-          <h1 class="cover-heading text-left">Item Name</h1>
-          <p class="text-left">This item is sooooo goooooood!!!! Lava lamp garkunkle monkey business shows the importance of gargeling water in the twilight. Lorem ipsum la die da die da.</p>
-          <div class="col-sm-12">
-            <h4 class="text-left">Item Properties:</h4> 
-            <div class="col-sm-4">
-              <h5 class="text-left">Price</h5>
-              <p class="text-left">$3.50</p>
-            </div>
-            <div class="col-sm-4">
-              <h5 class="text">Condition:</h5>
-              <span class="shams">2.5</span>
-              <span class="shams">3.5</span>
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <h4 class="text-left">Seller:</h4>
-            <p class="text"><a href="#">Michael Jordan</a></p>
-            <button class="btn btn-primary" type="button">Message the Seller</button>
-          </div>
-        </div> <!-- END col-sm-6 -->
-        <footer>
-          <p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-        </footer>
-      </div> <!-- END container -->
+          <h5 name="This is here to push the message button down a little bit"></h5>
+          <button class="btn btn-primary" type="button">Message the Seller</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- END col-sm-6 -->
 
-  <abbr>
-  </abbr>
+</div> <!-- END container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <script src="js/jquery-2.2.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-  </html>
+<hr/>
+
+<footer>
+  <p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+</footer>
+
+<abbr>
+</abbr>
+
+<!-- Bootstrap core JavaScript
+  ================================================== -->
+  <script src="js/jquery-2.2.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<link rel="icon" href=""/>
+
+	<title>NDBay - Item Name</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="styles/bootstrap.min.css" rel="stylesheet"/>
+
+	<!-- Custom styles for this template -->
+	<link href="styles/index.css" rel="stylesheet"/>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	$(function() {    		
+		$('input[type=submit]').click(function() {
+			$('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
+			$('span.stars').stars();
+		});    		
+		$('input[type=submit]').click();
+	});
+
+	$.fn.stars = function() {
+		return $(this).each(function() {
+			$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+		});
+	}
+	</script>
+
+	<style type="text/css">
+	span.stars, span.stars span {
+		display: block;
+		background: url(http://www.ulmanen.fi/stuff/stars.png) 0 -16px repeat-x;
+		width: 80px;
+		height: 16px;
+	}
+
+	span.stars span {
+		background-position: 0 0;
+	}
+	</style>
+</head>
+
+
+<body>
+
+	<input type="text" name="amount" value="2.53" />
+	<input type="submit" value="update">
+	<p>
+		<span class="stars">2.4618164</span></p>
+
+	</body>
+	</html>
+
