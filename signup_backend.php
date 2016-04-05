@@ -1,5 +1,5 @@
 <?php
-require_once 'PHPMailer/PHPMailerAutoload.php';
+// require_once 'PHPMailer/PHPMailerAutoload.php';
 
 // SMTP needs accurate times, and the PHP time zone MUST be set
 date_default_timezone_set('Etc/UTC');
@@ -20,7 +20,11 @@ if (!$conn) {
 $query = oci_parse($conn, 'select email from domer where email = :new_email');
 oci_bind_by_name($query, ":new_email", $new_email);
 oci_define_by_name($query, "email", $email);
-oci_execute($query);
+$r = oci_execute($query);
+if (!$r) {
+	echo oci_error($query);
+}
+
 oci_fetch($query);
 
 // If the email already exists return an error message to the user
@@ -42,7 +46,7 @@ oci_execute($query);
 oci_close($conn);
 
 // Email the user
-
+/*
 $mail = new PHPMailer;
 
 $mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -75,7 +79,7 @@ if(!$mail->send()) {
 } else {
     echo 'Message has been sent';
 }
-
+*/
 $_SESSION["msg"] = "Your account has been created.";
 header('Location: home.html'); // WHERE DO WE WANT TO REDIRECT TO?
 

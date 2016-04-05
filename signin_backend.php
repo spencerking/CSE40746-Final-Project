@@ -22,10 +22,13 @@ oci_fetch($query);
 
 oci_close($conn);
 
-if (password_verify($password, $password_hash)) {
-	// they match so login
-	$_SESSION["logged_in"] = 1;
-	header('Location: home.html');
+
+$new_pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
+
+if (strcmp($new_pass, $password_hash)) {
+        // they match so login
+        $_SESSION["logged_in"] = 1;
+        header('Location: home.html');
 }
 else {
 	// they don't match, redirect
