@@ -14,9 +14,10 @@ if (!$conn) {
 }
 
 // Get the hashed password
-$query = oci_parse($conn, 'select password_hash from domer where email = :email');
+$query = oci_parse($conn, 'select user_id, password_hash from domer where email = :email');
 oci_bind_by_name($query, ":email", $email);
 oci_define_by_name($query, "password_hash", $password_hash);
+oci_define_by_name($query, "user_id", $user_id);
 oci_execute($query);
 oci_fetch($query);
 
@@ -28,6 +29,7 @@ $new_pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
 if (strcmp($new_pass, $password_hash)) {
         // they match so login
         $_SESSION["logged_in"] = 1;
+        $_SESSION["user_id"] = $user_id;
         header('Location: home.html');
 }
 else {

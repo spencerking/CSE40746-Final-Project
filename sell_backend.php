@@ -13,12 +13,12 @@ if (!$conn) {
 oci_fetch($query);
 
 // Get the variables
-$seller_id = $_SESSION['user_id']; //NEED TO SET THIS ON ON THE SIGN IN BACKEND
-$name = $_POST[""];
-$condition = $_POST[""];
-$description = $_POST[""];
-$price = $_POST[""];
-$end_time = $_POST[""];
+$seller_id = $_SESSION["user_id"];
+$name = $_POST["itemName"];
+$condition = $_POST["inputItemCondition"];
+$description = $_POST["itemDescription"];
+$price = $_POST["itemPrice"];
+$end_time = $_POST["itemEndTime"];
 
 // Add the item to the DB
 $query = oci_parse($conn, 'insert into item (seller_id, name, condition, description, price, end_time) values(:seller_id, :name, :condition, :description, :price, :end_time)');
