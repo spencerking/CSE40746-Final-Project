@@ -27,7 +27,7 @@ oci_bind_by_name($query, ":name", $name);
 oci_bind_by_name($query, ":condition", $condition);
 oci_bind_by_name($query, ":description", $description);
 oci_bind_by_name($query, ":price", $price);
-oci_bind_by_name($query, "end_time", $end_time);
+oci_bind_by_name($query, ":end_time", $end_time);
 $r = oci_execute($query);
 
 // error catching
