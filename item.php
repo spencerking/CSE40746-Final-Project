@@ -26,35 +26,68 @@
   </style>
 
   <script type="text/javascript">
-  $(function() 
-  {        
-    $('input[type=submit]').click(function() 
-    {
-      $('p').html('<span class="shams">'+parseFloat($('input[name=amount]').val())+'</span>');
-      $('span.shams').shams();
-    });       
-    $('input[type=submit]').click();
-  });
-
-  $.fn.shams = function() 
-  {
-    return $(this).each(function() 
-    {
-      $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+    $(function() 
+    {        
+      $('input[type=submit]').click(function() 
+      {
+        $('p').html('<span class="shams">'+parseFloat($('input[name=amount]').val())+'</span>');
+        $('span.shams').shams();
+      });       
+      $('input[type=submit]').click();
     });
-  };
-  </script>
-  <style type="text/css">
-  span.shams, span.shams span {
-    display: block;
-    background: url(images/shams.png) 0 -16px repeat-x;
-    width: 80px;
-    height: 16px;
-  }
-  span.shams span {
-    background-position: 0 0;
-  }
+
+    $.fn.shams = function() 
+    {
+      return $(this).each(function() 
+      {
+        $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+      });
+    };
+    </script>
+    <style type="text/css">
+    span.shams, span.shams span {
+      display: block;
+      background: url(images/shams.png) 0 -16px repeat-x;
+      width: 80px;
+      height: 16px;
+    }
+    span.shams span {
+      background-position: 0 0;
+    }
   </style>
+
+  <?php
+    $conn = oci_connect("guest", "guest", "xe")
+    or die("Couldn't connect");
+    
+    $query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
+    $query1 .= "FROM item i ";
+    $query1 .= "WHERE i.item_id=7";
+    
+    $stmt = oci_parse($conn, $query1);
+
+
+    oci_define_by_name($stmt, "S", $s);
+    oci_define_by_name($stmt, "N", $n);
+    oci_define_by_name($stmt, "C", $c);
+    oci_define_by_name($stmt, "D", $d);
+    oci_define_by_name($stmt, "P", $p);
+    oci_define_by_name($stmt, "E", $e);
+
+    oci_execute($stmt);
+
+    while (oci_fetch($stmt))
+    {
+      print "seller_id: $s<br/>";
+      print "name: $n<br/>";
+      print "condition: $c<br/>";
+      print "description: $d<br/>";
+      print "price: $p<br/>";
+      print "end_time: $e<br/>";
+    }
+
+    oci_close($conn);
+  ?>
 </head>
 
 <body>
@@ -98,7 +131,7 @@
 
   <div class="col-sm-6">
     <div class="col-sm-12">
-      <h1 class="cover-heading text-left">Item Name</h1>
+      <h1 class="cover-heading text-left"><?php echo $n ?></h1>
       <div class="col-sm-6">
         <p class="text-left">This item is sooooo goooooood!!!! Lava lamp garkunkle monkey business shows the importance of gargeling water in the twilight. Lorem ipsum la die da die da.</p>
       </div>  
