@@ -23,16 +23,6 @@ oci_fetch($query);
 
 oci_close($conn);
 
-/*
-$new_pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
-
-if (!strcmp($new_pass, $password_hash)) {
-        // they match so login
-        $_SESSION["logged_in"] = 1;
-        $_SESSION["user_id"] = $user_id;
-	echo $user_id;
-        header('Location: home.html');
-}*/
 if(password_verify($password, $password_hash)) {
 	// they match so login
         $_SESSION["logged_in"] = 1;
