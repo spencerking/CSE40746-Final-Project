@@ -75,16 +75,10 @@
     oci_define_by_name($stmt, "E", $e);
 
     oci_execute($stmt);
+    
+    // Write query on item_photo for filepath
 
-    while (oci_fetch($stmt))
-    {
-      print "seller_id: $s<br/>";
-      print "name: $n<br/>";
-      print "condition: $c<br/>";
-      print "description: $d<br/>";
-      print "price: $p<br/>";
-      print "end_time: $e<br/>";
-    }
+    // Write query on domer for seller's name and id
 
     oci_close($conn);
   ?>
@@ -133,7 +127,7 @@
     <div class="col-sm-12">
       <h1 class="cover-heading text-left"><?php echo $n ?></h1>
       <div class="col-sm-6">
-        <p class="text-left">This item is sooooo goooooood!!!! Lava lamp garkunkle monkey business shows the importance of gargeling water in the twilight. Lorem ipsum la die da die da.</p>
+        <p class="text-left"><?php echo $d ?></p>
       </div>  
       <div class="col-sm-6">
         <button class="btn btn-primary center" type="button">Buy It!!!</button>
@@ -143,19 +137,19 @@
         <h4 class="text-left">Item Properties:</h4> 
         <div class="col-sm-6">
           <h5 class="text-left">Price:</h5>
-          <p class="text-left">$3.50</p>
+          <p class="text-left"><?php echo $p ?></p>
         </div>
         <div class="col-sm-6">
           <h5 class="text">Condition:</h5>
-          <span class="shams">2.5</span>
+          <span class="shams"><?php echo $c ?></span>
         </div>
       </div>
       <div class="col-sm-12">
         <hr/>
         <h4 class="text-left">Seller:</h4>
         <div class="col-sm-6">
-          <h5 class="text-left">Name:</h5>
-          <a href="#" class="text-left">Michael Jordan</a>
+          <h5 class="text-left">Email:</h5>
+          <a href="#" class="text-left">mjordan@retirednbaplayer.com</a>
         </div>
         <div class="col-sm-6">
           <h5 name="This is here to push the message button down a little bit"></h5>
