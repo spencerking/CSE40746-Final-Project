@@ -52,7 +52,7 @@
           </ul>
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
-              <input type="text" placeholder="Search" class="form-control">
+              <input type="text" class="form-control" name="search" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Go</button>
           </form>
@@ -72,14 +72,15 @@ if (!$conn) {
     exit;
 }
 
-$query = 'SELECT name, condition, description, price, end_time FROM item';
+$searchText = $_POST['search'];
+$query = 'SELECT name, condition, description, price, end_time FROM item WHERE UPPER(name) LIKE \'%:searchText%\'';
 $stid = oci_parse($conn, $query);
 $r = oci_execute($stid);
 
 print '<div class="row">';
 while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
     print '<div class="col-md-4">';
-    print '<h2><a href=""'.$row['NAME'].'</a></h2>';
+    print '<h2><a href="">'.$row['NAME'].'</a></h2>';
     print '<h4>$'.$row['PRICE'].'.00</h4>';
     print '<p>'.$row['DESCRIPTION'].'</p>';
     print '</div>';
