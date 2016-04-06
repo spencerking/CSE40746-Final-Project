@@ -77,11 +77,11 @@ $stid = oci_parse($conn, $query);
 $r = oci_execute($stid);
 
 print '<div class="row">';
-while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
+while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
     print '<div class="col-md-4">';
-    foreach ($row as $item) {
-        print '<h2>'.$item['NAME'].'</h2>';
-    }
+    print '<h2>'.$row['NAME'].'</h2>';
+    print '<h4>'.$row['PRICE'].'</h4>';
+    print '<p>'.$row['DESCRIPTION'].'</p>';
     print '</div>';
 }
 print '</div>';
