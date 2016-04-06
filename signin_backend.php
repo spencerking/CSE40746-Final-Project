@@ -28,7 +28,7 @@ if(password_verify($password, $password_hash)) {
         $_SESSION["logged_in"] = 1;
         $_SESSION["user_id"] = $user_id;
         echo $user_id;
-        header('Location: home.html');
+        header('Location: home.php');
 }
 else {
 	// they don't match, redirect

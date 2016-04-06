@@ -85,6 +85,6 @@ if(!$mail->send()) {
 */
 
 $_SESSION["msg"] = "Your account has been created.";
-header('Location: home.html'); // WHERE DO WE WANT TO REDIRECT TO?
+header('Location: home.php'); // WHERE DO WE WANT TO REDIRECT TO?
 
 ?>

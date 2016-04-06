@@ -1,3 +1,9 @@
+<?php
+    if (!isset($_SESSION['logged_in'])) {
+        header("Location: http://52.34.131.50:8162/signin.html");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
