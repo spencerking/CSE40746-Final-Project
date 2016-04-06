@@ -79,8 +79,8 @@ $r = oci_execute($stid);
 print '<div class="row">';
 while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
     print '<div class="col-md-4">';
-    print '<h2>'.$row['NAME'].'</h2>';
-    print '<h4>'.$row['PRICE'].'</h4>';
+    print '<h2><a href=""'.$row['NAME'].'</a></h2>';
+    print '<h4>$'.$row['PRICE'].'.00</h4>';
     print '<p>'.$row['DESCRIPTION'].'</p>';
     print '</div>';
 }
