@@ -50,7 +50,7 @@
               </ul>
             </li>
           </ul>
-          <form class="navbar-form navbar-right" role="search" method="post">
+          <form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
             <div class="form-group">
               <input type="text" class="form-control" name="search" placeholder="Search">
             </div>
@@ -72,15 +72,17 @@ if (!$conn) {
     exit;
 }
 
-$searchText = $_POST['search'];
-$query = 'SELECT name, condition, description, price, end_time FROM item WHERE UPPER(name) LIKE \'%:searchText%\'';
+if (isset($_POST['search'])) {
+    $searchText = $_POST['search'];
+}
+$query = 'SELECT name, condition, description, price, end_time FROM item WHERE LOWER(name) LIKE \'%'.$searchText.'%\'';
 $stid = oci_parse($conn, $query);
 $r = oci_execute($stid);
 
 print '<div class="row">';
 while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
     print '<div class="col-md-4">';
-    print '<h2><a href="">'.$row['NAME'].'</a></h2>';
+    print '<h2><a href="item.html">'.$row['NAME'].'</a></h2>';
     print '<h4>$'.$row['PRICE'].'.00</h4>';
     print '<p>'.$row['DESCRIPTION'].'</p>';
     print '</div>';
