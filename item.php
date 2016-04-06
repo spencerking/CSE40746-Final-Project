@@ -80,11 +80,11 @@
     oci_define_by_name($stmt, "P", $p);
     oci_define_by_name($stmt, "E", $e);
 
-    print "$s, $n, %c, $d, $p, $e";
-
     oci_execute($stmt);
     
-    // Write query on item_photo for filepath
+    print "$s, $n, $c, $d, $p, $e";
+
+bnuj5p    // Write query on item_photo for filepath
 
     // Write query on domer for seller's name and id
 
