@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['logged_in'])) {
-        header('Location: signin.html');
-    }
+  session_start();
+  if (!isset($_SESSION['logged_in'])) {
+    header('Location: signin.html');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,14 +21,14 @@
 
   <!-- Custom styles for this template -->
   <style>
-  /* Move down content because we have a fixed navbar that is 50px tall */
-  body {
-    padding-top: 80px;
-    padding-bottom: 20px;
-  }
-  footer {
-    text-align: center;
-  }
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    body {
+      padding-top: 80px;
+      padding-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+    }
   </style>
 
   <script type="text/javascript">
@@ -65,11 +65,11 @@
   <?php
     $conn = oci_connect("guest", "guest", "xe")
     or die("Couldn't connect");
-    
+
     $query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
     $query1 .= "FROM item i ";
     $query1 .= "WHERE i.item_id=7";
-    
+
     $stmt = oci_parse($conn, $query1);
 
 
@@ -81,12 +81,14 @@
     oci_define_by_name($stmt, "E", $e);
 
     oci_execute($stmt);
-    
+
+    oci_fetch($stmt);
+
     print "$s, $n, $c, $d, $p, $e";
 
-    // Write query on item_photo for filepath
+      // Write query on item_photo for filepath
 
-    // Write query on domer for seller's name and id
+      // Write query on domer for seller's name and id
 
     oci_close($conn);
   ?>
