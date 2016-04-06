@@ -95,7 +95,7 @@
     oci_execute($stmt1);
     oci_fetch($stmt1);
 
-    print "e2:$e2"
+    print "e2:$e2";
 
     // Write query on domer for seller's name and id
 
