@@ -84,7 +84,7 @@
     
     print "$s, $n, $c, $d, $p, $e";
 
-bnuj5p    // Write query on item_photo for filepath
+    // Write query on item_photo for filepath
 
     // Write query on domer for seller's name and id
 
