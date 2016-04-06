@@ -17,25 +17,28 @@ if (!$conn) {
 }
 
 // Check if the email already exists
-$query = oci_parse($conn, 'select email from domer where email = :new_email');
+$query = oci_parse($conn, 'select email e from domer where email = :new_email');
 oci_bind_by_name($query, ":new_email", $new_email);
-oci_define_by_name($query, "email", $email);
+oci_define_by_name($query, "E", $email);
 $r = oci_execute($query);
 if (!$r) {
 	echo oci_error($query);
 }
 
 oci_fetch($query);
+echo $email;
+echo $new_email;
 
 // If the email already exists return an error message to the user
-if (strcmp($new_email, $email)) {
+if (!strcmp($new_email, $email)) {
 	// return an error
 	$_SESSION["msg"] = "Email address is already registered";
 	header('Location: signin.html'); // WHERE DO WE WANT TO REDIRECT TO?
+	die();
 }
 
 // Create the password hash
-$new_pass = password_hash($_POST["password"], PASSWORD_BCRYPT);
+$new_pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 // If the username does not already exist add it to the db
 $query = oci_parse($conn, 'insert into domer (password_hash, email) values(:new_pass, :new_email)');
@@ -80,6 +83,7 @@ if(!$mail->send()) {
     echo 'Message has been sent';
 }
 */
+
 $_SESSION["msg"] = "Your account has been created.";
 header('Location: home.html'); // WHERE DO WE WANT TO REDIRECT TO?
 
