@@ -47,6 +47,6 @@ if (!$r) {
 
 oci_close($conn);
 
-header('Location: home.html'); 
+header('Location: home.php'); 
 
 ?>

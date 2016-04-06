@@ -24,7 +24,7 @@ if(password_verify($old_password, $password_hash)) {
 	// they match so change
     // update statement
     oci_close($conn);
-    header('Location: home.html');
+    header('Location: home.php');
 }
 else {
 	// they don't match, redirect
