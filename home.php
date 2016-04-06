@@ -1,6 +1,6 @@
 <?php
     if (!isset($_SESSION['logged_in'])) {
-        header("Location: http://52.34.131.50:8162/signin.html");
+        header('Location: signin.html');
     }
 ?>
 
@@ -47,11 +47,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="sell.html">Sell</a></li>
+            <li><a href="sell.php">Sell</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="account.html">Account</a></li>
+                <li><a href="account.php">Account</a></li>
                 <li><a href="">Sign out</a></li>
               </ul>
             </li>

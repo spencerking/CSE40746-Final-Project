@@ -1,8 +1,5 @@
 <?php
 
-// Start a session
-session_start();
-
 $old_password = $_POST["oldPass"];
 $new_password = $_POST["password"];
 $new_confirm = $_POST["confirmPasswors"];
@@ -33,7 +30,7 @@ else {
 	// they don't match, redirect
 	$_SESSION["msg"] = "Incorrect password";
     oci_close($conn);
-	header('Location: account.html');
+	header('Location: account.php');
 }
 
 ?>

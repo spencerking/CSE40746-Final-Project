@@ -41,11 +41,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="sell.html">Sell</a></li>
+            <li><a href="sell.php">Sell</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="account.html">Account</a></li>
+                <li><a href="account.php">Account</a></li>
                 <li><a href="">Sign out</a></li>
               </ul>
             </li>
@@ -82,7 +82,7 @@ $r = oci_execute($stid);
 print '<div class="row">';
 while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
     print '<div class="col-md-4">';
-    print '<h2><a href="item.html">'.$row['NAME'].'</a></h2>';
+    print '<h2><a href="item.php">'.$row['NAME'].'</a></h2>';
     print '<h4>$'.$row['PRICE'].'.00</h4>';
     print '<p>'.$row['DESCRIPTION'].'</p>';
     print '</div>';
