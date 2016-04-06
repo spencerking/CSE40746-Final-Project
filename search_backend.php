@@ -72,7 +72,7 @@ if (!$conn) {
     exit;
 }
 
-$query = 'SELECT * FROM item';
+$query = 'SELECT name, condition, description, price, end_time FROM item';
 $stid = oci_parse($conn, $query);
 $r = oci_execute($stid);
 
@@ -80,7 +80,7 @@ print '<div class="row">';
 while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS+OCI_ASSOC)) {
     print '<div class="col-md-4">';
     foreach ($row as $item) {
-        print '<h2>'.$item['name'].'</h2>';
+        print '<h2>'.$item['NAME'].'</h2>';
     }
     print '</div>';
 }
