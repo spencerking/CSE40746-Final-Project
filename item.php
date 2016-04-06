@@ -80,6 +80,8 @@
     oci_define_by_name($stmt, "P", $p);
     oci_define_by_name($stmt, "E", $e);
 
+    echo "$s, $n, %c, $d, $p, $echo"
+
     oci_execute($stmt);
     
     // Write query on item_photo for filepath
