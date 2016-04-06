@@ -92,8 +92,8 @@
 
     oci_define_by_name($stmt2, "E", $e2);
 
-    oci_execute($stmt1);
-    oci_fetch($stmt1);
+    oci_execute($stmt2);
+    oci_fetch($stmt2);
 
     print "e2:$e2";
 
