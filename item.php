@@ -80,7 +80,7 @@
     oci_define_by_name($stmt, "P", $p);
     oci_define_by_name($stmt, "E", $e);
 
-    echo "$s, $n, %c, $d, $p, $echo";
+    print "$s, $n, %c, $d, $p, $e";
 
     oci_execute($stmt);
     
@@ -133,9 +133,9 @@
 
   <div class="col-sm-6">
     <div class="col-sm-12">
-      <h1 class="cover-heading text-left"><?php echo $n ?></h1>
+      <h1 class="cover-heading text-left"><?php print "$n"; ?></h1>
       <div class="col-sm-6">
-        <p class="text-left"><?php echo $d ?></p>
+        <p class="text-left"><?php print "$d"; ?></p>
       </div>  
       <div class="col-sm-6">
         <button class="btn btn-primary center" type="button">Buy It!!!</button>
@@ -145,11 +145,11 @@
         <h4 class="text-left">Item Properties:</h4> 
         <div class="col-sm-6">
           <h5 class="text-left">Price:</h5>
-          <p class="text-left"><?php echo $p ?></p>
+          <p class="text-left"><?php print "$p"; ?></p>
         </div>
         <div class="col-sm-6">
           <h5 class="text">Condition:</h5>
-          <span class="shams"><?php echo $c ?></span>
+          <span class="shams"><?php print "$c"; ?></span>
         </div>
       </div>
       <div class="col-sm-12">
