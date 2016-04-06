@@ -70,25 +70,34 @@
     $query1 .= "FROM item i ";
     $query1 .= "WHERE i.item_id=7";
 
-    $stmt = oci_parse($conn, $query1);
+    $stmt1 = oci_parse($conn, $query1);
 
 
-    oci_define_by_name($stmt, "S", $s);
-    oci_define_by_name($stmt, "N", $n);
-    oci_define_by_name($stmt, "C", $c);
-    oci_define_by_name($stmt, "D", $d);
-    oci_define_by_name($stmt, "P", $p);
-    oci_define_by_name($stmt, "E", $e);
+    oci_define_by_name($stmt1, "S", $s);
+    oci_define_by_name($stmt1, "N", $n);
+    oci_define_by_name($stmt1, "C", $c);
+    oci_define_by_name($stmt1, "D", $d);
+    oci_define_by_name($stmt1, "P", $p);
+    oci_define_by_name($stmt1, "E", $e);
 
-    oci_execute($stmt);
+    oci_execute($stmt1);
+    oci_fetch($stmt1);
 
-    oci_fetch($stmt);
+    // Write query on item_photo for filepath
+    $query2 = "SELECT d.email e ";
+    $query2 .= "FROM domer d ";
+    $query2 .= "WHERE d.user_id=$s";
 
-    print "$s, $n, $c, $d, $p, $e";
+    $stmt2 = oci_parse($conn, $query2);
 
-      // Write query on item_photo for filepath
+    oci_define_by_name($stmt, "E", $e2);
 
-      // Write query on domer for seller's name and id
+    oci_execute($stmt1);
+    oci_fetch($stmt1);
+
+    print "e2:$e2"
+
+    // Write query on domer for seller's name and id
 
     oci_close($conn);
   ?>
@@ -159,7 +168,7 @@
         <h4 class="text-left">Seller:</h4>
         <div class="col-sm-6">
           <h5 class="text-left">Email:</h5>
-          <a href="#" class="text-left">mjordan@retirednbaplayer.com</a>
+          <a href="#" class="text-left"><?php print "$e2"; ?></a>
         </div>
         <div class="col-sm-6">
           <h5 name="This is here to push the message button down a little bit"></h5>
