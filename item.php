@@ -91,6 +91,7 @@ if (!isset($_SESSION['logged_in'])) {
 		$stmt3 = oci_parse($conn, $query3);
 
 		oci_define_by_name($stmt3, "FN", $fn);
+		oci_define_by_name($stmt3, "DE", $de);
 
 		oci_execute($stmt3);
 		oci_fetch($stmt3);
