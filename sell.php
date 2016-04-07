@@ -104,7 +104,7 @@
         </div>
         <div class="form-group">
           <label for="inputItemPhoto">Upload Photo</label>
-          <input type="file" class="form-control-file">
+          <input type="file" class="form-control-file" id="inputItemPhoto" name="itemPhoto">
         </div>
         <div class="error"><ul></ul></div>
         <button type="submit" class="btn btn-primary">Create Listing</button>

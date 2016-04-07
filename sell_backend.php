@@ -20,7 +20,7 @@ $condition = $_POST["inputItemCondition"];
 $description = $_POST["itemDescription"];
 $price = $_POST["itemPrice"];
 $end_time = $_POST["itemEndTime"];
-$item_photo = $_POST['inputItemPhoto'];
+$item_photo = $_POST['itemPhoto'];
 
 echo $end_time;
 echo $seller_id;
