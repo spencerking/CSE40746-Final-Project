@@ -168,13 +168,17 @@ if (!isset($_SESSION['logged_in'])) {
 			<div class="col-sm-12">
 				<hr/>
 				<h4 class="text-left">Item Properties:</h4> 
-				<div class="col-sm-6">
+				<div class="col-sm-4">
 					<h5 class="text-left">Price:</h5>
 					<p class="text-left"><?php print "$p"; ?></p>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
 					<span class="shams"><?php print "$c"; ?></span>
+				</div>
+				<div class="col-sm-4">
+					<h5 class="text">Sell-by Date:</h5>
+					<span class="shams"><?php print "$e"; ?></span>
 				</div>
 			</div> <!-- END col-sm-12 -->
 			<div class="col-sm-12">
