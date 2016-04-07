@@ -81,9 +81,11 @@
         <div class="form-group">
           <label for="inputItemCondition">Condition</label>
           <select name="inputItemCondition" class="form-control">
-            <option value="0">Meh</option>
-            <option value="1">Pretty OK</option>
-            <option value="2">Great</option>
+            <option value="1">Meh</option>
+            <option value="2">Not Terrible</option>
+            <option value="3">Pretty Okay</option>
+            <option value="4">Great</option>
+            <option value="5">Good as New</option>
           </select>
         </div>
         <div class="form-group">
