@@ -18,6 +18,8 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<!-- Bootstrap core CSS -->
 	<link href="styles/bootstrap.min.css" rel="stylesheet"/>
+	<!-- jQuery link -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
 	<!-- Custom styles for this template -->
 	<style>
@@ -31,36 +33,26 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 	</style>
 
-	<script type="text/javascript">
-		$(function() 
-		{        
-			$('input[type=submit]').click(function() 
-			{
-				$('p').html('<span class="shams">'+parseFloat($('input[name=amount]').val())+'</span>');
-				$('span.shams').shams();
-			});       
-			$('input[type=submit]').click();
-		});
-
-		$.fn.shams = function() 
-		{
-			return $(this).each(function() 
-			{
-				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
-			});
-		};
-	</script>
 	<style type="text/css">
-		span.shams, span.shams span {
-			display: block;
-			background: url(images/shams.png) 0 -16px repeat-x;
-			width: 80px;
-			height: 16px;
+		span.shams, span.shams>* {
+		    display: inline-block;
+		    background: url(images/shams.png) 0 -16px repeat-x;
+		    width: 80px;
+		    height: 16px;
 		}
-		span.shams span {
-			background-position: 0 0;
+		span.shams>*{
+		    max-width:80px;
+		    background-position: 0 0;
 		}
 	</style>
+
+	<script type="text/javascript">
+		$.fn.shams = function() {
+		    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+		};
+
+		$('.shams').shams();
+	</script>
 
 	<?php
 
