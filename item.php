@@ -34,24 +34,26 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 
 	<style type="text/css">
-		span.shams, span.shams>* {
+		span.stars, span.stars>* {
 		    display: inline-block;
 		    background: url(http://52.34.131.50:8162/images/shams.png) 0 -16px repeat-x;
 		    width: 80px;
 		    height: 16px;
 		}
-		span.shams>*{
+		span.stars>*{
 		    max-width:80px;
 		    background-position: 0 0;
 		}
 	</style>
 
 	<script type="text/javascript">
-		$.fn.shams = function() {
+		$.fn.stars = function() {
 		    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
 		};
 
-		$('.shams').shams();
+
+
+		$('.stars').stars();
 	</script>
 
 	<?php
