@@ -110,7 +110,8 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.<br/>";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["itemPhoto"]["tmp_name"], $target_file)) {
+    $new_filepath = $target_dir . $seller_id . $iid . "01." . $imageFileType;
+    if (move_uploaded_file($_FILES["itemPhoto"]["tmp_name"], $new_filepath)) {
         echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded.<br/>";
     } else {
         echo "Sorry, there was an error uploading your file.<br/>";
