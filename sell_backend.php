@@ -60,6 +60,14 @@ oci_define_by_name($stmt1, "IID", $iid);
 oci_execute($stmt1);
 oci_fetch($stmt1);
 
+// Nail down some of the file-related variables
+$target_dir = "../server_images/";
+$target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$new_file = $seller_id . $iid . "01." . $imageFileType;
+$new_filepath = $target_dir . $new_file;
+
 // Add the item_photo filepath to the DB
 $description = "Item photo descriptions are not supported yet";
 $query2 = oci_parse($conn, "INSERT INTO item_photo (item_id, filename, description) VALUES(:item_id, :filename, :description)");
@@ -78,14 +86,10 @@ if (!$r2) {
     print  "\n</pre>\n";
 }
 
+// We don't need SQL anymore, shut it down
 oci_close($conn);
 
-// Upload the image: code based on W3Schools entry on PHP 5 file uploads
-$target_dir = "../server_images/";
-$target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
-$uploadOk = 1;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-$new_filepath = $target_dir . $seller_id . $iid . "01." . $imageFileType;
+// Upload the image: code strongly based on W3Schools entry on PHP 5 file uploads
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
