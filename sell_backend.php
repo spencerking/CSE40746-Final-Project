@@ -20,7 +20,7 @@ $condition = $_POST["inputItemCondition"];
 $description = $_POST["itemDescription"];
 $price = $_POST["itemPrice"];
 $end_time = $_POST["itemEndTime"];
-$item_photo = $_POST['itemPhoto'];
+$item_photo = basename($_FILES["itemPhoto"]["name"];
 
 echo $end_time;
 echo $seller_id;
@@ -90,30 +90,29 @@ if(isset($_POST["submit"])) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "File is not an image.<br/>";
         $uploadOk = 0;
     }
 }
 // Check if file already exists
 if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
+    echo "File already exists.<br/>";
     $uploadOk = 0;
 }
-
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    echo "Only JPG, JPEG, PNG & GIF files are allowed.<br/>";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    echo "Sorry, your file was not uploaded.<br/>";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["itemPhoto"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded.";
+        echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded.<br/>";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Sorry, there was an error uploading your file.<br/>";
     }
 }
 
