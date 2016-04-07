@@ -49,7 +49,7 @@ if (!$r) {
 // The new item will be the item with the highest ID number for that user, find it.
 $query1 = "SELECT i.item_id iid ";
 $query1 .= "FROM item i, item it ";
-$query1 .= "WHERE i.item_id=>it.item_id AND i.seller_id=$seller_id";
+$query1 .= "WHERE i.item_id>=it.item_id AND i.seller_id=$seller_id";
 
 $stmt1 = oci_parse($conn, $query1);
 
