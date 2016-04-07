@@ -63,12 +63,15 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 
 	<?php
+
+		$iid = $_GET['iid'];	
+
 		$conn = oci_connect("guest", "guest", "xe")
 		or die("Couldn't connect");
 
 		$query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
 		$query1 .= "FROM item i ";
-		$query1 .= "WHERE i.item_id=7";
+		$query1 .= "WHERE i.item_id=$iid";
 
 		$stmt1 = oci_parse($conn, $query1);
 
@@ -86,7 +89,7 @@ if (!isset($_SESSION['logged_in'])) {
 		// Write query on item_photo for filepath
 		$query3 = "SELECT ip.filename fn, ip.description de ";
 		$query3 .= "FROM item_photo ip ";
-		$query3 .= "WHERE ip.item_id=7";
+		$query3 .= "WHERE ip.item_id=$iid";
 
 		$stmt3 = oci_parse($conn, $query3);
 
