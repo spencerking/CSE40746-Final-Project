@@ -46,7 +46,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 	</style>
 
-	<script type="text/javascript">
+	<script>
 		$.fn.stars = function() {
 		    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
 		};
