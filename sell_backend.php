@@ -20,10 +20,12 @@ $condition = $_POST["inputItemCondition"];
 $description = $_POST["itemDescription"];
 $price = $_POST["itemPrice"];
 $end_time = $_POST["itemEndTime"];
+$item_photo = $_POST['inputItemPhoto']
 
 echo $end_time;
 echo $seller_id;
 echo $_SESSION["user_id"];
+echo $item_photo
 
 // Add the item to the DB
 $query = oci_parse($conn, "INSERT INTO item (seller_id, name, condition, description, price, end_time) VALUES(:seller_id, :name, :condition, :description, :price, TO_DATE(:end_time, 'YYYY-MM-DD'))");
@@ -47,6 +49,6 @@ if (!$r) {
 
 oci_close($conn);
 
-header('Location: home.php'); 
+// header('Location: home.php'); 
 
 ?>
