@@ -73,7 +73,7 @@
     </nav>
 
     <div class="container">
-      <form class="form-sell" action="sell_backend.php" method="post">
+      <form class="form-sell" action="sell_backend.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="inputItemName">Name</label>
           <input type="text" class="form-control" id="inputItemName" name="itemName">
