@@ -84,6 +84,8 @@ $target_dir = "../server_images/";
 $target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$new_filepath = $target_dir . $seller_id . $iid . "01." . $imageFileType;
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["itemPhoto"]["tmp_name"]);
@@ -96,7 +98,7 @@ if(isset($_POST["submit"])) {
     }
 }
 // Check if file already exists
-if (file_exists($target_file)) {
+if (file_exists($new_filepath)) {
     echo "File already exists.<br/>";
     $uploadOk = 0;
 }
@@ -110,7 +112,6 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.<br/>";
 // if everything is ok, try to upload file
 } else {
-    $new_filepath = $target_dir . $seller_id . $iid . "01." . $imageFileType;
     if (move_uploaded_file($_FILES["itemPhoto"]["tmp_name"], $new_filepath)) {
         echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded.<br/>";
     } else {
