@@ -36,7 +36,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style type="text/css">
 		span.shams, span.shams>* {
 		    display: inline-block;
-		    background: url(images/shams.png) 0 -16px repeat-x;
+		    background: url(http://52.34.131.50:8162/images/shams.png) 0 -16px repeat-x;
 		    width: 80px;
 		    height: 16px;
 		}
