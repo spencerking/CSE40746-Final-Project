@@ -168,7 +168,7 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
-					<span class="shams"><?php print "$c"; ?></span>
+					<span class="stars"><?php print "$c"; ?></span>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Sell-by Date:</h5>
