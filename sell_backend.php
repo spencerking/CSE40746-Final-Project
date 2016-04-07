@@ -48,7 +48,7 @@ if (!$r) {
 }
 
 // The new item will be the item with the highest ID number for that user, find it.
-$query1_inner = "SELECT item_id FROM item WHERE seller_id=$seller_id ORDER BY item_id DESC"
+$query1_inner = "SELECT item_id FROM item WHERE seller_id=$seller_id ORDER BY item_id DESC";
 $query1 = "SELECT item_id iid ";
 $query1 .= "FROM ($query1_inner)";
 $query1 .= "WHERE ROWNUM=1";
