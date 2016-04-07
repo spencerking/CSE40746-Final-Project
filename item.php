@@ -170,7 +170,7 @@ if (!isset($_SESSION['logged_in'])) {
 				<h4 class="text-left">Item Properties:</h4> 
 				<div class="col-sm-4">
 					<h5 class="text-left">Price:</h5>
-					<p class="text-left"><?php print "$p"; ?></p>
+					<p class="text-left">$<?php print "$p"; ?>.00</p>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
