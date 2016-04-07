@@ -72,7 +72,7 @@ $new_filepath = $target_dir . $new_file;
 $description = "Item photo descriptions are not supported yet";
 $query2 = oci_parse($conn, "INSERT INTO item_photo (item_id, filename, description) VALUES(:item_id, :filename, :description)");
 oci_bind_by_name($query2, ":item_id", $iid);
-oci_bind_by_name($query2, ":filename", $item_photo);
+oci_bind_by_name($query2, ":filename", $new_file);
 oci_bind_by_name($query2, ":description", $description);
 $r2 = oci_execute($query2);
 
