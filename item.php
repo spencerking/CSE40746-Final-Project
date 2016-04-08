@@ -47,12 +47,13 @@ if (!isset($_SESSION['logged_in'])) {
 	<script type="text/javascript">
    		$(document).ready(function() 
    		{    		
-			$('span.stars').stars();  		
+			$('p.rating').html('<span class="stars">'+'2'+'</span>');
+			$('span.stars').stars();    		
 		});
 
 		$.fn.stars = function() {
 			return $(this).each(function() {
-				$(this).html($('<span/>').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+				$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
 			});
 		}
 	</script>
@@ -169,7 +170,7 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
-					<span class="stars"><?php print "$c"; ?></span>
+					<p class="rating"><span class="stars"><?php print "$c"; ?></span></p>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Sell-by Date:</h5>
