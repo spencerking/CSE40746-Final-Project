@@ -31,29 +31,30 @@ if (!isset($_SESSION['logged_in'])) {
 		footer {
 			text-align: center;
 		}
-	</style>
 
-	<style type="text/css">
-		span.stars, span.stars>* {
-		    display: inline-block;
-		    background: url(http://52.34.131.50:8162/images/shams.png) 0 -16px repeat-x;
-		    width: 80px;
-		    height: 16px;
+		span.stars, span.stars span {
+			display: block;
+			background: url(shams.png) 0 -16px repeat-x;
+			width: 80px;
+			height: 16px;
 		}
-		span.stars>*{
-		    max-width:80px;
-		    background-position: 0 0;
+
+		span.stars span {
+			background-position: 0 0;
 		}
 	</style>
 
 	<script type="text/javascript">
+   		$(document).ready(function() 
+   		{    		
+			$('span.stars').stars();  		
+		});
+
 		$.fn.stars = function() {
-		    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-		};
-
-
-
-		$('.stars').stars();
+			return $(this).each(function() {
+				$(this).html($('<span/>').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+			});
+		}
 	</script>
 
 	<?php
