@@ -45,16 +45,16 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 
 	<script type="text/javascript">
-   		$(document).ready(function() 
-   		{    		
-			$('span.stars').stars();
-		});
+  //  		$(document).ready(function() 
+  //  		{    		
+		// 	$('span.stars').stars();
+		// });
 
-		$.fn.stars = function() {
-			return $(this).each(function() {
-				$(this).html($().width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
-			});
-		}
+		// $.fn.stars = function() {
+		// 	return $(this).each(function() {
+		// 		$(this).html($().width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
+		// 	});
+		// }
 	</script>
 
 	<?php
