@@ -34,7 +34,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 		span.shams, span.shams span {
 			display: block;
-			background: url(shams.png) 0 -16px repeat-x;
+			background: url(images/shams.png) 0 -16px repeat-x;
 			width: 80px;
 			height: 16px;
 		}
