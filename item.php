@@ -52,12 +52,15 @@ if (!isset($_SESSION['logged_in'])) {
 
 		$.fn.shams = function()
 		{
-			var val = parseFloat($(this).html());
-	        var size = Math.max(0, (Math.min(5, val))) * 16;
-	        // Create stars holder
-	        var $span = $('<span />').width(size);
-	        // Replace the numerical value with stars
-	        $(this).html($span);
+			return $(this).each(function()
+			{
+				var val = parseFloat($(this).html());
+	        	var size = Math.max(0, (Math.min(5, val))) * 16;
+	        	// Create stars holder
+	        	var $span = $('<span />').width(size);
+	        	// Replace the numerical value with stars
+	        	$(this).html($span);
+			});
 		}
 	</script>
 
