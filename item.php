@@ -52,8 +52,12 @@ if (!isset($_SESSION['logged_in'])) {
 
 		$.fn.shams = function()
 		{
-			rating = $(this).html();
-			$(this).html("<span width=\"" + Math.min(rating*16) + "\"></span>");
+			var val = parseFloat($(this).html());
+	        var size = Math.max(0, (Math.min(5, val))) * 16;
+	        // Create stars holder
+	        var $span = $('<span />').width(size);
+	        // Replace the numerical value with stars
+	        $(this).html($span);
 		}
 	</script>
 
