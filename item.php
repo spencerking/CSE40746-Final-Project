@@ -34,7 +34,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 		span.shams, span.shams span {
 			display: block;
-			background: url(shams.png) 0 -16px repeat-x;
+			background: url(images/shams.png) 0 -16px repeat-x;
 			width: 80px;
 			height: 16px;
 		}
@@ -52,8 +52,15 @@ if (!isset($_SESSION['logged_in'])) {
 
 		$.fn.shams = function()
 		{
-			rating = $(this).html();
-			$(this).html("<span width=\"" + Math.min(rating*16) + "\"></span>");
+			return $(this).each(function()
+			{
+				var val = parseFloat($(this).html());
+	        	var size = Math.max(0, (Math.min(5, val))) * 16;
+	        	// Create stars holder
+	        	var $span = $('<span />').width(size);
+	        	// Replace the numerical value with stars
+	        	$(this).html($span);
+			});
 		}
 	</script>
 
@@ -170,7 +177,7 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
-					<span class="shams"><span><?php print "$c"; ?></span></span>
+					<span class="shams"><?php print "$c"; ?></span>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Sell-by Date:</h5>
