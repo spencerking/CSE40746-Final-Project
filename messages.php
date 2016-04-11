@@ -15,13 +15,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>NDBay - Account</title>
+    <title>NDBay - Messages</title>
 
     <!-- Bootstrap core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="styles/account.css" rel="stylesheet">
     <style>
     /* Move down content because we have a fixed navbar that is 50px tall */
     body {
@@ -50,7 +49,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="sell.php">Sell</a></li>
-            <li><a href="messages.php">Messages</a></li>
+            <li class="active"><a href="messages.php">Messages</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -71,27 +70,7 @@
     </nav>
 
     <div class="container">
-      <h2>Transaction History</h2>
-      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#history">Transaction History</button>
-      <div id="history" class="collapse">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-      <h2>Change Password</h2>
-      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#password">Change Password</button>
-      <div id="password" class="collapse">
-        <form class="form-signin" action="change_pass_backend.php" method="post">
-          <label for="oldPass" class="sr-only">Old Password</label>
-          <input type="password" id="oldPassword" name="oldPass" class="form-control" placeholder="Old Password" autofocus>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="New Password">
-          <label for="inputConfirmPassword" class="sr-only">Confirm password</label>
-          <input type="password" id="inputConfirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password">
-          <div class="error"><ul></ul></div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-        </form>
-      </div>
+      <h2>Messages</h2>
     </div>
 
       <hr>
