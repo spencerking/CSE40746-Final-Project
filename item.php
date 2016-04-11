@@ -32,29 +32,29 @@ if (!isset($_SESSION['logged_in'])) {
 			text-align: center;
 		}
 
-		span.stars, span.stars span {
+		span.shams, span.shams span {
 			display: block;
 			background: url(shams.png) 0 -16px repeat-x;
 			width: 80px;
 			height: 16px;
 		}
 
-		span.stars span {
+		span.shams span {
 			background-position: 0 0;
 		}
 	</style>
 
 	<script type="text/javascript">
-  //  		$(document).ready(function() 
-  //  		{    		
-		// 	$('span.stars').stars();
-		// });
+   		$(document).ready(function() 
+   		{    		
+			$('span.shams').shams();
+		});
 
-		// $.fn.stars = function() {
-		// 	return $(this).each(function() {
-		// 		$(this).html($().width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
-		// 	});
-		// }
+		$.fn.shams = function()
+		{
+			rating = $(this).html();
+			$(this).html("<span width=\"" + Math.min(rating*16) + "\"></span>");
+		}
 	</script>
 
 	<?php
@@ -169,7 +169,7 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
-					<span class="stars"><?php print "$c"; ?></span>
+					<span class="shams"><?php print "$c"; ?></span>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Sell-by Date:</h5>
