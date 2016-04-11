@@ -17,6 +17,10 @@
 
     <title>NDBay - Messages</title>
 
+    <!-- Chatbox styling -->
+    <link rel="stylesheet" href="styles/jquery-ui.min.css" type="text/css" media="screen" />
+    <link type="text/css" href="styles/jquery.ui.chatbox.css" rel="stylesheet" />
+
     <!-- Bootstrap core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
 
@@ -71,6 +75,14 @@
 
     <div class="container">
       <h2>Messages</h2>
+      <input type="button" name="toggle" value="toggle" />
+     
+      <div id="chat_div">
+      </div>
+      <hr />
+      <div id="log">
+      </div>
+
     </div>
 
       <hr>
@@ -86,5 +98,30 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.2.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          var box = null;
+          $("input[type='button']").click(function(event, ui) {
+              if(box) {
+                  box.chatbox("option", "boxManager").toggleBox();
+              }
+              else {
+                  box = $("#chat_div").chatbox({id:"chat_div", 
+                                                user:{key : "value"},
+                                                title : "test chat",
+                                                messageSent : function(id, user, msg) {
+                                                    // here we could log it to the database
+                                                    // and call the socket
+                                                    $("#log").append(id + " said: " + msg + "<br/>");
+                                                    $("#chat_div").chatbox("option", "boxManager").addMsg(id, msg);
+                                                }});
+              }
+          });
+      });
+      </script>
+
   </body>
 </html>
