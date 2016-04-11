@@ -12,3 +12,5 @@ prompt *** Creating table 'tagged_item' ***
 @crt_tagged
 prompt *** Creating table 'transaction' ***
 @crt_transaction
+prompt *** Creating table 'message' ***
+@crt_message
