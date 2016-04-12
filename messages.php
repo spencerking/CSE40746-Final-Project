@@ -3,6 +3,15 @@
     if (!isset($_SESSION['logged_in'])) {
         header('Location: signin.html');
     }
+
+    // Connect to the database
+    $conn = oci_connect('guest', 'guest', 'localhost/XE');
+    if (!$conn) {
+        $e = oci_error();
+        trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+    }
+
+    $user_id = $_SESSION["user_id"];
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +25,6 @@
     <meta name="author" content="">
 
     <title>NDBay - Messages</title>
-
-    <!-- Chatbox styling -->
-    <link rel="stylesheet" href="styles/jquery-ui.min.css" type="text/css" media="screen" />
-    <link type="text/css" href="styles/jquery.ui.chatbox.css" rel="stylesheet" />
 
     <!-- Bootstrap core CSS -->
     <link href="styles/bootstrap.min.css" rel="stylesheet">
@@ -75,13 +80,77 @@
 
     <div class="container">
       <h2>Messages</h2>
-      <input type="button" name="toggle" value="toggle" />
-     
-      <div id="chat_div">
-      </div>
-      <hr />
-      <div id="log">
-      </div>
+
+      <!-- Need to change all of the sql functions to oracle -->
+      <div class="message-body">
+        <div class="message-left">
+            <ul>
+                <?php
+
+                    //show all the users chatting with
+                    $query = oci_parse($conn, "SELECT * FROM domer WHERE user_id != :user_id");
+                    oci_bind_by_name($query, ":user_id", $user_id);
+                    oci_execute($query);
+
+                    //display all the results
+                    while (oci_fetch($query)) {
+                        // echo
+                    }
+                ?>
+            </ul>
+        </div>
+
+        <div class="message-right">
+            <!-- display message -->
+            <div class="display-message">
+            <?php
+                //check $_GET['id'] is set
+                if (isset($_GET['id'])) {
+
+                    // need to get the other user in the conversation
+                    // I'm assuming this is the foreign key user_id in message table
+                    // $user_two = trim(mysqli_real_escape_string($conn, $_GET['id']));
+
+                    //check $user_two is valid
+                    // HOW DO WE DISTINGUISH BETWEEN FOREIGN KEY user_id AND NORMAL user_id?????
+                    $query = oci_parse($conn, "SELECT user_id FROM domer WHERE user_id = :user_two AND user_id != :user_id");
+                    oci_bind_by_name($query, ":user_two", $user_two);
+                    oci_bind_by_name($query, ":user_id", $user_id);
+                    oci_execute($query);
+
+                    //valid $user_two
+                    // CHECK IF THERE IS oci_num_rows!!!!!!
+                    if (mysqli_num_rows($query) == 1) {
+                       
+                        //check $user_id and $user_two has conversation or not if no start one
+                        // FOREIGN KEY CONFUSION
+                        $conver = oci_parse($conn, "SELECT * FROM message WHERE (user_id = :user_id AND user_id = :user_two) OR (user_id = :user_two AND user_id = :user_id)");
+                        oci_bind_by_name($query, ":user_id", $user_id);
+                        oci_bind_by_name($query, ":user_two", $user_two);
+                        oci_execute($query);
+                        
+                        //they have a conversation
+                        if (mysqli_num_rows($conver) == 1) {
+                            //fetch the converstaion id
+                            $fetch = mysqli_fetch_assoc($conver);
+                            $conversation_id = $fetch['id'];
+                        }
+                        //they do not have a conversation
+                        else {
+                            //start a new converstaion and fetch its id
+                            $query = mysqli_query($conn, "INSERT INTO message VALUES ('','$user_id',$user_two)");
+                            $conversation_id = mysqli_insert_id($con);
+                        }
+                    }
+                    else {
+                        die("Invalid $_GET ID.");
+                    }
+                }
+                else {
+                    die("Click On the Person to start Chatting.");
+                }
+            ?>
+            </div>
 
     </div>
 
@@ -98,30 +167,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.2.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/jquery.ui.chatbox.js"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function(){
-          var box = null;
-          $("input[type='button']").click(function(event, ui) {
-              if(box) {
-                  box.chatbox("option", "boxManager").toggleBox();
-              }
-              else {
-                  box = $("#chat_div").chatbox({id:"chat_div", 
-                                                user:{key : "value"},
-                                                title : "test chat",
-                                                messageSent : function(id, user, msg) {
-                                                    // here we could log it to the database
-                                                    // and call the socket
-                                                    $("#log").append(id + " said: " + msg + "<br/>");
-                                                    $("#chat_div").chatbox("option", "boxManager").addMsg(id, msg);
-                                                }});
-              }
-          });
-      });
-      </script>
-
   </body>
 </html>
