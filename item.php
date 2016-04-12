@@ -155,7 +155,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 <div class="container">
 	<div class="col-sm-6">
-		<img class="img-thumbnail" src=<?php print "\"..\\server_images\\$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
+		<img class="img-thumbnail" src=<?php print "\"../server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 		<p></p>
 	</div> <!-- END col-sm-6 -->
 
@@ -177,7 +177,7 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
-					<span class="shams"><?php print "$c"; ?></span>
+					<span class="shams"><?php print "<span style=\"width:"+$c*5+";\"><span>" ?></span>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Sell-by Date:</h5>
