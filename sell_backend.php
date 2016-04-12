@@ -22,6 +22,10 @@ $price = $_POST["itemPrice"];
 $end_time = $_POST["itemEndTime"];
 $item_photo = basename($_FILES["itemPhoto"]["name"]);
 
+// Fix apostrophes
+$name = str_replace("'", '', $name);
+$description = str_replace("'", '', $description);
+
 echo $end_time;
 echo $seller_id;
 echo $_SESSION["user_id"];
