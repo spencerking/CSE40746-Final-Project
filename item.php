@@ -177,7 +177,12 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Condition:</h5>
-					<span class="shams"><?php print "<span style=\"width:"+$c*5+";\"><span>"; ?></span>
+					<span class="shams">
+						<?php
+							$newspan = "<span style=\"width:".(16*$c)."px;\"></span>";
+							print $newspan;
+						?>
+					</span>
 				</div>
 				<div class="col-sm-4">
 					<h5 class="text">Sell-by Date:</h5>
