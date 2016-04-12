@@ -155,7 +155,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 <div class="container">
 	<div class="col-sm-6">
-		<img class="img-thumbnail" src=<?php print "\"../server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
+		<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 		<p></p>
 	</div> <!-- END col-sm-6 -->
 
