@@ -42,6 +42,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="sell.php">Sell</a></li>
+            <li><a href="messages.php">Messages</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
               <ul class="dropdown-menu">
