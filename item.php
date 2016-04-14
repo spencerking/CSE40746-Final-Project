@@ -45,7 +45,7 @@ if (!isset($_SESSION['logged_in'])) {
 			background-position: 0 0;
 		}
 
-		#div.my-thumbs-list {
+		#my-thumbs-list {
 			overflow: auto;
 			width: 800px;
 			height: auto;
