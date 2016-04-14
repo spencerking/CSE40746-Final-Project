@@ -19,7 +19,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<!-- Bootstrap core CSS -->
 	<link href="styles/bootstrap.min.css" rel="stylesheet"/>
 	<!-- jQuery links -->
-	<link rel="stylesheet" href="js/jquery.mThumbnailScroller.min.js"/>
+	<link rel="stylesheet" href="styles/jquery.mThumbnailScroller.css"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 	<script src="js/jquery.mThumbnailScroller.min.js"></script>
 
@@ -212,12 +212,12 @@ if (!isset($_SESSION['logged_in'])) {
 						<p class="text-left"><?php print "$e2"; ?></p>
 					</div>
 					<div class="col-sm-4">
-						<h5 name="This is here to push the message button down a little bit"></h5>
-						<button class="btn btn-primary" type="button">Message the Seller</button>
-					</div>
-					<div class="col-sm-4">
 						<h5 class="text-left">Follow-Up Rate:</h5>
 						<p class="text-left">45%</p>
+					</div>
+					<div class="col-sm-4">
+						<h5 name="This is here to push the message button down a little bit"></h5>
+						<button class="btn btn-primary" type="button">Message the Seller</button>
 					</div>
 				</div> <!-- END col-sm-12 -->
 			</div> <!-- END col-sm-12 -->
