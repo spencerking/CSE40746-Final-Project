@@ -45,7 +45,7 @@ if (!isset($_SESSION['logged_in'])) {
 			background-position: 0 0;
 		}
 
-		div.my-thumbs-list {
+		#div.my-thumbs-list {
 			overflow: auto;
 			width: 800px;
 			height: auto;
@@ -164,7 +164,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<div class="container">
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
-			<div id="my-thumbs-list">
+			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 				<ul>
 			    	<li><a href="#"><img src="server_images/5701.jpg" /></a></li>
 			    	<li><a href="#"><img src="server_images/56201.jpg" /></a></li>
