@@ -4,6 +4,8 @@
 session_start();
 
 $email = $_POST["email"];
+$email = str_replace("'", '', $email);
+
 $password = $_POST["password"];
 
 // Connect to the database

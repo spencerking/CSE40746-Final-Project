@@ -8,6 +8,8 @@ date_default_timezone_set('Etc/UTC');
 session_start();
 
 $new_email = $_POST['email'];
+$new_email = str_replace("'", '', $new_email);
+
 
 // Connect to the database
 $conn = oci_connect('guest', 'guest', 'localhost/XE');
