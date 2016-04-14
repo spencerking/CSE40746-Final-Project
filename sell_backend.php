@@ -65,7 +65,7 @@ oci_execute($stmt1);
 oci_fetch($stmt1);
 
 // Nail down some of the file-related variables
-$target_dir = "../server_images/";
+$target_dir = "./server_images/";
 $target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

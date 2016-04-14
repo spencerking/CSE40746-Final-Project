@@ -18,8 +18,10 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<!-- Bootstrap core CSS -->
 	<link href="styles/bootstrap.min.css" rel="stylesheet"/>
-	<!-- jQuery link -->
+	<!-- jQuery links -->
+	<link rel="stylesheet" href="styles/jquery.mThumbnailScroller.css"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="js/jquery.mThumbnailScroller.min.js"></script>
 
 	<!-- Custom styles for this template -->
 	<style>
@@ -42,11 +44,17 @@ if (!isset($_SESSION['logged_in'])) {
 		span.shams span {
 			background-position: 0 0;
 		}
+
+		#my-thumbs-list {
+			overflow: auto;
+			width: 400px;
+			height: 100px;
+		}
 	</style>
 
 	<script type="text/javascript">
-   		$(document).ready(function() 
-   		{    		
+		$(document).ready(function() 
+		{    		
 			$('span.shams').shams();
 		});
 
@@ -55,165 +63,176 @@ if (!isset($_SESSION['logged_in'])) {
 			return $(this).each(function()
 			{
 				var val = parseFloat($(this).html());
-	        	var size = Math.max(0, (Math.min(5, val))) * 16;
+				var size = Math.max(0, (Math.min(5, val))) * 16;
 	        	// Create stars holder
 	        	var $span = $('<span />').width(size);
 	        	// Replace the numerical value with stars
 	        	$(this).html($span);
-			});
+	        });
 		}
 	</script>
 
 	<?php
 
-		$iid = $_GET['iid'];	
+	$iid = $_GET['iid'];	
 
-		$conn = oci_connect("guest", "guest", "xe")
-		or die("Couldn't connect");
+	$conn = oci_connect("guest", "guest", "xe")
+	or die("Couldn't connect");
 
-		$query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
-		$query1 .= "FROM item i ";
-		$query1 .= "WHERE i.item_id=$iid";
+	$query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
+	$query1 .= "FROM item i ";
+	$query1 .= "WHERE i.item_id=$iid";
 
-		$stmt1 = oci_parse($conn, $query1);
+	$stmt1 = oci_parse($conn, $query1);
 
 
-		oci_define_by_name($stmt1, "S", $s);
-		oci_define_by_name($stmt1, "N", $n);
-		oci_define_by_name($stmt1, "C", $c);
-		oci_define_by_name($stmt1, "D", $d);
-		oci_define_by_name($stmt1, "P", $p);
-		oci_define_by_name($stmt1, "E", $e);
+	oci_define_by_name($stmt1, "S", $s);
+	oci_define_by_name($stmt1, "N", $n);
+	oci_define_by_name($stmt1, "C", $c);
+	oci_define_by_name($stmt1, "D", $d);
+	oci_define_by_name($stmt1, "P", $p);
+	oci_define_by_name($stmt1, "E", $e);
 
-		oci_execute($stmt1);
-		oci_fetch($stmt1);
+	oci_execute($stmt1);
+	oci_fetch($stmt1);
 
 		// Write query on item_photo for filepath
-		$query3 = "SELECT ip.filename fn, ip.description de ";
-		$query3 .= "FROM item_photo ip ";
-		$query3 .= "WHERE ip.item_id=$iid";
+	$query3 = "SELECT ip.filename fn, ip.description de ";
+	$query3 .= "FROM item_photo ip ";
+	$query3 .= "WHERE ip.item_id=$iid";
 
-		$stmt3 = oci_parse($conn, $query3);
+	$stmt3 = oci_parse($conn, $query3);
 
-		oci_define_by_name($stmt3, "FN", $fn);
-		oci_define_by_name($stmt3, "DE", $de);
+	oci_define_by_name($stmt3, "FN", $fn);
+	oci_define_by_name($stmt3, "DE", $de);
 
-		oci_execute($stmt3);
-		oci_fetch($stmt3);
+	oci_execute($stmt3);
+	oci_fetch($stmt3);
 
 		// Write query on domer for seller's name and id
-		$query2 = "SELECT d.email e ";
-		$query2 .= "FROM domer d ";
-		$query2 .= "WHERE d.user_id=$s";
+	$query2 = "SELECT d.email e ";
+	$query2 .= "FROM domer d ";
+	$query2 .= "WHERE d.user_id=$s";
 
-		$stmt2 = oci_parse($conn, $query2);
+	$stmt2 = oci_parse($conn, $query2);
 
-		oci_define_by_name($stmt2, "E", $e2);
+	oci_define_by_name($stmt2, "E", $e2);
 
-		oci_execute($stmt2);
-		oci_fetch($stmt2);
+	oci_execute($stmt2);
+	oci_fetch($stmt2);
 
 		// Close the connection
-		oci_close($conn);
+	oci_close($conn);
 	?>
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="home.php">NDBay</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="sell.php">Sell</a></li>
-					<li><a href="messages.php">Messages</a></li>
-					<li class="dropwdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="account.php">Account</a></li>
-							<li><a href="">Sign out</a></li>
-						</ul>
-					</li>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home.php">NDBay</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="sell.php">Sell</a></li>
+            <li><a href="messages.php">Messages</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="account.php">Account</a></li>
+                <li><a href="">Sign out</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" name="search" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Go</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container">
+		<div class="col-sm-6">
+			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
+			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
+				<ul>
+			    	<li><a href="#"><img src="server_images/5701.jpg" /></a></li>
+			    	<li><a href="#"><img src="server_images/56201.jpg" /></a></li>
+			    	<li><a href="#"><img src="server_images/pikachu.jpg" /></a></li>
+			    	<li><a href="#"><img src="server_images/53801.jpg" /></a></li>
 				</ul>
-				<form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" placeholder="Search" class="form-control">
-					</div>
-					<button type="submit" class="btn btn-default">Go</button>
-				</form>
 			</div>
-		</div>
-	</div>
-</nav>
+		</div> <!-- END col-sm-6 -->
 
-<div class="container">
-	<div class="col-sm-6">
-		<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
-		<p></p>
-	</div> <!-- END col-sm-6 -->
-
-	<div class="col-sm-6">
-		<div class="col-sm-12">
-			<h1 class="cover-heading text-left"><?php print "$n"; ?></h1>
-			<div class="col-sm-6">
-				<p class="text-left"><?php print "$d"; ?></p>
-			</div>  
-			<div class="col-sm-6">
-				<button class="btn btn-primary center" type="button">Buy It!!!</button>
-			</div>
+		<div class="col-sm-6">
 			<div class="col-sm-12">
-				<hr/>
-				<h4 class="text-left">Item Properties:</h4> 
-				<div class="col-sm-4">
-					<h5 class="text-left">Price:</h5>
-					<p class="text-left">$<?php print "$p"; ?>.00</p>
+				<h1 class="cover-heading text-left"><?php print "$n"; ?></h1>
+				<div class="col-sm-6">
+					<p class="text-left"><?php print "$d"; ?></p>
+				</div>  
+				<div class="col-sm-6">
+					<button class="btn btn-primary center" type="button">Buy It!!!</button>
 				</div>
-				<div class="col-sm-4">
-					<h5 class="text">Condition:</h5>
-					<span class="shams">
-						<?php
+				<div class="col-sm-12">
+					<hr/>
+					<h4 class="text-left">Item Properties:</h4> 
+					<div class="col-sm-4">
+						<h5 class="text-left">Price:</h5>
+						<p class="text-left">$<?php print "$p"; ?>.00</p>
+					</div>
+					<div class="col-sm-4">
+						<h5 class="text">Condition:</h5>
+						<span class="shams">
+							<?php
 							$newspan = "<span style=\"width:".(16*$c)."px;\"></span>";
 							print $newspan;
-						?>
-					</span>
-				</div>
-				<div class="col-sm-4">
-					<h5 class="text">Sell-by Date:</h5>
-					<p class="text-left"><?php print "$e"; ?></p>
-				</div>
+							?>
+						</span>
+					</div>
+					<div class="col-sm-4">
+						<h5 class="text">Sell-by Date:</h5>
+						<p class="text-left"><?php print "$e"; ?></p>
+					</div>
+				</div> <!-- END col-sm-12 -->
+				<div class="col-sm-12">
+					<hr/>
+					<h4 class="text-left">Seller:</h4>
+					<div class="col-sm-4">
+						<h5 class="text-left">Email:</h5>
+						<p class="text-left"><?php print "$e2"; ?></p>
+					</div>
+					<div class="col-sm-4">
+						<h5 class="text-left">Follow-Up Rate:</h5>
+						<p class="text-left">45%</p>
+					</div>
+					<div class="col-sm-4">
+						<h5 name="This is here to push the message button down a little bit"></h5>
+						<button class="btn btn-primary" type="button">Message the Seller</button>
+					</div>
+				</div> <!-- END col-sm-12 -->
 			</div> <!-- END col-sm-12 -->
-			<div class="col-sm-12">
-				<hr/>
-				<h4 class="text-left">Seller:</h4>
-				<div class="col-sm-6">
-					<h5 class="text-left">Email:</h5>
-					<a href="#" class="text-left"><?php print "$e2"; ?></a>
-				</div>
-				<div class="col-sm-6">
-					<h5 name="This is here to push the message button down a little bit"></h5>
-					<button class="btn btn-primary" type="button">Message the Seller</button>
-				</div>
-			</div> <!-- END col-sm-12 -->
-		</div> <!-- END col-sm-12 -->
-	</div>
+		</div>
 
-</div> <!-- END container -->
+	</div> <!-- END container -->
 
-<hr/>
+	<hr/>
 
-<footer>
-	<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-</footer>
+	<footer>
+		<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+	</footer>
 
-<abbr>
-</abbr>
+	<abbr>
+	</abbr>
 
 <!-- Bootstrap core JavaScript
 	================================================== -->

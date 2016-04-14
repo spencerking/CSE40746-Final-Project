@@ -81,78 +81,9 @@
     <div class="container">
       <h2>Messages</h2>
 
-      <!-- Need to change all of the sql functions to oracle -->
-      <div class="message-body">
-        <div class="message-left">
-            <ul>
-                <?php
-
-                    //show all the users chatting with
-                    $query = oci_parse($conn, "SELECT * FROM domer WHERE user_id != :user_id");
-                    oci_bind_by_name($query, ":user_id", $user_id);
-                    oci_execute($query);
-
-                    //display all the results
-                    while (oci_fetch($query)) {
-                        // echo
-                    }
-                ?>
-            </ul>
-        </div>
-
-        <div class="message-right">
+        <div id = "result">
             <!-- display message -->
-            <div class="display-message">
-            <?php
-                //check $_GET['id'] is set
-                if (isset($_GET['id'])) {
-
-                    // need to get the other user in the conversation
-                    // I'm assuming this is the foreign key user_id in message table
-                    // $user_two = trim(mysqli_real_escape_string($conn, $_GET['id']));
-
-                    //check $user_two is valid
-                    // HOW DO WE DISTINGUISH BETWEEN FOREIGN KEY user_id AND NORMAL user_id?????
-                    $query = oci_parse($conn, "SELECT user_id FROM domer WHERE user_id = :user_two AND user_id != :user_id");
-                    oci_bind_by_name($query, ":user_two", $user_two);
-                    oci_bind_by_name($query, ":user_id", $user_id);
-                    oci_execute($query);
-
-                    //valid $user_two
-                    // CHECK IF THERE IS oci_num_rows!!!!!!
-                    if (mysqli_num_rows($query) == 1) {
-                       
-                        //check $user_id and $user_two has conversation or not if no start one
-                        // FOREIGN KEY CONFUSION
-                        $conver = oci_parse($conn, "SELECT * FROM message WHERE (user_id = :user_id AND user_id = :user_two) OR (user_id = :user_two AND user_id = :user_id)");
-                        oci_bind_by_name($query, ":user_id", $user_id);
-                        oci_bind_by_name($query, ":user_two", $user_two);
-                        oci_execute($query);
-                        
-                        //they have a conversation
-                        if (mysqli_num_rows($conver) == 1) {
-                            //fetch the converstaion id
-                            $fetch = mysqli_fetch_assoc($conver);
-                            $conversation_id = $fetch['id'];
-                        }
-                        //they do not have a conversation
-                        else {
-                            //start a new converstaion and fetch its id
-                            $query = mysqli_query($conn, "INSERT INTO message VALUES ('','$user_id',$user_two)");
-                            $conversation_id = mysqli_insert_id($con);
-                        }
-                    }
-                    else {
-                        die("Invalid $_GET ID.");
-                    }
-                }
-                else {
-                    die("Click On the Person to start Chatting.");
-                }
-            ?>
-            </div>
-
-    </div>
+        </div>
 
       <hr>
 
@@ -167,5 +98,19 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.2.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <?php
+    echo "<script>";
+        echo "var posting = $.post('52.34.131.50:8163/', {user_id: ";
+        echo $user_id;
+        echo "} );";
+
+        echo "posting.done(function( data ) {";
+            echo "var content = $( data ).find( '#result' );";
+            echo "$( '#result' ).empty().append( content );";
+        echo "});";
+    echo "</script>";
+    ?>
+
   </body>
 </html>
