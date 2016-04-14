@@ -64,7 +64,7 @@
           </ul>
           <form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Search" class="form-control">
+              <input type="text" name="search" placeholder="Search" class="form-control">
             </div>
             <button type="submit" class="btn btn-default">Go</button>
           </form>
