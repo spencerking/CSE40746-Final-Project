@@ -18,8 +18,10 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<!-- Bootstrap core CSS -->
 	<link href="styles/bootstrap.min.css" rel="stylesheet"/>
-	<!-- jQuery link -->
+	<!-- jQuery links -->
+	<link rel="stylesheet" href="js/jquery.mThumbnailScroller.min.js"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="js/jquery.mThumbnailScroller.min.js"></script>
 
 	<!-- Custom styles for this template -->
 	<style>
@@ -41,6 +43,12 @@ if (!isset($_SESSION['logged_in'])) {
 
 		span.shams span {
 			background-position: 0 0;
+		}
+
+		div.my-thumbs-list {
+			overflow: auto;
+			width: 800px;
+			height: auto;
 		}
 	</style>
 
@@ -156,7 +164,14 @@ if (!isset($_SESSION['logged_in'])) {
 	<div class="container">
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
-			<p></p>
+			<div id="my-thumbs-list">
+				<ul>
+			    	<li><a href="#"><img src="server_images/5701.jpg" /></a></li>
+			    	<li><a href="#"><img src="server_images/56201.jpg" /></a></li>
+			    	<li><a href="#"><img src="server_images/pikachu.jpg" /></a></li>
+			    	<li><a href="#"><img src="server_images/53801.jpg" /></a></li>
+				</ul>
+			</div>
 		</div> <!-- END col-sm-6 -->
 
 		<div class="col-sm-6">
@@ -192,13 +207,17 @@ if (!isset($_SESSION['logged_in'])) {
 				<div class="col-sm-12">
 					<hr/>
 					<h4 class="text-left">Seller:</h4>
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						<h5 class="text-left">Email:</h5>
-						<a href="#" class="text-left"><?php print "$e2"; ?></a>
+						<p class="text-left"><?php print "$e2"; ?></p>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						<h5 name="This is here to push the message button down a little bit"></h5>
 						<button class="btn btn-primary" type="button">Message the Seller</button>
+					</div>
+					<div class="col-sm-4">
+						<h5 class="text-left">Follow-Up Rate:</h5>
+						<p class="text-left">45%</p>
 					</div>
 				</div> <!-- END col-sm-12 -->
 			</div> <!-- END col-sm-12 -->
