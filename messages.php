@@ -101,7 +101,9 @@
 
     <?php
     echo "<script>";
-        echo "var posting = $.post('52.34.131.50:8163/', {user_id: " $user_id "} );";
+        echo "var posting = $.post('52.34.131.50:8163/', {user_id: ";
+	echo $user_id;
+	echo  "} );";
 
         echo "posting.done(function( data ) {";
             echo "var content = $( data ).find( '#result' );";
