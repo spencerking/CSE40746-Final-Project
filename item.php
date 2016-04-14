@@ -47,8 +47,8 @@ if (!isset($_SESSION['logged_in'])) {
 
 		#my-thumbs-list {
 			overflow: auto;
-			width: 800px;
-			height: auto;
+			width: 400px;
+			height: 100px;
 		}
 	</style>
 
