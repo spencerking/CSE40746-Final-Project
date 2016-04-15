@@ -198,13 +198,16 @@ if (!isset($_SESSION['logged_in'])) {
 	<div class="container">
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
-			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
-				<ul>
-			    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
-			    	<li><a href="#"><img id="scrimg" src="server_images/56201.png" /></a></li>
-			    	<li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
-			    	<li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
-				</ul>
+			
+			<div class="col-sm-12">
+				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
+					<ul>
+				    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
+				    	<li><a href="#"><img id="scrimg" src="server_images/56201.png" /></a></li>
+				    	<li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
+				    	<li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
+					</ul>
+				</div>
 			</div>
 		</div> <!-- END col-sm-6 -->
 
@@ -264,11 +267,11 @@ if (!isset($_SESSION['logged_in'])) {
 						<?php
 							if ($vendor_is_user)
 							{
-								print "<button class=\"btn btn-primary\" type=\"button\">Message the Seller</button>";
+								print "<button class=\"btn btn-primary disabled\" type=\"button\">Message the Seller</button>";
 							}
 							else
 							{
-								print "<button class=\"btn btn-primary disabled\" type=\"button\">Message the Seller</button>";
+								print "<button class=\"btn btn-primary\" type=\"button\">Message the Seller</button>";
 							}
 						?>
 					</div>
