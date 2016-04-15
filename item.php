@@ -188,7 +188,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<div class="container">
 		<?php
-			if (vendor_is_user)
+			if ($vendor_is_user)
 			{
 				print "<h1 class=\"cover-heading\">Edit My Item</h1>";
 			}
@@ -213,7 +213,7 @@ if (!isset($_SESSION['logged_in'])) {
 				</div>  
 				<div class="col-sm-6">
 					<?php
-						if (vendor_is_user)
+						if ($vendor_is_user)
 						{
 							print "<button class=\"btn btn-primary center disabled\" type=\"button\">Buy It!!!</button>";
 						}
@@ -259,7 +259,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<div class="col-sm-4">
 						<h5 name="This is here to push the message button down a little bit"></h5>
 						<?php
-							if (vendor_is_user)
+							if ($vendor_is_user)
 							{
 								print "<button class=\"btn btn-primary\" type=\"button\">Message the Seller</button>";
 							}
