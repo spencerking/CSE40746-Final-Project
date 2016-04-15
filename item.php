@@ -242,9 +242,10 @@ if (!isset($_SESSION['logged_in'])) {
 						if ($_SESSION['user_id'] == $s)
 						{
 							print "
+								<hr/>
 								<form class=\"form-photo\" action=\"upload_photo.php?iid=$iid\" method=\"post\" enctype=\"multipart/form-data\">
 									<div class=\"form-group\">
-										<label for=\"inputItemPhoto\">Upload Photo</label>
+										<label for=\"inputItemPhoto\">Upload Another Photo</label>
 										<input type=\"file\" class=\"form-control-file\" id=\"inputItemPhoto\" name=\"itemPhoto\">
 									</div>
 									<button type=\"submit\" class=\"btn btn-default\">Upload Photo</button>
