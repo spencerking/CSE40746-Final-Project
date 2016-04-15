@@ -189,7 +189,10 @@ if (!isset($_SESSION['logged_in'])) {
 	<?php
 		if ($vendor_is_user)
 		{
-			print "<h1 class=\"cover-heading text-center\">Edit My Item</h1>";
+			print "
+				<h1 class=\"cover-heading text-center\"><strong>Edit My Item</strong></h1>
+				<hr/>
+			";
 		}
 	?>
 	<div class="container">
