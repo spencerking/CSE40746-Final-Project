@@ -51,7 +51,7 @@ if (!isset($_SESSION['logged_in'])) {
 			padding: 10px;
 			background-color: #333;
 			margin: 20px;
-			width: 50%;
+			width: 100%;
 			height: auto;
 			float: left;
 		}
