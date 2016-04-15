@@ -91,7 +91,15 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<?php
 
-	$iid = $_GET['iid'];	
+	$iid = $_GET['iid'];
+
+	$vendor_is_user = false;
+
+	if ($_SESSION['user_id'] == $s)
+	{
+		$vendor_is_user =  true;
+	}
+
 
 	$conn = oci_connect("guest", "guest", "xe")
 	or die("Couldn't connect");
@@ -179,6 +187,12 @@ if (!isset($_SESSION['logged_in'])) {
     </nav>
 
 	<div class="container">
+		<?php
+			if (vendor_is_user)
+			{
+				print "<h1 class=\"cover-heading\">Edit My Item</h1>";
+			}
+		?>
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
@@ -198,7 +212,17 @@ if (!isset($_SESSION['logged_in'])) {
 					<p class="text-left"><?php print "$d"; ?></p>
 				</div>  
 				<div class="col-sm-6">
-					<button class="btn btn-primary center" type="button">Buy It!!!</button>
+					<?php
+						if (vendor_is_user)
+						{
+							print "<button class=\"btn btn-primary center disabled\" type=\"button\">Buy It!!!</button>";
+						}
+						else
+						{
+							print "<button class=\"btn btn-primary center\" type=\"button\">Buy It!!!</button>";
+						}
+						
+					?>
 				</div>
 				<div class="col-sm-12">
 					<hr/>
@@ -230,16 +254,25 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					<div class="col-sm-4">
 						<h5 class="text-left">Follow-Up Rate:</h5>
-						<p class="text-left">45%</p>
+						<p class="text-left">*45%*</p>
 					</div>
 					<div class="col-sm-4">
 						<h5 name="This is here to push the message button down a little bit"></h5>
-						<button class="btn btn-primary" type="button">Message the Seller</button>
+						<?php
+							if (vendor_is_user)
+							{
+								print "<button class=\"btn btn-primary\" type=\"button\">Message the Seller</button>";
+							}
+							else
+							{
+								print "<button class=\"btn btn-primary disabled\" type=\"button\">Message the Seller</button>";
+							}
+						?>
 					</div>
 				</div> <!-- END col-sm-12 -->
 				<div class="col-sm-12">
 					<?php
-						if ($_SESSION['user_id'] == $s)
+						if ($vendor_is_user)
 						{
 							print "
 								<hr/>
