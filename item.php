@@ -55,6 +55,14 @@ if (!isset($_SESSION['logged_in'])) {
 			height: auto;
 			float: left;
 		}
+		#my-thumbs-list li {
+			margin: 4px;
+			overflow: hidden;
+		}
+		#my-thumbs-list li a {
+			display: inline-block;
+			border: 7px solid rgba(255,255,255,.1);
+		}
 
 		#scrimg {
 			height:300px;
