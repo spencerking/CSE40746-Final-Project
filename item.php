@@ -57,7 +57,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 
 		#scrimg {
-
+			height:300px;
 		}
 	</style>
 
