@@ -91,63 +91,63 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<?php
 
-	$iid = $_GET['iid'];
+		$iid = $_GET['iid'];
 
-	$vendor_is_user = false;
+		$vendor_is_user = false;
 
-	if ($_SESSION['user_id'] == $s)
-	{
-		$vendor_is_user =  true;
-	}
+		$conn = oci_connect("guest", "guest", "xe")
+		or die("Couldn't connect");
 
+		$query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
+		$query1 .= "FROM item i ";
+		$query1 .= "WHERE i.item_id=$iid";
 
-	$conn = oci_connect("guest", "guest", "xe")
-	or die("Couldn't connect");
-
-	$query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
-	$query1 .= "FROM item i ";
-	$query1 .= "WHERE i.item_id=$iid";
-
-	$stmt1 = oci_parse($conn, $query1);
+		$stmt1 = oci_parse($conn, $query1);
 
 
-	oci_define_by_name($stmt1, "S", $s);
-	oci_define_by_name($stmt1, "N", $n);
-	oci_define_by_name($stmt1, "C", $c);
-	oci_define_by_name($stmt1, "D", $d);
-	oci_define_by_name($stmt1, "P", $p);
-	oci_define_by_name($stmt1, "E", $e);
+		oci_define_by_name($stmt1, "S", $s);
+		oci_define_by_name($stmt1, "N", $n);
+		oci_define_by_name($stmt1, "C", $c);
+		oci_define_by_name($stmt1, "D", $d);
+		oci_define_by_name($stmt1, "P", $p);
+		oci_define_by_name($stmt1, "E", $e);
 
-	oci_execute($stmt1);
-	oci_fetch($stmt1);
+		oci_execute($stmt1);
+		oci_fetch($stmt1);
 
-		// Write query on item_photo for filepath
-	$query3 = "SELECT ip.filename fn, ip.description de ";
-	$query3 .= "FROM item_photo ip ";
-	$query3 .= "WHERE ip.item_id=$iid";
+			// Write query on item_photo for filepath
+		$query3 = "SELECT ip.filename fn, ip.description de ";
+		$query3 .= "FROM item_photo ip ";
+		$query3 .= "WHERE ip.item_id=$iid";
 
-	$stmt3 = oci_parse($conn, $query3);
+		$stmt3 = oci_parse($conn, $query3);
 
-	oci_define_by_name($stmt3, "FN", $fn);
-	oci_define_by_name($stmt3, "DE", $de);
+		oci_define_by_name($stmt3, "FN", $fn);
+		oci_define_by_name($stmt3, "DE", $de);
 
-	oci_execute($stmt3);
-	oci_fetch($stmt3);
+		oci_execute($stmt3);
+		oci_fetch($stmt3);
 
-		// Write query on domer for seller's name and id
-	$query2 = "SELECT d.email e ";
-	$query2 .= "FROM domer d ";
-	$query2 .= "WHERE d.user_id=$s";
+			// Write query on domer for seller's name and id
+		$query2 = "SELECT d.email e ";
+		$query2 .= "FROM domer d ";
+		$query2 .= "WHERE d.user_id=$s";
 
-	$stmt2 = oci_parse($conn, $query2);
+		$stmt2 = oci_parse($conn, $query2);
 
-	oci_define_by_name($stmt2, "E", $e2);
+		oci_define_by_name($stmt2, "E", $e2);
 
-	oci_execute($stmt2);
-	oci_fetch($stmt2);
+		oci_execute($stmt2);
+		oci_fetch($stmt2);
 
-		// Close the connection
-	oci_close($conn);
+			// Close the connection
+		oci_close($conn);
+
+		if ($_SESSION['user_id'] == $s)
+		{
+			$vendor_is_user =  true;
+		}
+
 	?>
 </head>
 
