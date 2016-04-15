@@ -15,6 +15,7 @@
 
     // Get the variables
     $iid = $_GET['iid'];
+    $sid = $_SESSION['user_id'];
     $item_photo = basename($_FILES["itemPhoto"]["name"]);
 
     
@@ -23,6 +24,8 @@
     $target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+    // TODO: Count the number of item photos for this item`
     $new_file = $seller_id . $iid . "01." . $imageFileType;
     $new_filepath = $target_dir . $new_file;
 
@@ -90,6 +93,6 @@
     // We don't need SQL anymore, shut it down
     oci_close($conn);
 
-    header("Location: item.php?iid=$iid");
+    //header("Location: item.php?iid=$iid");
 
 ?>
