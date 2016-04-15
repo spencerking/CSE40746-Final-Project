@@ -1,4 +1,4 @@
-CREATE TABLE chat ( 
+CREATE TABLE chat (
     chat_id NUMBER(16) PRIMARY KEY,
     buyer_id NUMBER(16) NOT NULL,
     seller_id NUMBER(16) NOT NULL,

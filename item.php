@@ -47,8 +47,17 @@ if (!isset($_SESSION['logged_in'])) {
 
 		#my-thumbs-list {
 			overflow: auto;
-			width: 400px;
-			height: 100px;
+			position: relative;
+			padding: 10px;
+			background-color: #333;
+			margin: 20px;
+			width: 50%;
+			height: auto;
+			float: left;
+		}
+
+		#scrimg {
+
 		}
 	</style>
 
@@ -166,10 +175,10 @@ if (!isset($_SESSION['logged_in'])) {
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 				<ul>
-			    	<li><a href="#"><img src="server_images/5701.jpg" /></a></li>
-			    	<li><a href="#"><img src="server_images/56201.jpg" /></a></li>
-			    	<li><a href="#"><img src="server_images/pikachu.jpg" /></a></li>
-			    	<li><a href="#"><img src="server_images/53801.jpg" /></a></li>
+			    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
+			    	<li><a href="#"><img id="scrimg" src="server_images/56201.jpg" /></a></li>
+			    	<li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
+			    	<li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
 				</ul>
 			</div>
 		</div> <!-- END col-sm-6 -->

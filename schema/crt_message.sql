@@ -1,4 +1,5 @@
 CREATE TABLE message (
+    message_id NUMBER(16) PRIMARY KEY,
     chat_id NUMBER(16) NOT NULL,
     user_id NUMBER(16) NOT NULL,
     message_date DATE NOT NULL,
