@@ -237,6 +237,22 @@ if (!isset($_SESSION['logged_in'])) {
 						<button class="btn btn-primary" type="button">Message the Seller</button>
 					</div>
 				</div> <!-- END col-sm-12 -->
+				<div class="col-sm-12">
+					<?php
+						if ($_SESSION['user_id'] == $s)
+						{
+							print "
+								<form class=\"form-photo\" action=\"upload_photo.php?iid=$iid\" method=\"post\" enctype=\"multipart/form-data\">
+									<div class=\"form-group\">
+										<label for=\"inputItemPhoto\">Upload Photo</label>
+										<input type=\"file\" class=\"form-control-file\" id=\"inputItemPhoto\" name=\"itemPhoto\">
+									</div>
+									<button type=\"submit\" class=\"btn btn-default\">Upload Photo</button>
+								</form>
+							";
+						}
+					?>
+				</div> <!-- END col-sm-12 -->
 			</div> <!-- END col-sm-12 -->
 		</div>
 
