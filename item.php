@@ -186,13 +186,13 @@ if (!isset($_SESSION['logged_in'])) {
       </div>
     </nav>
 
+	<?php
+		if ($vendor_is_user)
+		{
+			print "<h1 class=\"cover-heading text-center\">Edit My Item</h1>";
+		}
+	?>
 	<div class="container">
-		<?php
-			if ($vendor_is_user)
-			{
-				print "<h1 class=\"cover-heading\">Edit My Item</h1>";
-			}
-		?>
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
