@@ -10,9 +10,6 @@
         trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
     }
 
-    // Why was this line here? (below)
-    //oci_fetch($query);
-
     // Get the variables
     $iid = $_GET['iid'];
     $sid = $_SESSION['user_id'];
@@ -25,8 +22,28 @@
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
+    // Figure out how many photos already exist for this item
+	$query1 = "SELECT COUNT(*) co";
+	$query1 .= "FROM item_photo ip ";
+	$query1 .= "WHERE ip.item_id=$iid";
+
+	$stmt1 = oci_parse($conn, $query1);
+
+	oci_define_by_name($stmt1, "CO", $co);
+
+	oci_execute($stmt1);
+	oci_fetch($stmt1);
+
+	$co += 1;
+
+	$costr = "";
+	if ($co > 9)
+		$costr = $co;
+	else
+		$costr = "0".$co;
+
     // TODO: Count the number of item photos for this item`
-    $new_file = $seller_id . $iid . "01." . $imageFileType;
+    $new_file = $sid . $iid . $costr . $imageFileType;
     $new_filepath = $target_dir . $new_file;
 
     // Upload the image: code strongly based on W3Schools entry on PHP 5 file uploads

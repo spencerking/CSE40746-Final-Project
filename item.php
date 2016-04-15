@@ -115,7 +115,7 @@ if (!isset($_SESSION['logged_in'])) {
 		oci_execute($stmt1);
 		oci_fetch($stmt1);
 
-			// Write query on item_photo for filepath
+		// Write query on item_photo for filepath
 		$query3 = "SELECT ip.filename fn, ip.description de ";
 		$query3 .= "FROM item_photo ip ";
 		$query3 .= "WHERE ip.item_id=$iid";
@@ -199,7 +199,7 @@ if (!isset($_SESSION['logged_in'])) {
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			
-			<div class="col-sm-11">
+			<div class="col-sm-11 align-left">
 				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 					<ul>
 				    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
