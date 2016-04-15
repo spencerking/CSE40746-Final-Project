@@ -184,7 +184,7 @@ if (!isset($_SESSION['logged_in'])) {
 			<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 				<ul>
 			    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
-			    	<li><a href="#"><img id="scrimg" src="server_images/56201.jpg" /></a></li>
+			    	<li><a href="#"><img id="scrimg" src="server_images/56201.png" /></a></li>
 			    	<li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
 			    	<li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
 				</ul>
