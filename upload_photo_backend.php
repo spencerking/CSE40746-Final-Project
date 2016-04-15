@@ -23,7 +23,7 @@
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
     // Figure out how many photos already exist for this item
-	$query1 = "SELECT COUNT(*) co";
+	$query1 = "SELECT COUNT(*) co ";
 	$query1 .= "FROM item_photo ip ";
 	$query1 .= "WHERE ip.item_id=$iid";
 

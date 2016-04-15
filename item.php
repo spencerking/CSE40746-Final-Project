@@ -199,7 +199,7 @@ if (!isset($_SESSION['logged_in'])) {
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			
-			<div class="col-sm-11 align-left">
+			<div class="col-sm-12 pull-left">
 				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 					<ul>
 				    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
