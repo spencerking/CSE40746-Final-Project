@@ -212,7 +212,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div> <!-- END col-sm-6 -->
 
 		<div class="col-sm-6">
-			<div class="col-sm-12">
+			<div class="col-sm-11">
 				<h1 class="cover-heading text-left"><?php print "$n"; ?></h1>
 				<div class="col-sm-6">
 					<p class="text-left"><?php print "$d"; ?></p>
@@ -282,12 +282,12 @@ if (!isset($_SESSION['logged_in'])) {
 						{
 							print "
 								<hr/>
-								<form class=\"form-photo\" action=\"upload_photo.php?iid=$iid\" method=\"post\" enctype=\"multipart/form-data\">
+								<form class=\"form-photo\" action=\"upload_photo_backend.php?iid=$iid\" method=\"post\" enctype=\"multipart/form-data\">
 									<div class=\"form-group\">
 										<label for=\"inputItemPhoto\">Upload Another Photo</label>
 										<input type=\"file\" class=\"form-control-file\" id=\"inputItemPhoto\" name=\"itemPhoto\">
 									</div>
-									<button type=\"submit\" class=\"btn btn-default\">Upload Photo</button>
+									<button type=\"submit\" class=\"btn btn-default\">Add Photo</button>
 								</form>
 							";
 						}
