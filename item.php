@@ -199,7 +199,7 @@ if (!isset($_SESSION['logged_in'])) {
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			
-			<div class="col-sm-10">
+			<div class="col-sm-11">
 				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 					<ul>
 						<?php
@@ -207,9 +207,9 @@ if (!isset($_SESSION['logged_in'])) {
 								or die("Couldn't connect");
 
 							// Grab all of the photo filepaths excluding the main photo
-							$query4  = "SELECT filename ";
-							$query4 .= "FROM item_photo ";
-							$query4 .= "WHERE ip.item_id=$iid AND filename!=$fn";
+							$query4  = "SELECT ip.filename ";
+							$query4 .= "FROM item_photo ip";
+							$query4 .= "WHERE ip.item_id=$iid AND ip.filename!=$fn";
 
 							$stmt4 = oci_parse($conn, $query4);
 
