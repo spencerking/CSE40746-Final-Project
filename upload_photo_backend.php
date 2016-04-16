@@ -34,7 +34,7 @@
 	oci_execute($stmt1);
 	oci_fetch($stmt1);
 
-	print "Photos found with id $iid: $co";
+	print "Photos found with id $iid: $co\n";
 
 	$co += 1;
 
@@ -112,6 +112,6 @@
     // We don't need SQL anymore, shut it down
     oci_close($conn);
 
-    //header("Location: item.php?iid=$iid");
+    header("Location: item.php?iid=$iid");
 
 ?>
