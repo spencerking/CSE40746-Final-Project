@@ -222,9 +222,9 @@ if (!isset($_SESSION['logged_in'])) {
 							{
 								for ($i=0; $i<$nrows; $i++)
 								{
-									reset($results);
+									reset($res);
 									print "<li><a href=\"#\"><img id=\"scrimg\" src=";
-									while ($column=each($results))
+									while ($column=each($res))
 									{
 										$data = $column['value'];
 										print "\"server_images/$data[i]\"";
@@ -234,7 +234,7 @@ if (!isset($_SESSION['logged_in'])) {
 							}
 							else
 							{
-								print "No Additional photos";
+								print "No Additional photos\n";
 							}
 
 							oci_close($conn);
