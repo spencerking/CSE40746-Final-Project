@@ -34,6 +34,8 @@
 	oci_execute($stmt1);
 	oci_fetch($stmt1);
 
+	print "Photos found with id $iid: $co";
+
 	$co += 1;
 
 	$costr = "";
@@ -61,7 +63,7 @@
     }
     // Check if file already exists
     if (file_exists($new_filepath)) {
-        echo "File already exists.<br/>";
+        echo "File '$new_filepath' already exists.<br/>";
         $uploadOk = 0;
     }
     // Allow certain file formats
