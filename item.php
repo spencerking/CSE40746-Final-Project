@@ -229,7 +229,7 @@ if (!isset($_SESSION['logged_in'])) {
 										$data = $column['value'];
 										print "\"server_images/$data[$i]\"";
 									}
-									print "/></a></li>";
+									print "/></a></li>\n";
 								}
 							}
 							else
