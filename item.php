@@ -227,7 +227,7 @@ if (!isset($_SESSION['logged_in'])) {
 									while ($column=each($res))
 									{
 										$data = $column['value'];
-										print "\"server_images/$data[i]\"";
+										print "\"server_images/$data[$i]\"";
 									}
 									print "/></a></li>";
 								}
