@@ -211,6 +211,8 @@ if (!isset($_SESSION['logged_in'])) {
 							$query4 .= "FROM item_photo ip ";
 							$query4 .= "WHERE ip.item_id=$iid AND ip.filename!=$fn";
 
+							print $qeury4;
+
 							$stmt4 = oci_parse($conn, $query4);
 
 							oci_execute($stmt4);
