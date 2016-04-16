@@ -234,7 +234,7 @@ if (!isset($_SESSION['logged_in'])) {
 							}
 							else
 							{
-								print "No Additional photos\n";
+								print "<li><a href=\"#\"><img id=\"scrimg\" src=\"images/no-image.jpg\"/></a></li>\n";
 							}
 
 							oci_close($conn);
