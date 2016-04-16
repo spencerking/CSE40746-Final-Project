@@ -43,7 +43,7 @@
 		$costr = "0".$co;
 
     // TODO: Count the number of item photos for this item`
-    $new_file = $sid . $iid . $costr . $imageFileType;
+    $new_file = $sid . $iid . $costr. "." . $imageFileType;
     $new_filepath = $target_dir . $new_file;
 
     // Upload the image: code strongly based on W3Schools entry on PHP 5 file uploads
@@ -80,7 +80,7 @@
     {
         if (move_uploaded_file($_FILES["itemPhoto"]["tmp_name"], $new_filepath)) 
         {
-            echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded.<br/>";
+            echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded as $new_file.<br/>";
             // Add the item_photo filepath to the DB
             $description = "Item photo descriptions are not supported yet";
             $query2 = oci_parse($conn, "INSERT INTO item_photo (item_id, filename, description) VALUES(:item_id, :filename, :description)");

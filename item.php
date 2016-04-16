@@ -96,7 +96,7 @@ if (!isset($_SESSION['logged_in'])) {
 		$vendor_is_user = false;
 
 		$conn = oci_connect("guest", "guest", "xe")
-		or die("Couldn't connect");
+			or die("Couldn't connect");
 
 		$query1 = "SELECT i.seller_id s, i.name n, i.condition c, i.description d, i.price p, i.end_time e ";
 		$query1 .= "FROM item i ";
@@ -199,13 +199,48 @@ if (!isset($_SESSION['logged_in'])) {
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 			
-			<div class="col-sm-12 pull-left">
+			<div class="col-sm-10">
 				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 					<ul>
-				    	<li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
-				    	<li><a href="#"><img id="scrimg" src="server_images/56201.png" /></a></li>
-				    	<li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
-				    	<li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
+						<?php
+							$conn = oci_connect("guest", "guest", "xe")
+								or die("Couldn't connect");
+
+							// Grab all of the photo filepaths excluding the main photo
+							$query4  = "SELECT filename "
+							$query4 .= "FROM item_photo ";
+							$query4 .= "WHERE ip.item_id=$iid AND filename!=$fn";
+
+							$stmt4 = oci_parse($conn, $query4);
+
+							oci_execute($stmt4);
+							$nrows = oci_fetch_all($stmt4, $res);
+
+							if ($nrows > 0)
+							{
+								for ($i=0; $i<$nrows; $i++)
+								{
+									reset($results);
+									print "<li><a href=\"#\"><img id=\"scrimg\" src=";
+									while ($column=each($results))
+									{
+										$data = $column['value'];
+										print "\"server_images/$data[i]\"";
+									}
+									print "/></a></li>";
+								}
+							}
+							else
+							{
+								print "No Additional photos";
+							}
+
+							oci_close($conn);
+							// <li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
+					    	// <li><a href="#"><img id="scrimg" src="server_images/56201.png" /></a></li>
+					    	// <li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
+					    	// <li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
+						?>
 					</ul>
 				</div>
 			</div>
