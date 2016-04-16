@@ -207,7 +207,7 @@ if (!isset($_SESSION['logged_in'])) {
 								or die("Couldn't connect");
 
 							// Grab all of the photo filepaths excluding the main photo
-							$query4  = "SELECT filename "
+							$query4  = "SELECT filename ";
 							$query4 .= "FROM item_photo ";
 							$query4 .= "WHERE ip.item_id=$iid AND filename!=$fn";
 
