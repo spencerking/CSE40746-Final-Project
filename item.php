@@ -208,7 +208,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 							// Grab all of the photo filepaths excluding the main photo
 							$query4  = "SELECT ip.filename ";
-							$query4 .= "FROM item_photo ip";
+							$query4 .= "FROM item_photo ip ";
 							$query4 .= "WHERE ip.item_id=$iid AND ip.filename!=$fn";
 
 							$stmt4 = oci_parse($conn, $query4);
