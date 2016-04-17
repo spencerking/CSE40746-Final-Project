@@ -45,7 +45,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="home.php">NDBay</a>
-				<a class="navbar-brand">
+				<li class="navbar-brand">
 					<?php
 						$conn = oci_connect("guest", "guest", "xe")
 							or die("Couldn't connect");
@@ -56,7 +56,7 @@ if (!isset($_SESSION['logged_in'])) {
 						oci_fetch($stmt1);
 						print "$email"
 					?>
-				</a>
+				</li>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
