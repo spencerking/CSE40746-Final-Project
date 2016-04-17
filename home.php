@@ -54,7 +54,7 @@ if (!isset($_SESSION['logged_in'])) {
 						oci_define_by_name($stmt1, "EMAIL", $email);
 						oci_execute($stmt1);
 						oci_fetch($stmt1);
-						print "Hello, $email!"
+						print "$email"
 					?>
 				</a>
 			</div>
