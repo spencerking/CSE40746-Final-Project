@@ -317,7 +317,7 @@ if (!isset($_SESSION['logged_in'])) {
 								$ratio = 1;
 								if ($scot == 0 && $scof == 0)
 								{
-									print "<small>No seller history</small>";
+									print "<small>No seller history.</small>";
 								}
 								else
 								{
