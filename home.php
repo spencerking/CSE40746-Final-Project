@@ -118,7 +118,7 @@ if (!isset($_SESSION['logged_in'])) {
 					oci_fetch($stmt3);
 
 					print "<div class=\"col-md-4\">\n";
-					print "\t<img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\" style=\"height:150; width=auto;\"\>\n";
+					print "\t<img src=\"./server_images/".$fn."\" class=\"img-thumbnail\" style=\"height:10; width=auto;\"\>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
