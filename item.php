@@ -297,7 +297,7 @@ if ($vendor_is_user)
 						{
 							$btn_class .= " disabled";
 						} 
-						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
+						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Dislike This Item</button></a>\n";
 					?>				
 				</div>
 			</div>
