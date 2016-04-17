@@ -97,14 +97,18 @@ if (!isset($_SESSION['logged_in'])) {
       oci_define_by_name($stmt, "P", $p);
       oci_define_by_name($stmt, "D", $d);
       oci_execute($stmt);
-      while (oci_fetch($stmt)) {
-        print "$n    $p    $d";
+      if (!oci_fetch($stmt)) {
+        print "No transactions found :(";
       }
+      print "<tr>";
+      while (oci_fetch($stmt)) {
+        print "<td>$n</td><td>$p</td><td>$d</td>";
+      }
+      print "</tr>";
       oci_close($conn);
     ?>
   </div>
   <h2>Change Password</h2>
-  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#password">Change Password</button>
   <form class="form-signin" action="change_pass_backend.php" method="post">
     <label for="oldPass" class="sr-only">Old Password</label>
     <input type="password" id="oldPassword" name="oldPass" class="form-control" placeholder="Old Password" autofocus>
