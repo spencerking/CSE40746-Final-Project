@@ -402,13 +402,18 @@ if ($vendor_is_user)
 	</div> <!-- This is the end of the major content -->
 
 	<?php
-	print "
-		<div class=\"col-sm-12\" style=\"text-align:center;\">
-			<hr/>
-			<button type=\"button\" class=\"btn btn-danger\"><strong>DELETE THIS ITEM</strong></button>
-			<p class=\"text-danger\"><strong><br/>WARNING!!! This will permanently delete this item from the website!</strong></p>
-		</div>
-	";
+	if ($vendor_is_user)
+	{
+		print "
+			<div class=\"col-sm-12\" style=\"text-align:center;\">
+				<hr/>
+				<a href=\"#\">
+					<button type=\"button\" class=\"btn btn-danger\"><strong>DELETE THIS ITEM</strong></button>
+				</a>
+				<p class=\"text-danger\"><strong><br/>WARNING!!! This will permanently delete this item from the website!</strong></p>
+			</div>
+		";
+	}
 	?>
 </div> <!-- END container -->
 
