@@ -283,21 +283,25 @@ if ($vendor_is_user)
 				<div class="col-sm-6">
 					<?php
 						$btn_class = "btn btn-success";
+						$href = "favorite_backend.php?fav=1&iid=$iid";
 						if ($vendor_is_user)
 						{
 							$btn_class .= " disabled";
+							$href = "#";
 						}
-						print "<a href=\"favorite_backend.php?fav=1&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
+						print "<a href=\"$href\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
 					?>
 				</div>
 				<div class="col-sm-6">
 					<?php
 						$btn_class = "btn btn-danger";
+						$href = "favorite_backend.php?fav=0&iid=$iid";
 						if ($vendor_is_user)
 						{
 							$btn_class .= " disabled";
+							$href = "#";
 						} 
-						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Dislike This Item</button></a>\n";
+						print "<a href=\"$href\"><button class=\"$btn_class\" type=\"button\">Dislike This Item</button></a>\n";
 					?>				
 				</div>
 			</div>
