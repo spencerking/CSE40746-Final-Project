@@ -72,14 +72,19 @@
         echo "Only JPG, JPEG, PNG & GIF files are allowed.<br/>";
         $uploadOk = 0;
     }
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 8 * 1024 * 1024) {
+        echo "Sorry, your file is too large (Max file size: 8 MB).";
+        $uploadOk = 0;
+    }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) 
     {
         echo "Sorry, your file was not uploaded.<br/>";
     }
-    // if everything is ok, try to upload file
     else 
     {
+        // if everything is ok, try to upload file
         if (move_uploaded_file($_FILES["itemPhoto"]["tmp_name"], $new_filepath)) 
         {
             echo "The file ". basename( $_FILES["itemPhoto"]["name"]). " has been uploaded as $new_file.<br/>";
