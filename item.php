@@ -323,7 +323,7 @@ if (!isset($_SESSION['logged_in'])) {
 								{
 									$ratio = $scot / ($scot + $scof);
 									$percent = $ratio * 100;
-									print rount($percent) . "%";
+									print round($percent) . "%";
 								}
 
 								oci_close($conn);
