@@ -94,7 +94,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i ";
-			$query2 .= "WHERE i.seller_id=\"" . $_SESSION['user_id'] . "\"";
+			$query2 .= "WHERE i.seller_id=". $_SESSION['user_id'];
 
 			print $query2;
 
