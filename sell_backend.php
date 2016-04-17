@@ -101,7 +101,7 @@
 		$uploadOk = 0;
 	}
 	// Check file size
-	if ($_FILES["fileToUpload"]["size"] > 8 * 1024 * 1024) 
+	if ($_FILES["itemPhoto"]["size"] > 8 * 1024 * 1024) 
 	{
 		echo "Sorry, your file is too large (Max file size: 8 MB).";
 		$uploadOk = 0;
