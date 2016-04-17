@@ -108,8 +108,8 @@ if (!isset($_SESSION['logged_in'])) {
 				while ($row != false)
 				{
 					print "<div class=\"col-md-4\">\n";
-					print "\t<h2><a href=\"item.php?iid=".$row['iid']."\">".$row['name']."</a></h2>\n";
-					print "\t<p>".$row['des']."</p>\n";
+					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
+					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
 
 					$row = oci_fetch_assoc($stmt2);
