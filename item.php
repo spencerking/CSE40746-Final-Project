@@ -234,6 +234,7 @@ if (!isset($_SESSION['logged_in'])) {
 							}
 							else
 							{
+								// There are no additional images, print the no images picture
 								print "<li><a href=\"#\"><img id=\"scrimg\" src=\"images/no-image.jpg\"/></a></li>\n";
 							}
 
