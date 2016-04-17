@@ -282,12 +282,22 @@ if ($vendor_is_user)
 				<hr/>
 				<div class="col-sm-6">
 					<?php
-						print "<a href=\"favorite_backend.php?fav=1&iid=$iid\"><button class=\"btn btn-success\" type=\"button\">Favorite This Item</button></a>\n";
+						$btn_class = "btn btn-success"
+						if ($vendor_is_user)
+						{
+							$btn_class .= " disabled"
+						}
+						print "<a href=\"favorite_backend.php?fav=1&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
 					?>
 				</div>
 				<div class="col-sm-6">
 					<?php
-						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"btn btn-danger\" type=\"button\">Favorite This Item</button></a>\n";
+						$btn_class = "btn btn-danger"
+						if ($vendor_is_user)
+						{
+							$btn_class .= " disabled"
+						} 
+						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
 					?>				
 				</div>
 			</div>
@@ -354,7 +364,7 @@ if ($vendor_is_user)
 					</p>
 				</div>
 				<div class="col-sm-4">
-					<h5 name="This is here to push the message button down a little bit"></h5>
+					<h5></h5>
 					<?php
 					if ($vendor_is_user)
 					{
