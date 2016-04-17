@@ -86,8 +86,8 @@ if (!isset($_SESSION['logged_in'])) {
 </nav>
 
 <div class="container">
-  <h2>Transaction History</h2>
-  <div id="history" class="collapse">
+  <h2 align="center">Transaction History</h2>
+  <div id="history">
     <?php
       $conn = oci_connect("guest", "guest", "xe")
         or die("Couldn't connect");
@@ -98,7 +98,7 @@ if (!isset($_SESSION['logged_in'])) {
       oci_define_by_name($stmt, "D", $d);
       oci_execute($stmt);
       if (!oci_fetch($stmt)) {
-        print "No transactions found :(";
+        print "<p>No transactions found :(</p>";
       }
       print "<tr>";
       while (oci_fetch($stmt)) {
@@ -108,7 +108,7 @@ if (!isset($_SESSION['logged_in'])) {
       oci_close($conn);
     ?>
   </div>
-  <h2>Change Password</h2>
+  <h2 align="center">Change Password</h2>
   <form class="form-signin" action="change_pass_backend.php" method="post">
     <label for="oldPass" class="sr-only">Old Password</label>
     <input type="password" id="oldPassword" name="oldPass" class="form-control" placeholder="Old Password" autofocus>
