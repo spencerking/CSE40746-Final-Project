@@ -285,7 +285,7 @@ if ($vendor_is_user)
 						$btn_class = "btn btn-success";
 						if ($vendor_is_user)
 						{
-							$btn_class .= " disabled"
+							$btn_class .= " disabled";
 						}
 						print "<a href=\"favorite_backend.php?fav=1&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
 					?>
@@ -295,7 +295,7 @@ if ($vendor_is_user)
 						$btn_class = "btn btn-danger";
 						if ($vendor_is_user)
 						{
-							$btn_class .= " disabled"
+							$btn_class .= " disabled";
 						} 
 						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
 					?>				
