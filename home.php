@@ -96,6 +96,8 @@ if (!isset($_SESSION['logged_in'])) {
 			$query2 .= "FROM item i ";
 			$query2 .= "WHERE i.seller_id=\"" . $_SESSION['user_id'] . "\"";
 
+			print $query2;
+
 			$stmt2 = oci_parse($conn, $query2);
 
 			oci_execute($stmt2);
