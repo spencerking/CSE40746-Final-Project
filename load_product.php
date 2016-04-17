@@ -7,8 +7,6 @@
 	$query1 .= "WHERE i.item_id=7";
 	
 	$stmt = oci_parse($conn, $query1);
-
-
 	oci_define_by_name($stmt, "S", $s);
 	oci_define_by_name($stmt, "N", $n);
 	oci_define_by_name($stmt, "C", $c);

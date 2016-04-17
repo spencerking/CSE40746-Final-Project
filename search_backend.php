@@ -96,7 +96,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 	if (isset($_POST['search'])) {
 		$searchText = $_POST['search'];
-		$searchText = str_replace("'", '', $searchText);
+		$searchText = strtolower(str_replace("'", '', $searchText));
 	}
 	$query = 'SELECT name, condition, description, price, end_time, item_id FROM item WHERE LOWER(name) LIKE \'%'.$searchText.'%\'';
 	$stid = oci_parse($conn, $query);
