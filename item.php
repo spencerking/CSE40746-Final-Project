@@ -115,7 +115,7 @@ if (!isset($_SESSION['logged_in'])) {
 	oci_execute($stmt1);
 	oci_fetch($stmt1);
 
-		// Write query on item_photo for filepath
+	// Write query on item_photo for filepath
 	$query3 = "SELECT ip.filename fn, ip.description de ";
 	$query3 .= "FROM item_photo ip ";
 	$query3 .= "WHERE ip.item_id=$iid";
@@ -128,7 +128,7 @@ if (!isset($_SESSION['logged_in'])) {
 	oci_execute($stmt3);
 	oci_fetch($stmt3);
 
-			// Write query on domer for seller's name and id
+	// Write query on domer for seller's name and id
 	$query2 = "SELECT d.email e ";
 	$query2 .= "FROM domer d ";
 	$query2 .= "WHERE d.user_id=$s";
@@ -140,7 +140,7 @@ if (!isset($_SESSION['logged_in'])) {
 	oci_execute($stmt2);
 	oci_fetch($stmt2);
 
-			// Close the connection
+	// Close the connection
 	oci_close($conn);
 
 	if ($_SESSION['user_id'] == $s)
