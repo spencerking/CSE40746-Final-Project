@@ -399,8 +399,15 @@ if ($vendor_is_user)
 				?>
 			</div> <!-- END col-sm-12 -->
 		</div> <!-- END col-sm-12 -->
-	</div>
+	</div> <!-- This is the end of the major content -->
 
+	<?php
+	print "
+		<div class="col-sm-12">
+			<button type="button" class="btn btn-danger"><strong>DELETE THIS ITEM</strong></button>
+		</div>
+	";
+	?>
 </div> <!-- END container -->
 
 <hr/>
