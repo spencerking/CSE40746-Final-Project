@@ -64,31 +64,14 @@
 	oci_execute($stmt1);
 	oci_fetch($stmt1);
 
-	// Nail down some of the file-related variables
-	$target_dir = "./server_images/";
-	$target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
-	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	$new_file = $seller_id . $iid . "01." . $imageFileType;
-	$new_filepath = $target_dir . $new_file;
+    // Nail down some of the file-related variables
+    $target_dir = "./server_images/";
+    $target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-	// Add the item_photo filepath to the DB
-	$description = "Item photo descriptions are not supported yet";
-	$query2 = oci_parse($conn, "INSERT INTO item_photo (item_id, filename, description) VALUES(:item_id, :filename, :description)");
-	oci_bind_by_name($query2, ":item_id", $iid);
-	oci_bind_by_name($query2, ":filename", $new_file);
-	oci_bind_by_name($query2, ":description", $description);
-	$r2 = oci_execute($query2);
-
-	// error catching
-	if (!$r2) {
-		$e = oci_error($query);  // For oci_execute errors pass the statement handle
-		print htmlentities($e['message']);
-		print "\n<pre>\n";
-		print htmlentities($e['sqltext']);
-		printf("\n%".($e['offset']+1)."s", "^");
-		print  "\n</pre>\n";
-	}
+    $new_file = $seller_id . $iid . "01". "." . $imageFileType;
+    $new_filepath = $target_dir . $new_file;
 
 	// Upload the image: code strongly based on W3Schools entry on PHP 5 file uploads
 

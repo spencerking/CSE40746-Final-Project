@@ -44,7 +44,6 @@
 	else
 		$costr = "0".$co;
 
-    // TODO: Count the number of item photos for this item`
     $new_file = $sid . $iid . $costr. "." . $imageFileType;
     $new_filepath = $target_dir . $new_file;
 
