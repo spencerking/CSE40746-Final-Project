@@ -56,6 +56,7 @@ if (!isset($_SESSION['logged_in'])) {
 							oci_execute($stmt1);
 							oci_fetch($stmt1);
 							print "$email"
+							oci_close($conn);
 						?>
 					</small>
 				</a>
@@ -86,6 +87,42 @@ if (!isset($_SESSION['logged_in'])) {
 <div class="container">
 	<h2>Your Listed Items:</h2>
 	<div class="row">
+		<?php
+			// Grab all of the items being sold by this user.
+			$conn = oci_connect("guest", "guest", "xe")
+				or die("Couldn't connect");
+
+			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
+			$query2 .= "FROM item i ";
+			$query2 .= "WHERE i.seller_id=\"" . $_SESSION['user_id'] . "\"";
+
+			$stmt2 = oci_parse($conn, $query2);
+
+			oci_execute($stmt2);
+			
+			$row = oci_fetch_assoc($stmt2);
+			if ($row != false)
+			{
+				while ($row != false)
+				{
+					print "<div class=\"col-md-4\">\n";
+					print "\t<h2><a href=\"item.php?iid=".$row['iid']."\">".$row['name']."</a></h2>\n";
+					print "\t<p>".$row['des']."</p>\n";
+					print "</div>\n";
+
+					$row = oci_fetch_assoc($stmt2);
+				}	
+			}
+			else
+			{
+				// There are no items for this user
+				print "<div class=\"col-md-4\">\n";
+				print "\t<h2><a>No Items Listed</a></h2>\n";
+				print "</div>\n";
+			}
+
+			oci_close($conn);
+		?>
 		<div class="col-md-4">
 			<h2><a>Heading</a></h2>
 			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
