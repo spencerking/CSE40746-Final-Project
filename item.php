@@ -284,6 +284,15 @@ if ($vendor_is_user)
 			</div>
 			<div class="col-sm-12">
 				<hr/>
+				<div class="col-sm-6">
+					<button class="btn btn-success" type="button">Favorite This Item</button>
+				</div>
+				<div class="col-sm-6">
+					<button class="btn btn-danger" type="button">Ignore This Item</button>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<hr/>
 				<h4 class="text-left">Item Properties:</h4> 
 				<div class="col-sm-4">
 					<h5 class="text-left">Price:</h5>
