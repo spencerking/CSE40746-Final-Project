@@ -285,10 +285,14 @@ if ($vendor_is_user)
 			<div class="col-sm-12">
 				<hr/>
 				<div class="col-sm-6">
-					<button class="btn btn-success" type="button">Favorite This Item</button>
+					<?php
+						print "<button href=\"favorite_backend.php?fav=1&iid=$iid\" class=\"btn btn-success\" type=\"button\">Favorite This Item</button>";
+					?>
 				</div>
 				<div class="col-sm-6">
-					<button class="btn btn-danger" type="button">Ignore This Item</button>
+					<?php
+						print "<button href=\"favorite_backend.php?fav=0&iid=$iid\" class=\"btn btn-success\" type=\"button\">Favorite This Item</button>";
+					?>				
 				</div>
 			</div>
 			<div class="col-sm-12">
