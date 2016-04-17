@@ -403,8 +403,9 @@ if ($vendor_is_user)
 
 	<?php
 	print "
-		<div class=\"col-sm-12\">
-			<button type=\"button\" class=\"btn btn-danger center\"><strong>DELETE THIS ITEM</strong></button>
+		<div class=\"col-sm-12\" style=\"text-align:center;\">
+			<button type=\"button\" class=\"btn btn-danger\"><strong>DELETE THIS ITEM</strong></button>
+			<p><strong>WARNING!!! This will permanently delete this item from the website!</strong></p>
 		</div>
 	";
 	?>
