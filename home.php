@@ -117,12 +117,18 @@ if (!isset($_SESSION['logged_in'])) {
 					oci_execute($stmt3);
 					oci_fetch($stmt3);
 
+					if ($fn == NULL)
+					{
+						$fn = "no-image.jpg";
+					}
+
 					print "<div class=\"col-md-4\">\n";
 					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
 
+					$fn = NULL;
 					$row = oci_fetch_assoc($stmt2);
 				}	
 			}
@@ -147,7 +153,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i, favorite f ";
-			$query2 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=1";
+			$query2 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=1 AND f.item_id=i.item_id";
 
 			$stmt2 = oci_parse($conn, $query2);
 
@@ -170,12 +176,18 @@ if (!isset($_SESSION['logged_in'])) {
 					oci_execute($stmt3);
 					oci_fetch($stmt3);
 
+					if ($fn == NULL)
+					{
+						$fn = "no-image.jpg";
+					}
+
 					print "<div class=\"col-md-4\">\n";
 					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
 
+					$fn = NULL;
 					$row = oci_fetch_assoc($stmt2);
 				}	
 			}
