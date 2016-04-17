@@ -252,18 +252,18 @@ if (!isset($_SESSION['logged_in'])) {
 		<div class="col-sm-6">
 			<div class="col-sm-11">
 				<h1 class="cover-heading text-left"><?php print "$n"; ?></h1>
-				<div class="col-sm-6">
+				<div class="col-sm-8">
 					<p class="text-left"><?php print "$d"; ?></p>
 				</div>  
-				<div class="col-sm-6">
+				<div class="col-sm-4">
 					<?php
 						if ($vendor_is_user)
 						{
-							print "<button class=\"btn btn-primary center disabled\" type=\"button\">Buy It!!!</button>";
+							print "<button class=\"btn btn-primary center disabled\" type=\"button\">Buy</button>";
 						}
 						else
 						{
-							print "<button class=\"btn btn-primary center\" type=\"button\">Buy It!!!</button>";
+							print "<button class=\"btn btn-primary center\" type=\"button\">Buy</button>";
 						}
 						
 					?>
@@ -298,7 +298,30 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					<div class="col-sm-4">
 						<h5 class="text-left">Follow-Up Rate:</h5>
-						<p class="text-left">*45%*</p>
+						<p class="text-left">
+							<?php
+								$conn = oci_connect("guest", "guest", "xe")
+									or die("Couldn't connect");
+								$query5 = "SELECT COUNT(*) scot FROM transaction WHERE (buyer_id=$s OR seller_id=$s) AND status=1";
+								$stmt5 = oci_parse($conn, $query5);
+								oci_define_by_name($stmt5, "SCOT", $scot);
+								oci_execute($stmt5);
+								oci_fetch($stmt5);
+
+								$query6 = "SELECT COUNT(*) scof FROM transaction WHERE (buyer_id=$s OR seller_id=$s) AND status=0";
+								$stmt6 = oci_parse($conn, $query6);
+								oci_define_by_name($stmt6, "SCOF", $scof);
+								oci_execute($stmt6);
+								oci_fetch($stmt6);
+
+								$ratio = $scot / ($scot + $scof);
+								$percent = $ratio * 100;
+
+								print rount($percent) . "%";
+
+								oci_close($conn);
+							?>
+						</p>
 					</div>
 					<div class="col-sm-4">
 						<h5 name="This is here to push the message button down a little bit"></h5>
