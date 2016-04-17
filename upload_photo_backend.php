@@ -34,7 +34,7 @@
 	oci_execute($stmt1);
 	oci_fetch($stmt1);
 
-	print "Photos found with id $iid: $co\n";
+	print "Photos found with id $iid: $co<br/>";
 
 	$co += 1;
 
