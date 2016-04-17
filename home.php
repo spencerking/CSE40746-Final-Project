@@ -140,18 +140,55 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<h2>Your Favorites:</h2>
 	<div class="row">
-		<div class="col-md-4">
-			<h2><a>Heading</a></h2>
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-		</div>
-		<div class="col-md-4">
-			<h2><a>Heading</a></h2>
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-		</div>
-		<div class="col-md-4">
-			<h2><a>Heading</a></h2>
-			<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-		</div>
+		<?php
+			// Grab all of the items being sold by this user.
+			$conn = oci_connect("guest", "guest", "xe")
+				or die("Couldn't connect");
+
+			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
+			$query2 .= "FROM item i, favorite f ";
+			$query2 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=1";
+
+			$stmt2 = oci_parse($conn, $query2);
+
+			oci_execute($stmt2);
+			
+			$row = oci_fetch_assoc($stmt2);
+			if ($row != false)
+			{
+				while ($row != false)
+				{			
+					// Write query on item_photo for filepath
+					$query3 = "SELECT ip.filename fn, ip.description de ";
+					$query3 .= "FROM item_photo ip ";
+					$query3 .= "WHERE ip.item_id=".$row['IID'];
+
+					$stmt3 = oci_parse($conn, $query3);
+					oci_define_by_name($stmt3, "FN", $fn);
+					oci_define_by_name($stmt3, "DE", $de);
+
+					oci_execute($stmt3);
+					oci_fetch($stmt3);
+
+					print "<div class=\"col-md-4\">\n";
+					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
+					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
+					print "\t<p>".$row['DES']."</p>\n";
+					print "</div>\n";
+
+					$row = oci_fetch_assoc($stmt2);
+				}	
+			}
+			else
+			{
+				// There are no items for this user
+				print "<div class=\"col-md-4\">\n";
+				print "\t<h2><a>No Favorited Items</a></h2>\n";
+				print "</div>\n";
+			}
+
+			oci_close($conn);
+		?>
 	</div>
 
 	<hr>
