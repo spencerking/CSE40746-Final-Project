@@ -20,7 +20,7 @@
     $target_dir = "./server_images/";
     $target_file = $target_dir . basename($_FILES["itemPhoto"]["name"]);
     $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     // Figure out how many photos already exist for this item
 	$query1 = "SELECT COUNT(*) co ";
