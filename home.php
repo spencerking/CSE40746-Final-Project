@@ -92,19 +92,6 @@ if (!isset($_SESSION['logged_in'])) {
 			$conn = oci_connect("guest", "guest", "xe")
 				or die("Couldn't connect");
 
-			// Write query on item_photo for filepath
-			$query3 = "SELECT ip.filename fn, ip.description de ";
-			$query3 .= "FROM item_photo ip ";
-			$query3 .= "WHERE ip.item_id=$iid";
-
-			$stmt3 = oci_parse($conn, $query3);
-
-			oci_define_by_name($stmt3, "FN", $fn);
-			oci_define_by_name($stmt3, "DE", $de);
-
-			oci_execute($stmt3);
-			oci_fetch($stmt3);
-
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i ";
 			$query2 .= "WHERE i.seller_id=". $_SESSION['user_id'];
@@ -117,7 +104,19 @@ if (!isset($_SESSION['logged_in'])) {
 			if ($row != false)
 			{
 				while ($row != false)
-				{
+				{			
+					// Write query on item_photo for filepath
+					$query3 = "SELECT ip.filename fn, ip.description de ";
+					$query3 .= "FROM item_photo ip ";
+					$query3 .= "WHERE ip.item_id=".$row['IID'];
+
+					$stmt3 = oci_parse($conn, $query3);
+					oci_define_by_name($stmt3, "FN", $fn);
+					oci_define_by_name($stmt3, "DE", $de);
+
+					oci_execute($stmt3);
+					oci_fetch($stmt3);
+					
 					print "<div class=\"col-md-4\">\n";
 					print "\t<img src=\"./server_imaages/".$fn." class=\"img-thumbnail\"\>";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
