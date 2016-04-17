@@ -51,7 +51,7 @@ if (!isset($_SESSION['logged_in'])) {
     {
         // Insert the favorite
         $query2 =  "INSERT INTO favorite (user_id, item_id, status) ";
-        $query2 .= "VALUES ($_SESSION['user_id'], $iid, $fav_status)";
+        $query2 .= "VALUES (".$_SESSION['user_id'].", $iid, $fav_status)";
         $stmt2 = oci_parse($conn, $query2);
         $r = oci_execute($stmt2);
         // Error checking
