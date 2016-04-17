@@ -253,10 +253,6 @@ if ($vendor_is_user)
 					}
 
 					oci_close($conn);
-							// <li><a href="#"><img id="scrimg" src="server_images/5701.jpg" /></a></li>
-					    	// <li><a href="#"><img id="scrimg" src="server_images/56201.png" /></a></li>
-					    	// <li><a href="#"><img id="scrimg" src="server_images/pikachu.jpg" /></a></li>
-					    	// <li><a href="#"><img id="scrimg" src="server_images/53801.jpg" /></a></li>
 					?>
 				</ul>
 			</div>
@@ -286,12 +282,12 @@ if ($vendor_is_user)
 				<hr/>
 				<div class="col-sm-6">
 					<?php
-						print "<button href=\"favorite_backend.php?fav=1&iid=$iid\" class=\"btn btn-success\" type=\"button\">Favorite This Item</button>";
+						print "<a href=\"favorite_backend.php?fav=1&iid=$iid\"><button class=\"btn btn-success\" type=\"button\">Favorite This Item</button></a>\n";
 					?>
 				</div>
 				<div class="col-sm-6">
 					<?php
-						print "<button href=\"favorite_backend.php?fav=0&iid=$iid\" class=\"btn btn-success\" type=\"button\">Favorite This Item</button>";
+						print "<a href=\"favorite_backend.php?fav=0&iid=$iid\"><button class=\"btn btn-danger\" type=\"button\">Favorite This Item</button></a>\n";
 					?>				
 				</div>
 			</div>
