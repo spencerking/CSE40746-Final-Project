@@ -314,10 +314,17 @@ if (!isset($_SESSION['logged_in'])) {
 								oci_execute($stmt6);
 								oci_fetch($stmt6);
 
-								$ratio = $scot / ($scot + $scof);
-								$percent = $ratio * 100;
-
-								print rount($percent) . "%";
+								$ratio = 1;
+								if ($scot == 0 && $scof == 0)
+								{
+									print "No History for sid: $s";
+								}
+								else
+								{
+									$ratio = $scot / ($scot + $scof);
+									$percent = $ratio * 100;
+									print rount($percent) . "%";
+								}
 
 								oci_close($conn);
 							?>
