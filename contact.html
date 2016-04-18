@@ -14,6 +14,10 @@
 
     <!-- Custom styles for this template -->
     <link href="styles/index.css" rel="stylesheet">
+    <link href="styles/contact.css" rel="stylesheet">
+
+</style>
+
   </head>
 
   <body>
@@ -36,7 +40,19 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">Meet the team:</h1>
-            <p class="lead">Thomas Deranek, Spencer King, David Wu</p>
+            <p class="lead"><span id="thomas">Thomas Deranek,</span> <span id="spencer">Spencer King, </span> <span id="david">David Wu</span></p>
+              <div id="spencer_info">
+                <h2>Spencer King</h2>
+                <p>Senior, St. Edward's Hall</p>
+              </div>
+              <div id="david_info">
+                <h2>David Wu</h2>
+                <p>Senior, Zahm House</p>
+              </div>
+              <div id="thomas_info">
+                <h2>Thomas Deranek</h2>
+                <p>Senior, Stanford Hall</p>
+              </div>
           </div>
 
           <div class="mastfoot">
@@ -57,5 +73,40 @@
     <script src="js/jquery-2.2.2.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-2.2.2.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+      $(function() {
+        $('#spencer').hover(function() {
+          $('#spencer_info').css('visibility', 'visible');
+          $('#spencer_info').css('z-index', '1');
+        }, function() {
+          // on mouseout, reset
+          $('#spencer_info').css('visibility', 'hidden');
+          $('#spencer_info').css('z-index', '-1');
+        });
+      });
+
+      $(function() {
+        $('#david').hover(function() {
+          $('#david_info').css('visibility', 'visible');
+          $('#david_info').css('z-index', '1');
+        }, function() {
+          // on mouseout, reset
+          $('#david_info').css('visibility', 'hidden');
+          $('#david_info').css('z-index', '-1');
+        });
+      });
+
+      $(function() {
+        $('#thomas').hover(function() {
+          $('#thomas_info').css('visibility', 'visible');
+          $('#thomas_info').css('z-index', '1');
+        }, function() {
+          // on mouseout, reset
+          $('#thomas_info').css('visibility', 'hidden');
+          $('#thomas_info').css('z-index', '-1');
+        });
+      });
+    </script>
   </body>
 </html>

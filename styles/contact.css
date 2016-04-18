@@ -1,0 +1,20 @@
+#spencer_info {
+	left: 40%;
+	position: absolute;
+	visibility: hidden;
+	z-index: -1;
+}
+
+#david_info {
+	left: 40%;
+	position: absolute;
+	visibility: hidden;
+	z-index: -1;
+}
+
+#thomas_info {
+	left: 40%;
+	position: absolute;
+	visibility: hidden;
+	z-index: -1;
+}
