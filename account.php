@@ -31,6 +31,12 @@ if (!isset($_SESSION['logged_in'])) {
     footer {
       text-align: center;
     }
+    .container h2 {
+      text-align: center;
+    }
+    .container p {
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -86,7 +92,7 @@ if (!isset($_SESSION['logged_in'])) {
 </nav>
 
 <div class="container">
-  <h2 align="center">Transaction History</h2>
+  <h2>Transaction History</h2>
   <div id="history">
     <?php
       $conn = oci_connect("guest", "guest", "xe")
@@ -97,18 +103,18 @@ if (!isset($_SESSION['logged_in'])) {
       oci_define_by_name($stmt, "P", $p);
       oci_define_by_name($stmt, "D", $d);
       oci_execute($stmt);
-      if (!oci_fetch($stmt)) {
+      print "<table>";
+      while (oci_fetch($stmt)) {
+        print "<tr><td>$n</td><td>$p</td><td>$d</td></tr>";
+      }
+      print "</table>";
+      if (oci_num_rows($stmt) == 0) {
         print "<p>No transactions found :(</p>";
       }
-      print "<tr>";
-      while (oci_fetch($stmt)) {
-        print "<td>$n</td><td>$p</td><td>$d</td>";
-      }
-      print "</tr>";
       oci_close($conn);
     ?>
   </div>
-  <h2 align="center">Change Password</h2>
+  <h2>Change Password</h2>
   <form class="form-signin" action="change_pass_backend.php" method="post">
     <label for="oldPass" class="sr-only">Old Password</label>
     <input type="password" id="oldPassword" name="oldPass" class="form-control" placeholder="Old Password" autofocus>
