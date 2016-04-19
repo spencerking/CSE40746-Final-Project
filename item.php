@@ -396,7 +396,7 @@ if ($vendor_is_user) {
     print "
       <div class=\"col-sm-12\" style=\"text-align:center;\">
         <hr/>
-        <a href=\"#\">
+        <a href=\"delete_item_backend.php?iid=$iid&sid=$s\">
           <button type=\"button\" class=\"btn btn-danger\"><strong>DELETE THIS ITEM</strong></button>
         </a>
         <p class=\"text-danger\"><strong><br/>WARNING!!! This will permanently delete this item from the website!</strong></p>
