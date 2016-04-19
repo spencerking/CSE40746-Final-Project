@@ -269,7 +269,8 @@ if ($vendor_is_user) {
       </div>
       <div class="col-sm-12">
         <hr/>
-        <div class="col-sm-2"
+        <div class="col-sm-2">
+        </div>
         <div class="col-sm-6">
           <?php
             $btn_class = "btn btn-success";
