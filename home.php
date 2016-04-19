@@ -55,6 +55,12 @@ if (!isset($_SESSION['logged_in'])) {
 					<li><a href="sell.php">Sell</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
+					<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+						<div class="form-group">
+							<input type="text" class="form-control" name="search" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">Go</button>
+					</form>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
@@ -75,12 +81,6 @@ if (!isset($_SESSION['logged_in'])) {
 						</ul>
 					</li>
 				</ul>
-				<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" name="search" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">Go</button>
-				</form>
 			</div>
 		</div>
 	</div>
