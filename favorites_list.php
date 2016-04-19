@@ -84,68 +84,8 @@ if (!isset($_SESSION['logged_in'])) {
 	</div>
 </nav>
 
-<h1 class=text-center>Welcome to NDBay!</h1>
+<h1 class=text-center>My Favorite Items</h1>
 <div class="container">
-	<h2>Your Listed Items:</h2>
-	<div class="row">
-		<?php
-			// Grab all of the items being sold by this user.
-			$conn = oci_connect("guest", "guest", "xe")
-				or die("Couldn't connect");
-
-			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
-			$query2 .= "FROM item i ";
-			$query2 .= "WHERE i.seller_id=". $_SESSION['user_id'];
-
-			$stmt2 = oci_parse($conn, $query2);
-
-			oci_execute($stmt2);
-			
-			$row = oci_fetch_assoc($stmt2);
-			if ($row != false)
-			{
-				while ($row != false)
-				{			
-					// Write query on item_photo for filepath
-					$query3 = "SELECT ip.filename fn, ip.description de ";
-					$query3 .= "FROM item_photo ip ";
-					$query3 .= "WHERE ip.item_id=".$row['IID'];
-
-					$stmt3 = oci_parse($conn, $query3);
-					oci_define_by_name($stmt3, "FN", $fn);
-					oci_define_by_name($stmt3, "DE", $de);
-
-					oci_execute($stmt3);
-					oci_fetch($stmt3);
-
-					if ($fn == NULL)
-					{
-						$fn = "no-image.jpg";
-					}
-
-					print "<div class=\"col-md-4\">\n";
-					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
-					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
-					print "\t<p>".$row['DES']."</p>\n";
-					print "</div>\n";
-
-					$fn = NULL;
-					$row = oci_fetch_assoc($stmt2);
-				}	
-			}
-			else
-			{
-				// There are no items for this user
-				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Items Listed</a></h2>\n";
-				print "</div>\n";
-			}
-
-			oci_close($conn);
-		?>
-	</div>
-
-	<h2>Your Favorites:</h2>
 	<div class="row">
 		<?php
 			// Grab all of the items being sold by this user.
