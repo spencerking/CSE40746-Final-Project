@@ -269,9 +269,9 @@ if ($vendor_is_user) {
       </div>
       <div class="col-sm-12">
         <hr/>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <?php
             $btn_class = "btn btn-success";
             $href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
