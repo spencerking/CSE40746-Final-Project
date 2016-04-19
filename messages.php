@@ -54,20 +54,6 @@ $user_id = $_SESSION["user_id"];
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="home.php">NDBay</a>
-				<a class="navbar-brand">
-					<small>
-						<?php
-							$conn = oci_connect("guest", "guest", "xe")
-								or die("Couldn't connect");
-							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
-							$stmt1 = oci_parse($conn, $query1);
-							oci_define_by_name($stmt1, "EMAIL", $email);
-							oci_execute($stmt1);
-							oci_fetch($stmt1);
-							print "$email"
-						?>
-					</small>
-				</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -75,7 +61,19 @@ $user_id = $_SESSION["user_id"];
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li class="active"><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
+							<?php
+							$conn = oci_connect("guest", "guest", "xe")
+								or die("Couldn't connect");
+							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
+							$stmt1 = oci_parse($conn, $query1);
+							oci_define_by_name($stmt1, "EMAIL", $email);
+							oci_execute($stmt1);
+							oci_fetch($stmt1);
+							print "$email ";
+							oci_close($conn);
+							?>
+						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
 							<li><a href="">Sign out</a></li>
