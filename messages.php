@@ -54,20 +54,18 @@ $user_id = $_SESSION["user_id"];
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="home.php">NDBay</a>
+				<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+					<div class="form-group">
+						<input type="text" class="form-control" name="search" placeholder="Search Items">
+					</div>
+					<button type="submit" class="btn btn-default">Go</button>
+				</form>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="sell.php">Sell</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li class="active"><a href="messages.php">Messages</a></li>
-					<li>
-						<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
-							<div class="form-group">
-								<input type="text" class="form-control" name="search" placeholder="Search Items">
-							</div>
-							<button type="submit" class="btn btn-default">Go</button>
-						</form>
-					</li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
