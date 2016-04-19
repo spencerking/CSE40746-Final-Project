@@ -86,11 +86,12 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 <div class="container">
-	<h1 class=text-left><strong>My Favorite Items</strong></h1>
+	<h1 class="text-left"><strong>Liked and Disliked Items</strong></h1>
 	<hr/>
+	<h2 class="text-left">Favorites:</h2>
 	<div class="row">
 		<?php
-			// Grab all of the items being sold by this user.
+			// Grab all of the items favorited by this user.
 			$conn = oci_connect("guest", "guest", "xe")
 				or die("Couldn't connect");
 
@@ -105,7 +106,8 @@ if (!isset($_SESSION['logged_in'])) {
 			$row = oci_fetch_assoc($stmt2);
 			if ($row != false)
 			{
-				while ($row != false)
+				$favorites_on_homepage = 0;
+				while ($row != false && $favorites_on_homepage < 6)
 				{			
 					// Write query on item_photo for filepath
 					$query3 = "SELECT ip.filename fn, ip.description de ";
@@ -132,6 +134,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 					$fn = NULL;
 					$row = oci_fetch_assoc($stmt2);
+					$favorites_on_homepage += 1;
 				}	
 			}
 			else
@@ -146,8 +149,66 @@ if (!isset($_SESSION['logged_in'])) {
 		?>
 	</div>
 
-	<hr>
+	<h2 class="text-left">Disliked Items:</h2>
+	<div class="row">
+		<?php
+			// Grab all of the items disliked by this user.
+			$conn = oci_connect("guest", "guest", "xe")
+				or die("Couldn't connect");
 
+			$query4  = "SELECT i.item_id iid, i.description des, i.name name ";
+			$query4 .= "FROM item i, favorite f ";
+			$query4 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=0 AND f.item_id=i.item_id";
+
+			$stmt4 = oci_parse($conn, $query4);
+
+			oci_execute($stmt4);
+			
+			$row = oci_fetch_assoc($stmt4);
+			if ($row != false)
+			{
+				while ($row != false)
+				{			
+					// Write query on item_photo for filepath
+					$query5 = "SELECT ip.filename fn, ip.description de ";
+					$query5 .= "FROM item_photo ip ";
+					$query5 .= "WHERE ip.item_id=".$row['IID'];
+
+					$stmt5 = oci_parse($conn, $query5);
+					oci_define_by_name($stmt5, "FN", $fn);
+					oci_define_by_name($stmt5, "DE", $de);
+
+					oci_execute($stmt5);
+					oci_fetch($stmt5);
+
+					if ($fn == NULL)
+					{
+						$fn = "no-image.jpg";
+					}
+
+					print "<div class=\"col-md-4\">\n";
+					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
+					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
+					print "\t<p>".$row['DES']."</p>\n";
+					print "</div>\n";
+
+					$fn = NULL;
+					$row = oci_fetch_assoc($stmt4);
+				}	
+			}
+			else
+			{
+				// There are no items for this user
+				print "<div class=\"col-md-4\">\n";
+				print "\t<h2><a>No Disliked Items</a></h2>\n";
+				print "</div>\n";
+			}
+
+			oci_close($conn);
+		?>
+	</div>
+
+	<hr/>
 	<footer>
 		<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
 	</footer>

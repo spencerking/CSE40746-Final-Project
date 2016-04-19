@@ -105,7 +105,8 @@ if (!isset($_SESSION['logged_in'])) {
 			$row = oci_fetch_assoc($stmt2);
 			if ($row != false)
 			{
-				while ($row != false)
+				$selling_items_on_page = 0;
+				while ($row != false && $selling_items_on_page < 6)
 				{			
 					// Write query on item_photo for filepath
 					$query3 = "SELECT ip.filename fn, ip.description de ";
@@ -132,13 +133,14 @@ if (!isset($_SESSION['logged_in'])) {
 
 					$fn = NULL;
 					$row = oci_fetch_assoc($stmt2);
+					$selling_items_on_page += 1;
 				}	
 			}
 			else
 			{
 				// There are no items for this user
 				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Items Listed</a></h2>\n";
+				print "\t<h2><a>You are not selling any items</a></h2>\n";
 				print "</div>\n";
 			}
 
