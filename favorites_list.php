@@ -84,8 +84,10 @@ if (!isset($_SESSION['logged_in'])) {
 	</div>
 </nav>
 
-<h1 class=text-left><strong>My Favorite Items</strong></h1>
+
 <div class="container">
+	<h1 class=text-left><strong>My Favorite Items</strong></h1>
+	<hr/>
 	<div class="row">
 		<?php
 			// Grab all of the items being sold by this user.
