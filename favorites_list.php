@@ -84,7 +84,7 @@ if (!isset($_SESSION['logged_in'])) {
 	</div>
 </nav>
 
-<h1 class=text-center>My Favorite Items</h1>
+<h1 class=text-left><strong>My Favorite Items</strong></h1>
 <div class="container">
 	<div class="row">
 		<?php

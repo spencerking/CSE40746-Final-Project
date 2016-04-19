@@ -84,7 +84,8 @@ if (!isset($_SESSION['logged_in'])) {
 	</div>
 </nav>
 
-<h1 class=text-center>Welcome to NDBay!</h1>
+<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
+<hr/>
 <div class="container">
 	<h2>Your Listed Items:</h2>
 	<div class="row">
