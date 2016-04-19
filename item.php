@@ -272,25 +272,29 @@ if ($vendor_is_user) {
         <div class="col-sm-6">
           <?php
             $btn_class = "btn btn-success";
-            $href = "favorite_backend.php?fav=1&iid=$iid";
+            $href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
+            $href_close = "</a>";
             if ($vendor_is_user)
             {
               $btn_class .= " disabled";
-              $href = "#";
+              $href_open = "";
+              $href_close = "";
             }
-            print "<a href=\"$href\"><button class=\"$btn_class\" type=\"button\">Favorite This Item</button></a>\n";
+            print "<a $href_open <button class=\"$btn_class\" type=\"button\">Favorite This Item</button> $href_close \n";
           ?>
         </div>
         <div class="col-sm-6">
           <?php
             $btn_class = "btn btn-danger";
-            $href = "favorite_backend.php?fav=0&iid=$iid";
+            $href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
+            $href_close = "</a>";
             if ($vendor_is_user)
             {
               $btn_class .= " disabled";
-              $href = "#";
+              $href_open = "";
+              $href_close = "";
             } 
-            print "<a href=\"$href\"><button class=\"$btn_class\" type=\"button\">Dislike This Item</button></a>\n";
+            print "$href_open <button class=\"$btn_class\" type=\"button\">Dislike This Item</button> $href_close \n";
           ?>        
         </div>
       </div>
