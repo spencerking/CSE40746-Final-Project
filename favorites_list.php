@@ -64,6 +64,7 @@ if (!isset($_SESSION['logged_in'])) {
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="sell.php">Sell</a></li>
+					<li class="active"><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
@@ -86,7 +87,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 <div class="container">
-	<h1 class="text-left"><strong>Liked and Disliked Items</strong></h1>
+	<h2 class="text-center"><strong>Liked and Disliked Items</strong></h2>
 	<hr/>
 	<h2 class="text-left">Favorites:</h2>
 	<div class="row">
