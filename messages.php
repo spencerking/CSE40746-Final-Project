@@ -60,6 +60,14 @@ $user_id = $_SESSION["user_id"];
 					<li><a href="sell.php">Sell</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li class="active"><a href="messages.php">Messages</a></li>
+					<li>
+						<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+							<div class="form-group">
+								<input type="text" class="form-control" name="search" placeholder="Search Items">
+							</div>
+							<button type="submit" class="btn btn-default">Go</button>
+						</form>
+					</li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
@@ -80,12 +88,6 @@ $user_id = $_SESSION["user_id"];
 						</ul>
 					</li>
 				</ul>
-				<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
-					<div class="form-group">
-						<input type="text" name="search" placeholder="Search" class="form-control">
-					</div>
-					<button type="submit" class="btn btn-default">Go</button>
-				</form>
 			</div>
 		</div>
 	</div>
