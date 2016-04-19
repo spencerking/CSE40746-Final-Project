@@ -280,7 +280,7 @@ if ($vendor_is_user) {
               $href_open = "";
               $href_close = "";
             }
-            print "<a $href_open <button class=\"$btn_class\" type=\"button\">Favorite This Item</button> $href_close \n";
+            print "$href_open <button class=\"$btn_class\" type=\"button\">Favorite This Item</button> $href_close \n";
           ?>
         </div>
         <div class="col-sm-6">
