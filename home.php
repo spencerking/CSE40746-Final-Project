@@ -45,14 +45,12 @@ if (!isset($_SESSION['logged_in'])) {
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand active" href="home.php">NDBay</a>
-				<a class="navbar-brand">
-					<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
-						<div class="form-group">
-							<input type="text" class="form-control" name="search" placeholder="Search Items">
-						</div>
-						<button type="submit" class="btn btn-default">Go</button>
-					</form>
-				</a>
+				<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+					<div class="form-group">
+						<input type="text" class="form-control" name="search" placeholder="Search Items">
+					</div>
+					<button type="submit" class="btn btn-default">Go</button>
+				</form>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
