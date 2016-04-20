@@ -90,8 +90,6 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-	<header>
-			<div class="row">
 				<div class="col-lg-12">
 					<img class="img-responsive" src="#" alt="">
 					<div class="intro-text">
@@ -99,8 +97,6 @@ if (!isset($_SESSION['logged_in'])) {
 						<span class="skills">The website for all of your dorm-living needs!</span>
 					</div>
 				</div>
-			</div>
-	</header>
 
 	<div class="container">
 		<div class="row">
