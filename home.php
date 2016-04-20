@@ -88,8 +88,10 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 <div class="container">
-	<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
-	<hr/>
+	<div class="row">
+		<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
+		<hr/>
+	</div>
 	<h2>Your Listed Items:</h2>
 	<div class="row">
 		<?php
