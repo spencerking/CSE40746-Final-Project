@@ -84,6 +84,15 @@ if (!isset($_SESSION['logged_in'])) {
 	</div>
 </nav>
 
+<div class="col-lg-12">
+	<img class="img-responsive" src="images/nd-above.jpg" alt="">
+	<div class="intro-text">
+		<span class="name">Start Bootstrap</span>
+		<hr class="star-light"/>
+		<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+	</div>
+</div>
+
 <div class="container">
 	<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
 	<hr/>
