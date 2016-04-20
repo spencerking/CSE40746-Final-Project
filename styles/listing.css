@@ -3,7 +3,7 @@
     text-align: center;
     max-height: 350px;
     display: flex;
-    align-content:center;
+    align-self:center;
 }
 #img_listing 
 {
