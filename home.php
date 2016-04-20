@@ -31,7 +31,6 @@ if (!isset($_SESSION['logged_in'])) {
 			text-align: center;
 		}
 		#listing {
-		    display: flex;
 		    justify-content:center; 
 		}
 		#img_listing {
