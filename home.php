@@ -91,7 +91,6 @@ if (!isset($_SESSION['logged_in'])) {
 	</nav>
 
 	<header>
-		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<img class="img-responsive" src="#" alt="">
@@ -101,7 +100,6 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 				</div>
 			</div>
-		</div>
 	</header>
 
 	<div class="container">
