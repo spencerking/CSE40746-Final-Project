@@ -97,7 +97,6 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 	<div class="container">
-		<div class="greeter"></div>
 		<div class="col-sm-12">
 			<img class="img-responsive" src="#" alt="">
 			<div class="intro-text">
