@@ -138,7 +138,7 @@ if (!isset($_SESSION['logged_in'])) {
 							$fn = "no-image.jpg";
 						}
 
-						print "<div id=\"listing\" class=\"col-md-3\">\n";
+						print "<div id=\"listing\" class=\"col-sm-3 portfolio-item\">\n";
 						print "\t<div><a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a></div>\n";
 						print "\t<div><h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2></div>\n";
 						print "\t<div><p>".$row['DES']."</p></div>\n";
