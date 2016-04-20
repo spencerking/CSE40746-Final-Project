@@ -36,7 +36,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 </head>
 
-<body>
+<body id="page-top" class="index">
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
