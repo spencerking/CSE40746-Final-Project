@@ -55,15 +55,15 @@ if (!isset($_SESSION['logged_in'])) {
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="home.php"><img style="position:relative; top:-12.5px;" height="50px" width="auto" src="images/NDBayLogo.png"/></a>
-				<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" name="search" placeholder="Search Items">
-					</div>
-					<button type="submit" class="btn btn-default">Go</button>
-				</form>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
+					<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+						<div class="form-group">
+							<input type="text" class="form-control" name="search" placeholder="Search Items">
+						</div>
+						<button type="submit" class="btn btn-default">Go</button>
+					</form>
 					<li class="active"><a href="sell.php">Sell</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
@@ -94,9 +94,10 @@ if (!isset($_SESSION['logged_in'])) {
 
 <div class="container">
 	<br/><br/><br/>
+	<h1>Create an Item Listing</h1>
 	<form class="form-sell" action="sell_backend.php" method="post" enctype="multipart/form-data">
 		<div class="form-group">
-			<label for="inputItemName">Name</label>
+			<label for="inputItemName"><p>Name</p></label>
 			<input type="text" class="form-control" id="inputItemName" name="itemName">
 		</div>
 		<div class="form-group">
