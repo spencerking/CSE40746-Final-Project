@@ -33,6 +33,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/freelancer.css"/>
 </head>
 
 <body>
@@ -87,13 +88,11 @@ if (!isset($_SESSION['logged_in'])) {
 	<div class="col-lg-12">
 		<img class="img-responsive" src="images/nd-above.jpg" alt="">
 		<div class="intro-text">
-			<span class="name">Start Bootstrap</span>
 			<hr class="star-light"/>
-			<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
 		</div>
 	</div>
 	
-	<div class="container">
+	<div class="container col-lg-12">
 		<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
 		<hr/>
 		<h2>Your Listed Items:</h2>
