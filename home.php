@@ -35,7 +35,6 @@ if (!isset($_SESSION['logged_in'])) {
 		    width: 100%;
 		    height: 400px;
 		    background-color: #036080;
-		    background-size: 100% 100%;
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
