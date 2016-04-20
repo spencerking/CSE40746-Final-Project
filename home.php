@@ -31,10 +31,11 @@ if (!isset($_SESSION['logged_in'])) {
 			text-align: center;
 		}
 		#listing {
-		    justify-content:center; 
+		    text-align: center;
 		}
 		#img_listing {
-			max-height:200px;
+			max-height: 200px;
+		    display: inline-block;
 		}
 	</style>
 </head>
