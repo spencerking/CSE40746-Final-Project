@@ -2,7 +2,9 @@
 {
     text-align: center;
     max-height: 350px;
-    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around; 
 }
 #img_listing 
 {
