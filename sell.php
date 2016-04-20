@@ -58,11 +58,11 @@ if (!isset($_SESSION['logged_in'])) {
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
+					<li><form class="navbar-form" action="search_backend.php" role="search" method="post">
 						<div class="form-group">
 							<input type="text" class="form-control" name="search" placeholder="Search Items">
 						</div>
-						<button type="submit" class="btn btn-default">Go</button>
+						<button type="submit" class="btn btn-social">Go</button>
 					</li></form>
 					<li class="active"><a href="sell.php">Sell</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
@@ -131,7 +131,7 @@ if (!isset($_SESSION['logged_in'])) {
 			<input type="file" class="form-control-file" id="inputItemPhoto" name="itemPhoto">
 		</div>
 		<div class="error"><ul></ul></div>
-		<button type="submit" class="btn btn-social">Create Listing</button>
+		<button type="submit" class="btn btn-default btn-social">Create Listing</button>
 	</form>
 
 	<hr>
