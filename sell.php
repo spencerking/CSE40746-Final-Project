@@ -101,7 +101,7 @@ if (!isset($_SESSION['logged_in'])) {
 			<input type="text" class="form-control" id="inputItemName" name="itemName">
 		</div>
 		<div class="form-group">
-			<label for="inputItemCondition">Condition</label>
+			<label for="inputItemCondition"><p>Condition</p></label>
 			<select name="inputItemCondition" class="form-control">
 				<option value="1">Meh</option>
 				<option value="2">Not Terrible</option>
@@ -111,11 +111,11 @@ if (!isset($_SESSION['logged_in'])) {
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="inputItemDescription">Description</label>
+			<label for="inputItemDescription"><p>Description</p></label>
 			<input type="textarea" class="form-control"  id="inputItemDescription" name="itemDescription">
 		</div>
 		<div class="form-group">
-			<label for="inputItemPrice">Price</label>
+			<label for="inputItemPrice"><p>Price</p></label>
 			<div class="input-group">
 				<span class="input-group-addon">$</span>
 				<input type="number" class="form-control" min="0" id="inputItemPrice" name="itemPrice">
@@ -123,15 +123,15 @@ if (!isset($_SESSION['logged_in'])) {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputItemEndTime">Sell-by Date</label>
+			<label for="inputItemEndTime"><p>Sell-by Date</p></label>
 			<input type="date" class="form-control" id="inputItemEndTime" name="itemEndTime">
 		</div>
 		<div class="form-group">
-			<label for="inputItemPhoto">Upload Photo</label>
+			<label for="inputItemPhoto"><p>Upload Photo</p></label>
 			<input type="file" class="form-control-file" id="inputItemPhoto" name="itemPhoto">
 		</div>
 		<div class="error"><ul></ul></div>
-		<button type="submit" class="btn btn-primary">Create Listing</button>
+		<button type="submit" class="btn btn-social">Create Listing</button>
 	</form>
 
 	<hr>
