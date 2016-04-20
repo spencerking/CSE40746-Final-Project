@@ -90,7 +90,19 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<img class="img-responsive" src="#" alt="">
+					<div class="intro-text">
+						<span class="name">Welcome to NDBay</span>
+						<span class="skills">The website for all of your dorm-living needs!</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
 	<div class="container">
 		<div class="row">
