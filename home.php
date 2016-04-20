@@ -124,7 +124,7 @@ if (!isset($_SESSION['logged_in'])) {
 					}
 
 					print "<div class=\"col-md-4\">\n";
-					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img style=\"max-height:150px;\"src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
+					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img style=\"margin:0 auto; max-height:200px;\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
@@ -184,7 +184,7 @@ if (!isset($_SESSION['logged_in'])) {
 					}
 
 					print "<div class=\"col-md-4\">\n";
-					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
+					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img style=\"max-height:200px;\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
