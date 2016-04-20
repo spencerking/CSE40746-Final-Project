@@ -91,7 +91,7 @@ if (!isset($_SESSION['logged_in'])) {
 	</nav>
 
 	<div class="container">
-		<div class="col-sm-12" style="background-color:darkblue; width:3000px; height:400px;">
+		<div class="col-sm-12">
 			<img class="img-responsive" src="#" alt="">
 			<div class="intro-text">
 				<span class="name">Welcome to NDBay</span>
