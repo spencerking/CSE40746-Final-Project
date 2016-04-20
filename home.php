@@ -95,7 +95,6 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-	<div class="greeter"></div>
 
 	<div class="container">
 		<div class="col-sm-12">
