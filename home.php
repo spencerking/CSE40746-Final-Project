@@ -33,7 +33,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
-	<link rel="stylesheet" type="text/css" href="styles/freelancer.css"/>
+	<link rel="stylesheet" href="styles/freelancer.css"/>
 </head>
 
 <body>
