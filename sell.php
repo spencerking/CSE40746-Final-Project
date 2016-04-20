@@ -147,7 +147,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 		<div class="form-group">
 			<label for="inputItemPhoto"><p>Upload Photo</p></label>
-			<button class="btn btn-default btn-file"><input type="file" class="form-control-file" id="inputItemPhoto" name="itemPhoto"></button>
+			<button class="btn btn-default btn-file"><input type="file" name="itemPhoto"></button>
 		</div>
 		<div class="error"><ul></ul></div>
 		<button type="submit" class="btn btn-primary">Create Listing</button>
