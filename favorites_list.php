@@ -91,6 +91,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 <div class="container">
+	<br/><br/><br/>
 	<h2 class="text-center"><strong>Liked and Disliked Items</strong></h2>
 	<hr/>
 	<h2 class="text-left">Favorites:</h2>

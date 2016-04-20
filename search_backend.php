@@ -89,6 +89,7 @@ if (!isset($_SESSION['logged_in'])) {
 </nav>
 
 <div class="container">
+	<br/><br/><br/>
 
 	<?php
 

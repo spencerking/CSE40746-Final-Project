@@ -98,6 +98,7 @@ $user_id = $_SESSION["user_id"];
 </nav>
 
 <div class="container">
+	<br/><br/><br/>
 	<h2>Messages</h2>
 
 	<div id = "result">

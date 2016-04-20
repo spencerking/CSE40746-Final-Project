@@ -93,6 +93,7 @@ if (!isset($_SESSION['logged_in'])) {
 </nav>
 
 <div class="container">
+	<br/><br/><br/>
 	<form class="form-sell" action="sell_backend.php" method="post" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="inputItemName">Name</label>
