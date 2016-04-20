@@ -31,6 +31,12 @@ if (!isset($_SESSION['logged_in'])) {
 		footer {
 			text-align: center;
 		}
+		div {
+		    width: 100%;
+		    height: 400px;
+		    background-color: #036080;
+		    background-size: 100% 100%;
+		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
@@ -89,6 +95,8 @@ if (!isset($_SESSION['logged_in'])) {
 			</div>
 		</div>
 	</nav>
+
+	<div class="greeter"></div>
 
 	<div class="container">
 		<div class="col-sm-12">
