@@ -63,7 +63,7 @@ if (!isset($_SESSION['logged_in'])) {
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
 							$conn = oci_connect("guest", "guest", "xe")
-								or die("Couldn't connect");
+							or die("Couldn't connect");
 							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
 							$stmt1 = oci_parse($conn, $query1);
 							oci_define_by_name($stmt1, "EMAIL", $email);
@@ -72,19 +72,18 @@ if (!isset($_SESSION['logged_in'])) {
 							print "$email ";
 							oci_close($conn);
 							?>
-						<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="account.php">Account</a></li>
-							<li><a href="">Sign out</a></li>
-						</ul>
-					</li>
-				</ul>
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="account.php">Account</a></li>
+								<li><a href="">Sign out</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-<div class="container">
 	<div class="col-lg-12">
 		<img class="img-responsive" src="images/nd-above.jpg" alt="">
 		<div class="intro-text">
@@ -93,14 +92,16 @@ if (!isset($_SESSION['logged_in'])) {
 			<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
 		</div>
 	</div>
-	<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
-	<hr/>
-	<h2>Your Listed Items:</h2>
-	<div class="row">
-		<?php
+	
+	<div class="container">
+		<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
+		<hr/>
+		<h2>Your Listed Items:</h2>
+		<div class="row">
+			<?php
 			// Grab all of the items being sold by this user.
 			$conn = oci_connect("guest", "guest", "xe")
-				or die("Couldn't connect");
+			or die("Couldn't connect");
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i ";
@@ -153,15 +154,15 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 
 			oci_close($conn);
-		?>
-	</div>
+			?>
+		</div>
 
-	<h2>Your Favorites:</h2>
-	<div class="row">
-		<?php
+		<h2>Your Favorites:</h2>
+		<div class="row">
+			<?php
 			// Grab all of the items being sold by this user.
 			$conn = oci_connect("guest", "guest", "xe")
-				or die("Couldn't connect");
+			or die("Couldn't connect");
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i, favorite f ";
@@ -214,15 +215,15 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 
 			oci_close($conn);
-		?>
+			?>
+		</div>
+
+		<hr>
+
+		<footer>
+			<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+		</footer>
 	</div>
-
-	<hr>
-
-	<footer>
-		<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-	</footer>
-</div>
 
 
 	<!-- Bootstrap core JavaScript
