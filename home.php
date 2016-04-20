@@ -90,15 +90,14 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-				<div class="col-lg-12">
-					<img class="img-responsive" src="#" alt="">
-					<div class="intro-text">
-						<span class="name">Welcome to NDBay</span>
-						<span class="skills">The website for all of your dorm-living needs!</span>
-					</div>
-				</div>
-
 	<div class="container">
+		<div class="col-sm-12">
+			<img class="img-responsive" src="#" alt="">
+			<div class="intro-text">
+				<span class="name">Welcome to NDBay</span>
+				<span class="skills">The website for all of your dorm-living needs!</span>
+			</div>
+		</div>
 		<div class="row">
 			<br/><br/><br/>
 			<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
