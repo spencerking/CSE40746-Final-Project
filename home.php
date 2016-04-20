@@ -85,7 +85,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-	<!-- Header -->
+	<!-- Header -|->
     <header>
         <div class="container">
             <div class="row">
@@ -95,8 +95,8 @@ if (!isset($_SESSION['logged_in'])) {
                 </div>
             </div>
         </div>
-    </header>
-    
+    </header> -->
+
 	<section>
 		<div class="container">
 			<hr/>
