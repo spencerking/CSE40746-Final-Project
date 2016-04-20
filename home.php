@@ -91,148 +91,144 @@ if (!isset($_SESSION['logged_in'])) {
             <div class="row">
                 <div class="col-lg-12">
                     <img class="img-responsive" src="images/nd-above.png" alt="">
-                    <div class="intro-text">
-                        <span class="name">Start Bootstrap</span>
-                        <hr class="star-light">
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
-                    </div>
+					<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
                 </div>
             </div>
         </div>
     </header>
-	
-	<div class="container col-lg-12">
-		<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
-		<hr/>
-		<h2>Your Listed Items:</h2>
-		<div class="row">
-			<?php
-			// Grab all of the items being sold by this user.
-			$conn = oci_connect("guest", "guest", "xe")
-			or die("Couldn't connect");
+    
+	<section>
+		<div class="container">
+			<hr/>
+			<h2>Your Listed Items:</h2>
+			<div class="row">
+				<?php
+				// Grab all of the items being sold by this user.
+				$conn = oci_connect("guest", "guest", "xe")
+				or die("Couldn't connect");
 
-			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
-			$query2 .= "FROM item i ";
-			$query2 .= "WHERE i.seller_id=". $_SESSION['user_id'];
+				$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
+				$query2 .= "FROM item i ";
+				$query2 .= "WHERE i.seller_id=". $_SESSION['user_id'];
 
-			$stmt2 = oci_parse($conn, $query2);
+				$stmt2 = oci_parse($conn, $query2);
 
-			oci_execute($stmt2);
-			
-			$row = oci_fetch_assoc($stmt2);
-			if ($row != false)
-			{
-				$selling_items_on_page = 0;
-				while ($row != false && $selling_items_on_page < 8)
-				{			
-					// Write query on item_photo for filepath
-					$query3 = "SELECT ip.filename fn, ip.description de ";
-					$query3 .= "FROM item_photo ip ";
-					$query3 .= "WHERE ip.item_id=".$row['IID'];
+				oci_execute($stmt2);
+				
+				$row = oci_fetch_assoc($stmt2);
+				if ($row != false)
+				{
+					$selling_items_on_page = 0;
+					while ($row != false && $selling_items_on_page < 8)
+					{			
+						// Write query on item_photo for filepath
+						$query3 = "SELECT ip.filename fn, ip.description de ";
+						$query3 .= "FROM item_photo ip ";
+						$query3 .= "WHERE ip.item_id=".$row['IID'];
 
-					$stmt3 = oci_parse($conn, $query3);
-					oci_define_by_name($stmt3, "FN", $fn);
-					oci_define_by_name($stmt3, "DE", $de);
+						$stmt3 = oci_parse($conn, $query3);
+						oci_define_by_name($stmt3, "FN", $fn);
+						oci_define_by_name($stmt3, "DE", $de);
 
-					oci_execute($stmt3);
-					oci_fetch($stmt3);
+						oci_execute($stmt3);
+						oci_fetch($stmt3);
 
-					if ($fn == NULL)
-					{
-						$fn = "no-image.jpg";
-					}
+						if ($fn == NULL)
+						{
+							$fn = "no-image.jpg";
+						}
 
-					print "<div id=\"listing\" class=\"col-md-3\">\n";
-					print "\t<div><a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a></div>\n";
-					print "\t<div><h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2></div>\n";
-					print "\t<div><p>".$row['DES']."</p></div>\n";
+						print "<div id=\"listing\" class=\"col-md-3\">\n";
+						print "\t<div><a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a></div>\n";
+						print "\t<div><h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2></div>\n";
+						print "\t<div><p>".$row['DES']."</p></div>\n";
+						print "</div>\n";
+
+						$fn = NULL;
+						$row = oci_fetch_assoc($stmt2);
+						$selling_items_on_page += 1;
+					}	
+				}
+				else
+				{
+					// There are no items for this user
+					print "<div class=\"col-md-4\">\n";
+					print "\t<h2><a>You are not selling any items</a></h2>\n";
 					print "</div>\n";
+				}
 
-					$fn = NULL;
-					$row = oci_fetch_assoc($stmt2);
-					$selling_items_on_page += 1;
-				}	
-			}
-			else
-			{
-				// There are no items for this user
-				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>You are not selling any items</a></h2>\n";
-				print "</div>\n";
-			}
+				oci_close($conn);
+				?>
+			</div>
 
-			oci_close($conn);
-			?>
-		</div>
+			<h2>Your Favorites:</h2>
+			<div class="row">
+				<?php
+				// Grab all of the items being sold by this user.
+				$conn = oci_connect("guest", "guest", "xe")
+				or die("Couldn't connect");
 
-		<h2>Your Favorites:</h2>
-		<div class="row">
-			<?php
-			// Grab all of the items being sold by this user.
-			$conn = oci_connect("guest", "guest", "xe")
-			or die("Couldn't connect");
+				$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
+				$query2 .= "FROM item i, favorite f ";
+				$query2 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=1 AND f.item_id=i.item_id";
 
-			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
-			$query2 .= "FROM item i, favorite f ";
-			$query2 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=1 AND f.item_id=i.item_id";
+				$stmt2 = oci_parse($conn, $query2);
 
-			$stmt2 = oci_parse($conn, $query2);
+				oci_execute($stmt2);
+				
+				$row = oci_fetch_assoc($stmt2);
+				if ($row != false)
+				{
+					$favorite_items_on_page = 0;
+					while ($row != false && $favorite_items_on_page < 8)
+					{			
+						// Write query on item_photo for filepath
+						$query3 = "SELECT ip.filename fn, ip.description de ";
+						$query3 .= "FROM item_photo ip ";
+						$query3 .= "WHERE ip.item_id=".$row['IID'];
 
-			oci_execute($stmt2);
-			
-			$row = oci_fetch_assoc($stmt2);
-			if ($row != false)
-			{
-				$favorite_items_on_page = 0;
-				while ($row != false && $favorite_items_on_page < 8)
-				{			
-					// Write query on item_photo for filepath
-					$query3 = "SELECT ip.filename fn, ip.description de ";
-					$query3 .= "FROM item_photo ip ";
-					$query3 .= "WHERE ip.item_id=".$row['IID'];
+						$stmt3 = oci_parse($conn, $query3);
+						oci_define_by_name($stmt3, "FN", $fn);
+						oci_define_by_name($stmt3, "DE", $de);
 
-					$stmt3 = oci_parse($conn, $query3);
-					oci_define_by_name($stmt3, "FN", $fn);
-					oci_define_by_name($stmt3, "DE", $de);
+						oci_execute($stmt3);
+						oci_fetch($stmt3);
 
-					oci_execute($stmt3);
-					oci_fetch($stmt3);
+						if ($fn == NULL)
+						{
+							$fn = "no-image.jpg";
+						}
 
-					if ($fn == NULL)
-					{
-						$fn = "no-image.jpg";
-					}
+						print "<div id=\"listing\" class=\"col-md-3\">\n";
+						print "\t<div><a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a></div>\n";
+						print "\t<div><h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2></div>\n";
+						print "\t<div><p>".$row['DES']."</p></div>\n";
+						print "</div>\n";
 
-					print "<div id=\"listing\" class=\"col-md-3\">\n";
-					print "\t<div><a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a></div>\n";
-					print "\t<div><h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2></div>\n";
-					print "\t<div><p>".$row['DES']."</p></div>\n";
+						$fn = NULL;
+						$row = oci_fetch_assoc($stmt2);
+						$favorite_items_on_page += 1;
+					}	
+				}
+				else
+				{
+					// There are no items for this user
+					print "<div class=\"col-md-4\">\n";
+					print "\t<h2><a>No Favorited Items</a></h2>\n";
 					print "</div>\n";
+				}
 
-					$fn = NULL;
-					$row = oci_fetch_assoc($stmt2);
-					$favorite_items_on_page += 1;
-				}	
-			}
-			else
-			{
-				// There are no items for this user
-				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Favorited Items</a></h2>\n";
-				print "</div>\n";
-			}
+				oci_close($conn);
+				?>
+			</div>
 
-			oci_close($conn);
-			?>
+			<hr>
+
+			<footer>
+				<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+			</footer>
 		</div>
-
-		<hr>
-
-		<footer>
-			<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-		</footer>
-	</div>
-
+	</section>
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->
