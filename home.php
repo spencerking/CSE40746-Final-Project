@@ -30,15 +30,8 @@ if (!isset($_SESSION['logged_in'])) {
 		footer {
 			text-align: center;
 		}
-		#listing {
-		    text-align: center;
-		    max-height: 350px;
-		}
-		#img_listing {
-			max-height: 200px;
-		    display: inline-block;
-		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
 </head>
 
 <body>

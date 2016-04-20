@@ -1,0 +1,11 @@
+#listing
+{
+    text-align: center;
+    max-height: 350px;
+    align-content: center;
+}
+#img_listing 
+{
+	max-height: 200px;
+    display: inline-block;
+}
