@@ -26,6 +26,7 @@ if (!isset($_SESSION['logged_in'])) {
 		body {
 			padding-top: 50px;
 			padding-bottom: 20px;
+			display: flex;
 		}
 		footer {
 			text-align: center;
