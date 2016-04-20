@@ -209,7 +209,7 @@ if (!isset($_SESSION['logged_in'])) {
 		<br/><br/><br/>
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
-			
+
 			<div class="col-sm-11">
 				<div id="my-thumbs-list" class="mThumbnailScroller" data-mts-axis="x">
 					<ul>
@@ -272,7 +272,7 @@ if (!isset($_SESSION['logged_in'])) {
 					{
 						print "<button class=\"btn btn-primary center\" type=\"button\">Buy</button>";
 					}
-					
+
 					?>
 				</div>
 				<div class="col-sm-12">
@@ -334,7 +334,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<h4 class="text-left">Seller:</h4>
 					<div class="col-sm-4">
 						<h5 class="text-left">Email:</h5>
-						<p class="text-left"><?php print "$e2"; ?></p>
+						<p class="text-left"><small><?php print "$e2"; ?></small></p>
 					</div>
 					<div class="col-sm-4">
 						<h5 class="text-left">Follow-Up Rate:</h5>
