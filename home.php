@@ -30,6 +30,13 @@ if (!isset($_SESSION['logged_in'])) {
 		footer {
 			text-align: center;
 		}
+		#listing {
+		    display: flex;
+		    justify-content:center; 
+		}
+		#img_listing {
+			max-height:200px;
+		}
 	</style>
 </head>
 
@@ -123,8 +130,8 @@ if (!isset($_SESSION['logged_in'])) {
 						$fn = "no-image.jpg";
 					}
 
-					print "<div class=\"col-md-4\">\n";
-					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img style=\"margin:0 auto; max-height:200px;\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
+					print "<div id=\"listing\" class=\"col-md-4\">\n";
+					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
@@ -183,8 +190,8 @@ if (!isset($_SESSION['logged_in'])) {
 						$fn = "no-image.jpg";
 					}
 
-					print "<div class=\"col-md-4\">\n";
-					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img style=\"max-height:200px;\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
+					print "<div id=\"listing\" class=\"col-md-4\">\n";
+					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
 					print "</div>\n";
