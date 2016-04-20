@@ -104,8 +104,7 @@ if (!isset($_SESSION['logged_in'])) {
 			$row = oci_fetch_assoc($stmt2);
 			if ($row != false)
 			{
-				$favorites_on_homepage = 0;
-				while ($row != false && $favorites_on_homepage < 6)
+				while ($row != false)
 				{			
 					// Write query on item_photo for filepath
 					$query3 = "SELECT ip.filename fn, ip.description de ";
@@ -132,7 +131,6 @@ if (!isset($_SESSION['logged_in'])) {
 
 					$fn = NULL;
 					$row = oci_fetch_assoc($stmt2);
-					$favorites_on_homepage += 1;
 				}	
 			}
 			else

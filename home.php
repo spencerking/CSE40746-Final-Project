@@ -106,7 +106,7 @@ if (!isset($_SESSION['logged_in'])) {
 			if ($row != false)
 			{
 				$selling_items_on_page = 0;
-				while ($row != false && $selling_items_on_page < 6)
+				while ($row != false && $selling_items_on_page < 8)
 				{			
 					// Write query on item_photo for filepath
 					$query3 = "SELECT ip.filename fn, ip.description de ";
@@ -166,7 +166,8 @@ if (!isset($_SESSION['logged_in'])) {
 			$row = oci_fetch_assoc($stmt2);
 			if ($row != false)
 			{
-				while ($row != false)
+				$favorite_items_on_page = 0;
+				while ($row != false && $favorite_items_on_page < 8)
 				{			
 					// Write query on item_photo for filepath
 					$query3 = "SELECT ip.filename fn, ip.description de ";
@@ -185,7 +186,7 @@ if (!isset($_SESSION['logged_in'])) {
 						$fn = "no-image.jpg";
 					}
 
-					print "<div id=\"listing\" class=\"col-md-4\">\n";
+					print "<div id=\"listing\" class=\"col-md-3\">\n";
 					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
 					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
 					print "\t<p>".$row['DES']."</p>\n";
@@ -193,6 +194,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 					$fn = NULL;
 					$row = oci_fetch_assoc($stmt2);
+					$favorite_items_on_page += 1;
 				}	
 			}
 			else
