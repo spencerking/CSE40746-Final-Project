@@ -31,7 +31,7 @@ if (!isset($_SESSION['logged_in'])) {
 		footer {
 			text-align: center;
 		}
-		div {
+		div.greeter {
 		    width: 100%;
 		    height: 400px;
 		    background-color: #036080;
@@ -95,6 +95,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
+	<div class="greeter"></div>
 
 	<div class="container">
 		<div class="col-sm-12">
