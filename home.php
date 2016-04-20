@@ -97,7 +97,7 @@ if (!isset($_SESSION['logged_in'])) {
         </div>
     </header> -->
 
-	<section>
+	<section id="portfolio">
 		<div class="container">
 			<hr/>
 			<h2>Your Listed Items:</h2>
