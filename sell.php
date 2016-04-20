@@ -48,7 +48,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="home.php"><img src="images/NDBayLogo.png"/></a>
+				<a class="navbar-brand" href="home.php"><img class="img img-responsive" src="images/NDBayLogo.png"/></a>
 				<form class="navbar-form navbar-right" action="search_backend.php" role="search" method="post">
 					<div class="form-group">
 						<input type="text" class="form-control" name="search" placeholder="Search Items">
