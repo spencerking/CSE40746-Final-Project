@@ -98,16 +98,14 @@ if (!isset($_SESSION['logged_in'])) {
 		switch ($code) 
 		{
 			case 0:
-				print
-				"
+				print "
 					<div class="alert alert-success">
 						<strong>Your item listing was successfully posted!</strong>
 					</div>
 				";
 				break;
 			case 1:
-				print
-				"
+				print "
 					<div class="alert alert-danger">
 						<strong>ERROR!!! Your item listing was not uploaded!</strong><br/>
 						Please make sure you filled out all of the fields and that the image is smaller than 8 MB.
@@ -115,8 +113,7 @@ if (!isset($_SESSION['logged_in'])) {
 				";
 				break;
 			case 2:
-				print
-				"
+				print "
 					<div class="alert alert-success">
 						<strong>Your image was successfully uploaded!</strong>
 					<div class="alert alert-info">
@@ -126,8 +123,7 @@ if (!isset($_SESSION['logged_in'])) {
 				";
 				break;
 			case 4:
-				print
-				"
+				print "
 					<div class="alert alert-warning">
 						<strong>This item will no longer show up while browsing!</strong><br/>
 						Disliked items can be viewed under the favorited items on the Favorites NDBay page.
