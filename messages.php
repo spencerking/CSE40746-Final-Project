@@ -91,7 +91,7 @@ $user_id = $_SESSION["user_id"];
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
-							<li><a href="">Sign out</a></li>
+							<li><a href="signout_backend.php">Sign out</a></li>
 						</ul>
 					</li>
 				</ul>
