@@ -299,11 +299,10 @@ if (!isset($_SESSION['logged_in'])) {
 						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
 						$href_close = "</a>";
 						$fbtn_text = "Favorite This Item";
-						$fbtn_type = "btn-success";
 						if ($item_status == 1)
 						{
 							// The item is already favorited, switch to "Unfavorite"
-							$fbtn_text = "Unfavorite This Item";
+							$fbtn_text = "Remove Favorite Status";
 							$fbtn_class = "btn btn-default";
 							$href_open = "<a href=\"favorite_backend.php?fav=2&iid=$iid\">";
 						}
@@ -318,16 +317,24 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					<div class="col-sm-4">
 						<?php
-						$btn_class = "btn btn-danger";
+						$dbtn_class = "btn btn-danger";
 						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
 						$href_close = "</a>";
+						$dbtn_text = "Dislike this Item";
+						if ($item_status == 0)
+						{
+							// The item is already favorited, switch to "Unfavorite"
+							$dbtn_text = "Remove Dislike Status";
+							$dbtn_class = "btn btn-default";
+							$href_open = "<a href=\"favorite_backend.php?fav=2&iid=$iid\">";
+						}
 						if ($vendor_is_user)
 						{
-							$btn_class .= " disabled";
+							$dbtn_class .= " disabled";
 							$href_open = "";
 							$href_close = "";
 						} 
-						print "$href_open <button class=\"$btn_class\" type=\"button\">Dislike This Item</button> $href_close \n";
+						print "$href_open <button class=\"$dbtn_class\" type=\"button\">$dbtn_text</button> $href_close \n";
 						?>        
 					</div>
 				</div>
