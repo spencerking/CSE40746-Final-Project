@@ -25,7 +25,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 80px;
+			padding-top: 160px;
 			padding-bottom: 20px;
 		}
 		footer {
@@ -200,7 +200,6 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 	<div class="container">
-		<br/><br/><br/>
 		<?php
 		if ($vendor_is_user) {
 			print "

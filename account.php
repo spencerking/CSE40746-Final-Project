@@ -25,7 +25,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 50px;
+			padding-top: 160px;
 			padding-bottom: 20px;
 		}
 		footer {
@@ -99,7 +99,6 @@ if (!isset($_SESSION['logged_in'])) {
 	</nav>
 
 	<div class="container">
-		<br/><br/><br/>
 		<h2>Transaction History</h2>
 		<div id="history">
 			<?php
