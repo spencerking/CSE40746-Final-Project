@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 50px;
+			padding-top: 160px;
 			padding-bottom: 20px;
 			display: flex;
 		}
@@ -86,15 +86,15 @@ if (!isset($_SESSION['logged_in'])) {
 							print "$email ";
 							oci_close($conn);
 							?>
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="account.php">Account</a></li>
-								<li><a href="">Sign out</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>`
-			</div>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="account.php">Account</a></li>
+							<li><a href="">Sign out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>`
 		</div>
 	</nav>
 
