@@ -67,6 +67,7 @@ if (!isset($_SESSION['logged_in'])) {
 						</form>
 					</li>
 					<li class="active"><a href="sell.php">Sell</a></li>
+					<li><a href="browse.php">Browse</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">

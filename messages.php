@@ -72,6 +72,7 @@ $user_id = $_SESSION["user_id"];
 						</form>
 					</li>
 					<li><a href="sell.php">Sell</a></li>
+					<li><a href="browse.php">Browse</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li class="active"><a href="messages.php">Messages</a></li>
 					<li class="dropdown">

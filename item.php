@@ -170,6 +170,7 @@ if (!isset($_SESSION['logged_in'])) {
 						</form>
 					</li>
 					<li><a href="sell.php">Sell</a></li>
+					<li><a href="browse.php">Browse</a></li>
 					<li><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
@@ -199,7 +200,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 	<div class="container">
-	<br/><br/><br/>
+		<br/><br/><br/>
 		<?php
 		if ($vendor_is_user) {
 			print "
@@ -208,7 +209,6 @@ if (!isset($_SESSION['logged_in'])) {
 			";
 		}
 		?>
-		<br/><br/><br/>
 		<div class="col-sm-6">
 			<img class="img-thumbnail" src=<?php print "\"server_images/$fn\""; ?> alt="Item Image" title=<?php print "\"$de\"" ?>>
 
