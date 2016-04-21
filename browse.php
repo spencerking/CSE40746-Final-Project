@@ -63,7 +63,7 @@ if (!isset($_SESSION['logged_in'])) {
 						</form>
 					</li>
 					<li><a href="sell.php">Sell</a></li>
-					<li class="active"><a href="favorites_list.php">Favorites</a></li>
+					<li><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
@@ -93,7 +93,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 <div class="container">
 	<br/><br/><br/>
-	<h2 class="text-center"><strong>Browse</strong></h2>
+	<h1 class="text-center"><strong>Browse All Items</strong></h1>
 	<hr/>
 	<div class="row">
 		<?php
