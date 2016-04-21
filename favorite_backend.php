@@ -60,7 +60,7 @@
 	        }
 	    }
 	}
-	else
+	else if ($fav == 2)
 	{
 		// Remove any favorite listing
 	}

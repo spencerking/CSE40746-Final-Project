@@ -68,7 +68,7 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -282,6 +282,19 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					<div class="col-sm-7">
 						<?php
+						$conn = oci_connect("guest", "guest", "xe")
+							or die("Couldn't connect");
+
+						$query7  = "SELECT status stat ";
+						$query7 .= "FROM favorite ";
+						$qeury7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
+
+						$stmt7 = oci_parse($conn, $qeury7);
+						oci_define_by_name($stmt7, "STAT", $item_status);
+
+						oci_execute($stmt7);
+						oci_fetch($stmt7);
+
 						$btn_class = "btn btn-success";
 						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
 						$href_close = "</a>";
