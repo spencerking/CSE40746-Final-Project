@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
-	header('Location: signin.html');
+  header('Location: signin.html');
 }
 ?>
 
@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 160px;
+			padding-top: 100px;
 			padding-bottom: 20px;
 		}
 		footer {
@@ -37,7 +37,6 @@ if (!isset($_SESSION['logged_in'])) {
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
@@ -93,7 +92,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 
 	<div class="container">
-		<h2 class="text-left">Favorites:</h2>
+		<h2 class="text-center">Favorites:</h2>
 		<div class="row">
 			<?php
 			// Grab all of the items favorited by this user.
@@ -144,7 +143,7 @@ if (!isset($_SESSION['logged_in'])) {
 			{
 				// There are no items for this user
 				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Favorited Items</a></h2>\n";
+				print "<h2><a>No Favorited Items</a></h2>\n";
 				print "</div>\n";
 			}
 
@@ -152,7 +151,7 @@ if (!isset($_SESSION['logged_in'])) {
 			?>
 		</div>
 
-		<h2 class="text-left">Disliked Items:</h2>
+		<h2 class="text-center">Disliked Items:</h2>
 		<div class="row">
 			<?php
 			// Grab all of the items disliked by this user.
@@ -202,9 +201,7 @@ if (!isset($_SESSION['logged_in'])) {
 			else
 			{
 				// There are no items for this user
-				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Disliked Items</a></h2>\n";
-				print "</div>\n";
+				print "<h2>No Disliked Items</h2>\n";
 			}
 
 			oci_close($conn);
@@ -217,11 +214,10 @@ if (!isset($_SESSION['logged_in'])) {
 		</footer>
 	</div>
 
-
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery-2.2.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/jquery-2.2.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
