@@ -161,7 +161,7 @@ if (!isset($_SESSION['logged_in'])) {
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><form class="navbar-form" action="search_backend.php" role="search" method="post">
+					<li><form class="navbar-form" style="width:25%;" action="search_backend.php" role="search" method="post">
 						<div class="form-group">
 							<input type="text" class="form-control" name="search" placeholder="Search Items">
 						</div>
