@@ -318,7 +318,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<div class="col-sm-4">
 						<?php
 						$dbtn_class = "btn btn-danger";
-						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
+						$href_open = "<a href=\"favorite_backend.php?fav=0&iid=$iid\">";
 						$href_close = "</a>";
 						$dbtn_text = "Dislike this Item";
 						if ($item_status == 0)
