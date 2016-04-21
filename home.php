@@ -32,9 +32,9 @@ if (!isset($_SESSION['logged_in'])) {
 			text-align: center;
 		}
 		div.greeter {
-		    width: 100%;
-		    height: 400px;
-		    background-color: #033050;
+			width: 100%;
+			height: 400px;
+			background-color: #033050;
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['logged_in'])) {
 					</li>
 					<li><a href="sell.php">Sell</a></li>
 					<li><a href="browse.php">Browse</a></li>
-					<li class="active"><a href="favorites_list.php">Favorites</a></li>
+					<li><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">

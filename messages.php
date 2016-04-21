@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
-  header('Location: signin.html');
+	header('Location: signin.html');
 }
 
   // Connect to the database
 $conn = oci_connect('guest', 'guest', 'localhost/XE');
 if (!$conn) {
-  $e = oci_error();
-  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	$e = oci_error();
+	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
 $user_id = $_SESSION["user_id"];
@@ -17,34 +17,34 @@ $user_id = $_SESSION["user_id"];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="">
-  <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-  <title>NDBay - Messages</title>
+	<title>NDBay - Messages</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="styles/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="styles/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <style>
-    /* Move down content because we have a fixed navbar that is 50px tall */
-    body {
-      padding-top: 50px;
-      padding-bottom: 20px;
-    }
-    footer {
-      text-align: center;
-    }
-  </style>
-  <link rel="stylesheet" href="styles/freelancer.css"/>
-  <!-- Custom Fonts -->
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<!-- Custom styles for this template -->
+	<style>
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+		footer {
+			text-align: center;
+		}
+	</style>
+	<link rel="stylesheet" href="styles/freelancer.css"/>
+	<!-- Custom Fonts -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -77,7 +77,7 @@ $user_id = $_SESSION["user_id"];
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
 							$conn = oci_connect("guest", "guest", "xe")
-								or die("Couldn't connect");
+							or die("Couldn't connect");
 							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
 							$stmt1 = oci_parse($conn, $query1);
 							oci_define_by_name($stmt1, "EMAIL", $email);
@@ -86,7 +86,8 @@ $user_id = $_SESSION["user_id"];
 							print "$email ";
 							oci_close($conn);
 							?>
-						<span class="caret"></span></a>
+							<span class="caret"></span>
+						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
 							<li><a href="">Sign out</a></li>
@@ -95,19 +96,18 @@ $user_id = $_SESSION["user_id"];
 				</ul>
 			</div>
 		</div>
+	</nav>
+
+	<div class="container">
+		<div id = "result">
+			<!-- display message -->
+		</div>
+		<hr>
+
+		<footer>
+			<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+		</footer>
 	</div>
-</nav>
-
-<div class="container">
-  <div id = "result">
-    <!-- display message -->
-  </div>
-  <hr>
-
-  <footer>
-    <p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-  </footer>
-</div>
 
 
   <!-- Bootstrap core JavaScript

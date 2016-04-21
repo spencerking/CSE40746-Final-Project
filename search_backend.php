@@ -70,7 +70,7 @@ if (!isset($_SESSION['logged_in'])) {
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
 							$conn = oci_connect("guest", "guest", "xe")
-								or die("Couldn't connect");
+							or die("Couldn't connect");
 							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
 							$stmt1 = oci_parse($conn, $query1);
 							oci_define_by_name($stmt1, "EMAIL", $email);
@@ -79,7 +79,8 @@ if (!isset($_SESSION['logged_in'])) {
 							print "$email ";
 							oci_close($conn);
 							?>
-						<span class="caret"></span></a>
+							<span class="caret"></span>
+						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
 							<li><a href="">Sign out</a></li>
@@ -88,47 +89,46 @@ if (!isset($_SESSION['logged_in'])) {
 				</ul>
 			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-<div class="container">
-	<br/><br/><br/>
+	<div class="container">
+		<br/><br/><br/>
 
-	<?php
+		<?php
 
-	$conn = oci_connect('guest', 'guest', 'localhost/XE');
-	if (!$conn) {
-		$e = oci_error();
-		echo $e['message'];
-		exit;
-	}
+		$conn = oci_connect('guest', 'guest', 'localhost/XE');
+		if (!$conn) {
+			$e = oci_error();
+			echo $e['message'];
+			exit;
+		}
 
-	if (isset($_POST['search'])) {
-		$searchText = $_POST['search'];
-		$searchText = strtolower(str_replace("'", '', $searchText));
-	}
-	$query = 'SELECT name, condition, description, price, end_time, item_id FROM item WHERE LOWER(name) LIKE \'%'.$searchText.'%\'';
-	$stid = oci_parse($conn, $query);
-	$r = oci_execute($stid);
+		if (isset($_POST['search'])) {
+			$searchText = $_POST['search'];
+			$searchText = strtolower(str_replace("'", '', $searchText));
+		}
+		$query = 'SELECT name, condition, description, price, end_time, item_id FROM item WHERE LOWER(name) LIKE \'%'.$searchText.'%\'';
+		$stid = oci_parse($conn, $query);
+		$r = oci_execute($stid);
 
-	print '<div class="row">';
-	while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
-		print '<div class="col-md-4">';
-		print '<h2><a href="item.php?iid='.$row['ITEM_ID'].'">'.$row['NAME'].'</a></h2>';
-		print '<h4>$'.$row['PRICE'].'.00</h4>';
-		print '<p>'.$row['DESCRIPTION'].'</p>';
+		print '<div class="row">';
+		while ($row = oci_fetch_array($stid, OCI_ASSOC)) {
+			print '<div class="col-md-4">';
+			print '<h2><a href="item.php?iid='.$row['ITEM_ID'].'">'.$row['NAME'].'</a></h2>';
+			print '<h4>$'.$row['PRICE'].'.00</h4>';
+			print '<p>'.$row['DESCRIPTION'].'</p>';
+			print '</div>';
+		}
 		print '</div>';
-	}
-	print '</div>';
 
-	oci_close($conn);
+		oci_close($conn);
 
-	?>
-	<hr>
-	<footer>
-		<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-	</footer>
-</div>
+		?>
+		<hr>
+		<footer>
+			<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+		</footer>
+	</div>
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->

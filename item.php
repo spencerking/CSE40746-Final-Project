@@ -186,14 +186,14 @@ if (!isset($_SESSION['logged_in'])) {
 							print "$email ";
 							oci_close($conn);
 							?>
-							<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="account.php">Account</a></li>
-								<li><a href="">Sign out</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="account.php">Account</a></li>
+							<li><a href="">Sign out</a></li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
