@@ -25,7 +25,6 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 100px;
 			padding-bottom: 20px;
 		}
 		footer {
@@ -68,7 +67,7 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
-	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/font-awesome.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
