@@ -63,10 +63,10 @@ if (!isset($_SESSION['logged_in'])) {
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 						<form class="navbar-form" action="search_backend.php" role="search" method="post">
-							<div class="form-group">
-								<input type="text" class="form-control" style="width:25%;" name="search" placeholder="Search Items">
+							<div class="form-group btn-group">
+								<input type="text" class="form-control" style="width:125%;" name="search" placeholder="Search Items">
+								<button type="submit" class="btn btn-default">Go</button>
 							</div>
-							<button type="submit" class="btn btn-default">Go</button>
 						</form>
 					</li>
 					<li><a href="sell.php">Sell</a></li>
