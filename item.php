@@ -287,24 +287,33 @@ if (!isset($_SESSION['logged_in'])) {
 
 						$query7  = "SELECT status stat ";
 						$query7 .= "FROM favorite ";
-						$qeury7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
+						$query7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
 
-						$stmt7 = oci_parse($conn, $qeury7);
+						$stmt7 = oci_parse($conn, $query7);
 						oci_define_by_name($stmt7, "STAT", $item_status);
 
 						oci_execute($stmt7);
 						oci_fetch($stmt7);
 
-						$btn_class = "btn btn-success";
+						$fbtn_class = "btn btn-success";
 						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
 						$href_close = "</a>";
+						$fbtn_text = "Favorite This Item";
+						$fbtn_type = "btn-success";
+						if ($item_status == 1)
+						{
+							// The item is already favorited, switch to "Unfavorite"
+							$fbtn_text = "Unfavorite This Item";
+							$fbtn_class = "btn btn-default";
+							$href_open = "<a href=\"favorite_backend.php?fav=2&iid=$iid\">";
+						}
 						if ($vendor_is_user)
 						{
-							$btn_class .= " disabled";
+							$fbtn_class .= " disabled";
 							$href_open = "";
 							$href_close = "";
 						}
-						print "$href_open <button class=\"$btn_class\" type=\"button\">Favorite This Item</button> $href_close \n";
+						print "$href_open <button class=\"$fbtn_class\" type=\"button\">$fbtn_text</button> $href_close \n";
 						?>
 					</div>
 					<div class="col-sm-4">

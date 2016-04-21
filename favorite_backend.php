@@ -19,7 +19,7 @@
     oci_execute($stmt1);
     oci_fetch($stmt1);
 
-	if ($fav != 2);
+	if ($fav != 2)
 	{
 	    if ($fav_count > 0)
 	    {
