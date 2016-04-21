@@ -64,7 +64,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<li>
 						<form class="navbar-form" action="search_backend.php" role="search" method="post">
 							<div class="form-group btn-group">
-								<input type="text" class="form-control" style="width:125%;" name="search" placeholder="Search Items">
+								<input type="text" class="form-control" name="search" placeholder="Search Items">
 								<button type="submit" class="btn btn-default">Go</button>
 							</div>
 						</form>
