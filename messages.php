@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
-	header('Location: signin.html');
+  header('Location: signin.html');
 }
 
-	// Connect to the database
+  // Connect to the database
 $conn = oci_connect('guest', 'guest', 'localhost/XE');
 if (!$conn) {
-	$e = oci_error();
-	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+  $e = oci_error();
+  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
 $user_id = $_SESSION["user_id"];
@@ -17,39 +17,37 @@ $user_id = $_SESSION["user_id"];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-	<title>NDBay - Messages</title>
+  <title>NDBay - Messages</title>
 
-	<!-- Bootstrap core CSS -->
-	<link href="styles/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="styles/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Custom styles for this template -->
-	<style>
-		/* Move down content because we have a fixed navbar that is 50px tall */
-		body {
-			padding-top: 50px;
-			padding-bottom: 20px;
-		}
-		footer {
-			text-align: center;
-		}
-	</style>
-	<link rel="stylesheet" href="styles/freelancer.css"/>
-	<!-- Custom Fonts -->
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+  <!-- Custom styles for this template -->
+  <style>
+    /* Move down content because we have a fixed navbar that is 50px tall */
+    body {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/freelancer.css"/>
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -101,39 +99,36 @@ $user_id = $_SESSION["user_id"];
 </nav>
 
 <div class="container">
-	<br/><br/><br/>
-	<h2>Messages</h2>
+  <div id = "result">
+    <!-- display message -->
+  </div>
+  <hr>
 
-	<div id = "result">
-		<!-- display message -->
-	</div>
-
-	<hr>
-
-	<footer>
-		<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-	</footer>
+  <footer>
+    <p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+  </footer>
 </div>
 
 
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery-2.2.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/jquery-2.2.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/socket.io.js"></script>
 
-	<?php
-	echo "<script>";
-	echo "var posting = $.post('52.34.131.50:8163/', {user_id: ";
-	echo $user_id;
-	echo "} );";
+  <?php
+  echo "<script>";
+  echo "var posting = $.post('52.34.131.50:8163/', {user_id: ";
+  echo $user_id;
+  echo "});";
 
-	echo "posting.done(function( data ) {";
-	echo "var content = $( data ).find( '#result' );";
-	echo "$( '#result' ).empty().append( content );";
-	echo "});";
-	echo "</script>";
-	?>
+  echo "posting.done(function( data ) {";
+  echo "var content = $( data ).find( '#result' );";
+  echo "$( '#result' ).empty().append( content );";
+  echo "});";
+  echo "</script>";
+  ?>
 
 </body>
 </html>
