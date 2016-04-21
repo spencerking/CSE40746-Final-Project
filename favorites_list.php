@@ -70,7 +70,7 @@ if (!isset($_SESSION['logged_in'])) {
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
 							$conn = oci_connect("guest", "guest", "xe")
-								or die("Couldn't connect");
+							or die("Couldn't connect");
 							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
 							$stmt1 = oci_parse($conn, $query1);
 							oci_define_by_name($stmt1, "EMAIL", $email);
@@ -79,7 +79,8 @@ if (!isset($_SESSION['logged_in'])) {
 							print "$email ";
 							oci_close($conn);
 							?>
-						<span class="caret"></span></a>
+							<span class="caret"></span>
+						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
 							<li><a href="">Sign out</a></li>
@@ -88,17 +89,16 @@ if (!isset($_SESSION['logged_in'])) {
 				</ul>
 			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
 
-<div class="container">
-	<h2 class="text-left">Favorites:</h2>
-	<div class="row">
-		<?php
+	<div class="container">
+		<h2 class="text-left">Favorites:</h2>
+		<div class="row">
+			<?php
 			// Grab all of the items favorited by this user.
 			$conn = oci_connect("guest", "guest", "xe")
-				or die("Couldn't connect");
+			or die("Couldn't connect");
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i, favorite f ";
@@ -107,7 +107,7 @@ if (!isset($_SESSION['logged_in'])) {
 			$stmt2 = oci_parse($conn, $query2);
 
 			oci_execute($stmt2);
-			
+
 			$row = oci_fetch_assoc($stmt2);
 			if ($row != false)
 			{
@@ -149,15 +149,15 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 
 			oci_close($conn);
-		?>
-	</div>
+			?>
+		</div>
 
-	<h2 class="text-left">Disliked Items:</h2>
-	<div class="row">
-		<?php
+		<h2 class="text-left">Disliked Items:</h2>
+		<div class="row">
+			<?php
 			// Grab all of the items disliked by this user.
 			$conn = oci_connect("guest", "guest", "xe")
-				or die("Couldn't connect");
+			or die("Couldn't connect");
 
 			$query4  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query4 .= "FROM item i, favorite f ";
@@ -166,7 +166,7 @@ if (!isset($_SESSION['logged_in'])) {
 			$stmt4 = oci_parse($conn, $query4);
 
 			oci_execute($stmt4);
-			
+
 			$row = oci_fetch_assoc($stmt4);
 			if ($row != false)
 			{
@@ -208,14 +208,14 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 
 			oci_close($conn);
-		?>
-	</div>
+			?>
+		</div>
 
-	<hr/>
-	<footer>
-		<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-	</footer>
-</div>
+		<hr/>
+		<footer>
+			<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
+		</footer>
+	</div>
 
 
 	<!-- Bootstrap core JavaScript

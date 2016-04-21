@@ -50,7 +50,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-			<div class="navbar-header page-scroll">
+			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['logged_in'])) {
 					</li>
 					<li><a href="sell.php">Sell</a></li>
 					<li><a href="browse.php">Browse</a></li>
-					<li><a href="favorites_list.php">Favorites</a></li>
+					<li class="active"><a href="favorites_list.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
@@ -94,7 +94,7 @@ if (!isset($_SESSION['logged_in'])) {
 						</ul>
 					</li>
 				</ul>
-			</div>`
+			</div>
 		</div>
 	</nav>
 
