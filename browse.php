@@ -15,7 +15,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>NDBay - Favorites List</title>
+	<title>NDBay - Browse All</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
@@ -93,9 +93,8 @@ if (!isset($_SESSION['logged_in'])) {
 
 <div class="container">
 	<br/><br/><br/>
-	<h2 class="text-center"><strong>Liked and Disliked Items</strong></h2>
+	<h2 class="text-center"><strong>Browse</strong></h2>
 	<hr/>
-	<h2 class="text-left">Favorites:</h2>
 	<div class="row">
 		<?php
 			// Grab all of the items favorited by this user.
@@ -104,7 +103,8 @@ if (!isset($_SESSION['logged_in'])) {
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i, favorite f ";
-			$query2 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=1 AND f.item_id=i.item_id";
+			$query2 .= "WHERE (f.user_id!=". $_SESSION['user_id'] ." OR f.status!=0) ";
+			$query2 .= "AND f.item_id=i.item_id AND i.seller_id!=". $_SESSION['user_id'];
 
 			$stmt2 = oci_parse($conn, $query2);
 
@@ -154,64 +154,7 @@ if (!isset($_SESSION['logged_in'])) {
 		?>
 	</div>
 
-	<h2 class="text-left">Disliked Items:</h2>
-	<div class="row">
-		<?php
-			// Grab all of the items disliked by this user.
-			$conn = oci_connect("guest", "guest", "xe")
-				or die("Couldn't connect");
 
-			$query4  = "SELECT i.item_id iid, i.description des, i.name name ";
-			$query4 .= "FROM item i, favorite f ";
-			$query4 .= "WHERE f.user_id=". $_SESSION['user_id'] ."AND f.status=0 AND f.item_id=i.item_id";
-
-			$stmt4 = oci_parse($conn, $query4);
-
-			oci_execute($stmt4);
-			
-			$row = oci_fetch_assoc($stmt4);
-			if ($row != false)
-			{
-				while ($row != false)
-				{			
-					// Write query on item_photo for filepath
-					$query5 = "SELECT ip.filename fn, ip.description de ";
-					$query5 .= "FROM item_photo ip ";
-					$query5 .= "WHERE ip.item_id=".$row['IID'];
-
-					$stmt5 = oci_parse($conn, $query5);
-					oci_define_by_name($stmt5, "FN", $fn);
-					oci_define_by_name($stmt5, "DE", $de);
-
-					oci_execute($stmt5);
-					oci_fetch($stmt5);
-
-					if ($fn == NULL)
-					{
-						$fn = "no-image.jpg";
-					}
-
-					print "<div class=\"col-md-4\">\n";
-					print "\t<a href=\"item.php?iid=".$row['IID']."\"><img src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a>\n";
-					print "\t<h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2>\n";
-					print "\t<p>".$row['DES']."</p>\n";
-					print "</div>\n";
-
-					$fn = NULL;
-					$row = oci_fetch_assoc($stmt4);
-				}	
-			}
-			else
-			{
-				// There are no items for this user
-				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Disliked Items</a></h2>\n";
-				print "</div>\n";
-			}
-
-			oci_close($conn);
-		?>
-	</div>
 
 	<hr/>
 	<footer>
