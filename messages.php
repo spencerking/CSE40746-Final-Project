@@ -33,7 +33,7 @@ $user_id = $_SESSION["user_id"];
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 50px;
+			padding-top: 100px;
 			padding-bottom: 20px;
 		}
 		footer {
