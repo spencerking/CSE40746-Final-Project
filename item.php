@@ -287,7 +287,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 						$query7  = "SELECT status stat ";
 						$query7 .= "FROM favorite ";
-						$qeury7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
+						$query7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
 
 						$stmt7 = oci_parse($conn, $qeury7);
 						oci_define_by_name($stmt7, "STAT", $item_status);
