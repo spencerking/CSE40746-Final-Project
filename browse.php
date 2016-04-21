@@ -98,11 +98,6 @@ if (!isset($_SESSION['logged_in'])) {
 		switch ($code) 
 		{
 			case 0:
-				print "
-					<div class=\"alert alert-success\">
-						<strong>Your item listing was successfully posted!</strong>
-					</div>
-				";
 				break;
 			case 1:
 				print "
@@ -120,10 +115,10 @@ if (!isset($_SESSION['logged_in'])) {
 				";
 			case 3:
 				print "
-					<div class=\"alert alert-info\">
+					<div class=\"alert alert-info\"><p>
 						<strong>This item will now be in your favorites list!</strong><br/>
 						Favorite items can viewed on the favorites page and up to eight of them will be previewed on the home page.
-					</div>
+					</p></div>
 				";
 				break;
 			case 4:
@@ -131,6 +126,13 @@ if (!isset($_SESSION['logged_in'])) {
 					<div class=\"alert alert-warning\">
 						<strong>This item will no longer show up while browsing!</strong><br/>
 						Disliked items can be viewed under the favorited items on the Favorites NDBay page.
+					</div>
+				";
+				break;
+			case 5:
+				print "
+					<div class=\"alert alert-success\">
+						<strong>Your item listing was successfully posted!</strong>
 					</div>
 				";
 				break;
