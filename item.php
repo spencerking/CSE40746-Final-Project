@@ -315,7 +315,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<h4 class="text-left">Item Properties:</h4> 
 					<div class="col-sm-4">
 						<h5 class="text-left">Price:</h5>
-						<p class="text-left">$<?php print "$p"; ?>.00</p>
+						<p class="text-left"><small>$<?php print "$p"; ?>.00</small></p>
 					</div>
 					<div class="col-sm-4">
 						<h5 class="text">Condition:</h5>
@@ -328,7 +328,7 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					<div class="col-sm-4">
 						<h5 class="text">Sell-by Date:</h5>
-						<p class="text-left"><?php print "$e"; ?></p>
+						<p class="text-left"><small><?php print "$e"; ?></small></p>
 					</div>
 				</div> <!-- END col-sm-12 -->
 				<div class="col-sm-12">
@@ -359,7 +359,7 @@ if (!isset($_SESSION['logged_in'])) {
 							$ratio = 1;
 							if ($scot == 0 && $scof == 0)
 							{
-								print "<small>No seller history.</small>";
+								print "<small><small>No seller history.</small></small>";
 							}
 							else
 							{
