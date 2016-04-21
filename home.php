@@ -120,33 +120,33 @@ if (!isset($_SESSION['logged_in'])) {
 			$conn = oci_connect("guest", "guest", "xe")
 			or die("Couldn't connect");
 
-			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
-			$query2 .= "FROM item i ";
-			$query2 .= "WHERE i.seller_id!=". $_SESSION['user_id'];
+			$query7  = "SELECT i.item_id iid, i.description des, i.name name ";
+			$query7 .= "FROM item i ";
+			$query7 .= "WHERE i.seller_id!=". $_SESSION['user_id'];
 
 
-			$stmt2 = oci_parse($conn, $query2);
+			$stmt7 = oci_parse($conn, $query7);
 
-			oci_execute($stmt2);
+			oci_execute($stmt7);
 			
-			$row = oci_fetch_assoc($stmt2);
+			$row = oci_fetch_assoc($stmt7);
 			if ($row != false)
 			{
 				$new_items_on_page = 0;
 				while ($row != false && $new_items_on_page < 4)
 				{			
 					// Write query on item_photo for filepath
-					$query3 = "SELECT ip.filename fn, ip.description de ";
-					$query3 .= "FROM item_photo ip ";
-					$query3 .= "WHERE ip.item_id=".$row['IID']." ";
-					$query3 .= "ORDER BY ip.item_id DESC"
+					$query8 = "SELECT ip.filename fn, ip.description de ";
+					$query8 .= "FROM item_photo ip ";
+					$query8 .= "WHERE ip.item_id=".$row['IID']." ";
+					$query8 .= "ORDER BY ip.item_id DESC";
 
-					$stmt3 = oci_parse($conn, $query3);
-					oci_define_by_name($stmt3, "FN", $fn);
-					oci_define_by_name($stmt3, "DE", $de);
+					$stmt8 = oci_parse($conn, $query8);
+					oci_define_by_name($stmt8, "FN", $fn);
+					oci_define_by_name($stmt8, "DE", $de);
 
-					oci_execute($stmt3);
-					oci_fetch($stmt3);
+					oci_execute($stmt8);
+					oci_fetch($stmt8);
 
 					if ($fn == NULL)
 					{
@@ -160,7 +160,7 @@ if (!isset($_SESSION['logged_in'])) {
 					print "</div>\n";
 
 					$fn = NULL;
-					$row = oci_fetch_assoc($stmt2);
+					$row = oci_fetch_assoc($stmt7);
 					$new_items_on_page += 1;
 				}	
 			}
