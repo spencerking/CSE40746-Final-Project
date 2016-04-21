@@ -1,0 +1,222 @@
+/* Borrowed from http://codepen.io/rileyjshaw/ */
+@charset "UTF-8";
+html, body, .chat_container {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+.chat_container {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.contacts {
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+  width: 240px;
+  overflow-y: hidden;
+  background-color: skyblue;
+  background-size: 6px 6px;
+}
+.contacts .buttons {
+  margin-right: 6px;
+}
+.contacts .buttons::after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+.contacts button {
+  float: right;
+  height: 30px;
+  width: 30px;
+  margin: 8px 6px 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  font-family: Fontawesome;
+  color: skyblue;
+  background: whitesmoke;
+  cursor: pointer;
+}
+.contacts ul {
+  width: calc(100% - 12px * 2);
+  margin: 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.contacts li {
+  position: relative;
+  width: 100%;
+  height: 84px;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  background: whitesmoke;
+}
+.contacts li::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  height: 48px;
+  width: 48px;
+  border-radius: 30px;
+  background: gainsboro;
+}
+.contacts li::after {
+  content: "✖";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  overflow: hidden;
+  height: 0;
+  line-height: 26px;
+  width: 0;
+  margin: 12px;
+  border-radius: 12px;
+  text-align: center;
+  color: whitesmoke;
+  background: tomato;
+  cursor: pointer;
+  -webkit-transition: height 0.1s, width 0.1s, margin 0.1s;
+  transition: height 0.1s, width 0.1s, margin 0.1s;
+}
+.contacts li:hover::after {
+  height: 24px;
+  width: 24px;
+  margin: 0;
+}
+
+.messages, .form {
+  width: calc(100% - 240px);
+}
+
+.messages {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1px;
+      -ms-flex: 1 1px;
+          flex: 1 1px;
+  background: tomato;
+  overflow-y: scroll;
+}
+.messages ul {
+  list-style: none;
+  margin: 0;
+  padding: 36px;
+}
+.messages ul::after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+.messages li {
+  float: left;
+  clear: both;
+  line-height: 1.4em;
+  max-width: 224px;
+  margin: 12px;
+  padding: 0.7em 16px;
+  border-radius: 18px;
+  font-family: sans-serif;
+  color: whitesmoke;
+  background: skyblue;
+}
+.messages li:nth-child(odd) {
+  border-bottom-left-radius: 2px;
+}
+.messages li:nth-child(even) {
+  float: right;
+  border-bottom-right-radius: 2px;
+}
+
+.form {
+  background: gainsboro;
+}
+
+.form-inner {
+  height: 60px;
+  width: calc(100% - 12px * 2);
+  margin: 12px;
+  border-radius: 2px;
+  background: whitesmoke;
+}
+.form-inner button {
+  float: right;
+  height: 100%;
+  width: 60px;
+  padding: 1px0;
+  border: 0;
+  border-radius: 0 2px 2px 0;
+  font: 30px/60px sans-serif;
+  color: whitesmoke;
+  background: skyblue;
+  cursor: pointer;
+}
+
+.small-screen.chat_container {
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+}
+.small-screen .stack-wrap {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1px;
+      -ms-flex: 1 1px;
+          flex: 1 1px;
+}
+.small-screen .stack-wrap div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.small-screen .contacts {
+  left: 0;
+  width: 66px;
+}
+.small-screen .contacts .buttons {
+  display: none;
+}
+.small-screen .contacts ul {
+  width: 100%;
+  margin: 0;
+}
+.small-screen .contacts li {
+  height: 66px;
+  margin: 0;
+  background: transparent;
+}
+.small-screen .contacts li::before {
+  top: 9px;
+  left: 9px;
+  background: whitesmoke;
+}
+.small-screen .contacts li::after {
+  top: -2px;
+  right: 2px;
+}
+.small-screen .messages {
+  left: 66px;
+  right: 0;
+  width: auto;
+}
+.small-screen .form {
+  width: 100%;
+}

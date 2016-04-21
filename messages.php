@@ -30,6 +30,7 @@ $user_id = $_SESSION["user_id"];
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
+	<link href="styles/messages.css" rel="stylesheet">
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
@@ -98,9 +99,46 @@ $user_id = $_SESSION["user_id"];
 		</div>
 	</nav>
 
+	<!-- Apply roughly this many breaks of padding -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 	<div class="container">
 		<div id = "result">
 			<!-- display message -->
+			<!-- Borrowed from http://codepen.io/rileyjshaw/ -->
+			<div class="chat_container">
+			  <div class="contacts">
+			    <div class="buttons">
+			      <button class="new-message fa-envelope-o"></button><button class="search fa-search"></button>
+			    </div>
+			    <ul>
+			      <li></li>
+			      <li></li>
+			      <li></li>
+			      <li></li>
+			    </ul>
+			  </div>
+			  <div class="messages">
+			    <ul>
+			      <li>
+			        Example Message 1
+			      </li>
+			      <li>
+			        Example Message 2
+			      </li>
+			    </ul>
+			  </div>
+			  <div class="stack-wrap"></div>
+			  <div class="form">
+			    <div class="form-inner">
+			      <button>✚</button>
+			    </div>
+			  </div>
+			</div>
 		</div>
 		<hr>
 
@@ -116,6 +154,7 @@ $user_id = $_SESSION["user_id"];
   <script src="js/jquery-2.2.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/socket.io.js"></script>
+  <script src="js/messages.js"></script>
 
   <?php
   echo "<script>";
