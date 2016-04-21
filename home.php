@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 50px;
+			padding-top: 100px;
 			padding-bottom: 20px;
 			display: flex;
 		}
@@ -40,7 +40,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
-	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="styles/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -93,13 +93,12 @@ if (!isset($_SESSION['logged_in'])) {
 							</ul>
 						</li>
 					</ul>
-				</div>
+				</div>`
 			</div>
 		</div>
 	</nav>
 
 	<div class="container">
-		<br/><br/><br/>
 		<header>
 			<div class="greeter">
 				<br/>
@@ -113,6 +112,70 @@ if (!isset($_SESSION['logged_in'])) {
 		<div class="row">
 			<hr/>
 		</div>
+		
+		<h2>Newest Available Item:</h2>
+		<div class="row">
+			<?php
+			// Grab all of the items being sold by this user.
+			$conn = oci_connect("guest", "guest", "xe")
+			or die("Couldn't connect");
+
+			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
+			$query2 .= "FROM item i ";
+			$query2 .= "WHERE i.seller_id!=". $_SESSION['user_id'];
+
+
+			$stmt2 = oci_parse($conn, $query2);
+
+			oci_execute($stmt2);
+			
+			$row = oci_fetch_assoc($stmt2);
+			if ($row != false)
+			{
+				$new_items_on_page = 0;
+				while ($row != false && $new_items_on_page < 4)
+				{			
+					// Write query on item_photo for filepath
+					$query3 = "SELECT ip.filename fn, ip.description de ";
+					$query3 .= "FROM item_photo ip ";
+					$query3 .= "WHERE ip.item_id=".$row['IID']." ";
+					$query3 .= "ORDER BY ip.item_id DESC"
+
+					$stmt3 = oci_parse($conn, $query3);
+					oci_define_by_name($stmt3, "FN", $fn);
+					oci_define_by_name($stmt3, "DE", $de);
+
+					oci_execute($stmt3);
+					oci_fetch($stmt3);
+
+					if ($fn == NULL)
+					{
+						$fn = "no-image.jpg";
+					}
+
+					print "<div id=\"listing\" class=\"col-md-3\">\n";
+					print "\t<div><a href=\"item.php?iid=".$row['IID']."\"><img id=\"img_listing\" src=\"./server_images/".$fn."\" class=\"img-thumbnail img-responsive\"\></a></div>\n";
+					print "\t<div><h2><a href=\"item.php?iid=".$row['IID']."\">".$row['NAME']."</a></h2></div>\n";
+					print "\t<div><p>".$row['DES']."</p></div>\n";
+					print "</div>\n";
+
+					$fn = NULL;
+					$row = oci_fetch_assoc($stmt2);
+					$new_items_on_page += 1;
+				}	
+			}
+			else
+			{
+				// There are no items for this user
+				print "<div class=\"col-md-4\">\n";
+				print "\t<h2><a>You are not selling any items</a></h2>\n";
+				print "</div>\n";
+			}
+
+			oci_close($conn);
+			?>
+		</div>
+
 		<h2>Your Listed Items:</h2>
 		<div class="row">
 			<?php
