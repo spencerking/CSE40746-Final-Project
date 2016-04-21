@@ -34,7 +34,7 @@ if (!isset($_SESSION['logged_in'])) {
 		div.greeter {
 		    width: 100%;
 		    height: 400px;
-		    background-color: #036080;
+		    background-color: #033050;
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
@@ -99,7 +99,7 @@ if (!isset($_SESSION['logged_in'])) {
 		<br/><br/><br/>
 		<header>
 			<div class="greeter">
-				<img class="img-responsive" style="height:300px;width:100%" src="images/NDBayLogo.png" alt="">
+				<img class="img-responsive" style="height:150px;width:auto" src="images/NDBayLogo.png" alt="">
 				<div class="intro-text">
 					<span class="name">Welcome to NDBay</span>
 					<span class="skills">The website for all of your dorm-living needs!</span>
@@ -107,7 +107,6 @@ if (!isset($_SESSION['logged_in'])) {
 			</div>
 		</header>
 		<div class="row">
-			<h1 class=text-center><strong>Welcome to NDBay!</strong></h1>
 			<hr/>
 		</div>
 		<h2>Your Listed Items:</h2>
