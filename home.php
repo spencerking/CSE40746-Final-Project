@@ -33,12 +33,11 @@ if (!isset($_SESSION['logged_in'])) {
 			width: 100%;
 			height: 400px;
 			left: 0;
-			background-color: #033050;
 			color: white;
 			text-align: center;
 			padding-bottom: 5px;
 			background-image: url("images/nd.jpg");
-			background-size: 100% 400px;
+			background-size: 100% auto;
 		}
 		#greeter h3 {
 			height: 400px;
@@ -113,7 +112,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<div class="container">
 		<div id="greeter">
-			<p>Welcome to NDbay - for your dorm life needs</p>
+			<h3>Welcome to NDbay - for your dorm life needs</h3>
 		</div>
 
 		<div class="container-2">
