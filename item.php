@@ -296,11 +296,12 @@ if (!isset($_SESSION['logged_in'])) {
 						$conn = oci_connect("guest", "guest", "xe")
 							or die("Couldn't connect");
 
-						$query7  = "SELECT status stat ";
+						$query7  = "SELECT status stat , COUNT(*) counter ";
 						$query7 .= "FROM favorite ";
 						$query7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
 
 						$stmt7 = oci_parse($conn, $query7);
+						oci_define_by_name($stmt7, "COUNTER", $counter)
 						oci_define_by_name($stmt7, "STAT", $item_status);
 
 						oci_execute($stmt7);
@@ -332,7 +333,7 @@ if (!isset($_SESSION['logged_in'])) {
 						$href_open = "<a href=\"favorite_backend.php?fav=0&iid=$iid\">";
 						$href_close = "</a>";
 						$dbtn_text = "Dislike this Item";
-						if ($item_status == 0)
+						if ($item_status == 0 && $counter > 0)
 						{
 							// The item is already favorited, switch to "Unfavorite"
 							$dbtn_text = "Remove Dislike Status";
