@@ -48,11 +48,8 @@ if (!isset($_SESSION['logged_in'])) {
 		.container-2 {
 			padding-top: 400px;
 		}
-		footer {
-			text-align: center;
-		}
 	</style>
-	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
+	<link rel="stylesheet" href="styles/listing.css"/>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
 	<link href="styles/font-awesome.min.css" rel="stylesheet" type="text/css">
