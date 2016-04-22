@@ -116,6 +116,6 @@
     // We don't need SQL anymore, shut it down
     oci_close($conn);
 
-    header("Location: item.php?iid=$iid");
+    header("Location: item.php?iid=$iid&c=2");
 
 ?>
