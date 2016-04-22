@@ -2,6 +2,8 @@
 
     // Start a session
     session_start();
+	
+	$successval = 2;
 
     // Connect to the database
     $conn = oci_connect('guest', 'guest', 'localhost/XE');
@@ -115,7 +117,12 @@
 
     // We don't need SQL anymore, shut it down
     oci_close($conn);
+	
+	if ($uploadOk != 1)
+	{
+		$successval = 6;
+	}
 
-    header("Location: item.php?iid=$iid&c=2");
+    header("Location: item.php?iid=$iid&c=$successval");
 
 ?>
