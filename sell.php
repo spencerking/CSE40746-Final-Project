@@ -74,7 +74,7 @@ if (!isset($_SESSION['logged_in'])) {
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
 							<?php
 							$conn = oci_connect("guest", "guest", "xe")
-							or die("Couldn't connect");
+								or die("Couldn't connect");
 							$query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
 							$stmt1 = oci_parse($conn, $query1);
 							oci_define_by_name($stmt1, "EMAIL", $email);
