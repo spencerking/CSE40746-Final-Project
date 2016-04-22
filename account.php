@@ -111,6 +111,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 		?>
 		<h2>Transaction History</h2>
+		<hr/>
 		<div id="history">
 			<?php
 			$conn = oci_connect("guest", "guest", "xe")
@@ -133,6 +134,7 @@ if (!isset($_SESSION['logged_in'])) {
 			?>
 		</div>
 		<h2>Change Password</h2>
+		<hr/>
 		<form class="form-signin" action="change_pass_backend.php" method="post">
 			<label for="oldPass" class="sr-only">Old Password</label>
 			<input type="password" id="oldPassword" name="oldPass" class="form-control" placeholder="Old Password" autofocus>

@@ -107,6 +107,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 		?>
 		<h2 class="text-center">Favorites:</h2>
+		<hr/>
 		<div class="row">
 			<?php
 			// Grab all of the items favorited by this user.
@@ -166,6 +167,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 
 		<h2 class="text-center">Disliked Items:</h2>
+		<hr/>
 		<div class="row">
 			<?php
 			// Grab all of the items disliked by this user.
