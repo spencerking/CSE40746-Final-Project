@@ -130,6 +130,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 		<div class="container-2">
 		<h2>Newest Available Items:</h2>
+		<hr/>
 		<div class="row">
 			<?php
 			// Grab all of the items being sold by this user.
@@ -194,6 +195,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 
 		<h2>Your Listed Items:</h2>
+		<hr/>
 		<div class="row">
 			<?php
 			// Grab all of the items being sold by this user.
@@ -255,6 +257,7 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 
 		<h2>Your Favorites:</h2>
+		<hr/>
 		<div class="row">
 			<?php
 			// Grab all of the items being sold by this user.

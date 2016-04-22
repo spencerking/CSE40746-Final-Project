@@ -108,6 +108,7 @@ if (!isset($_SESSION['logged_in'])) {
 		}
 		?>
 		<h2 class="text-center">Create an Item Listing</h2>
+		<hr/>
 		<form class="form-sell" action="sell_backend.php" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="inputItemName"><p>Name</p></label>
