@@ -296,7 +296,17 @@ if (!isset($_SESSION['logged_in'])) {
 						$conn = oci_connect("guest", "guest", "xe")
 							or die("Couldn't connect");
 
-						$query7  = "SELECT status stat , COUNT(*) counter ";
+						$query8  = "SELECT COUNT(*) counter ";
+						$query8 .= "FROM favorite ";
+						$query8 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
+
+						$stmt8 = oci_parse($conn, $query8);
+						oci_define_by_name($stmt8, "COUNTER", $counter);
+
+						oci_execute($stmt8);
+						oci_fetch($stmt8);
+
+						$query7  = "SELECT status stat ";
 						$query7 .= "FROM favorite ";
 						$query7 .= "WHERE user_id=".$_SESSION['user_id']." AND item_id=$iid";
 
