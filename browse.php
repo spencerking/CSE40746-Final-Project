@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 160px;
+			padding-top: 100px;
 			padding-bottom: 20px;
 		}
 		footer {
@@ -140,7 +140,7 @@ if (!isset($_SESSION['logged_in'])) {
 				break;
 		}
 		?>
-		<h2 class="text-center">Browse All Items</h2>
+		<h2 class="text-center">All Items</h2>
 		<hr/>
 		<div class="row">
 			<?php

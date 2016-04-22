@@ -47,7 +47,6 @@ if (!isset($_SESSION['logged_in'])) {
 </head>
 
 <body>
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -99,20 +98,6 @@ if (!isset($_SESSION['logged_in'])) {
 	</nav>
 
 	<div class="container">
-		<header>
-			<div class="greeter">
-				<br/>
-				<img class="img-responsive" style="height:150px;width:auto;" src="images/NDBayLogo.png" alt="">
-				<div class="intro-text">
-					<span class="name">Welcome to NDBay</span>
-					<span class="skills">The website for all of your dorm-living needs!</span>
-				</div>
-			</div>
-		</header>
-		<div class="row">
-			<hr/>
-		</div>
-		
 		<h2>Newest Available Items:</h2>
 		<div class="row">
 			<?php

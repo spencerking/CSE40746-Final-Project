@@ -30,6 +30,9 @@ if (!isset($_SESSION['logged_in'])) {
 		footer {
 			text-align: center;
 		}
+		.container p {
+			text-align: center;
+		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
@@ -201,7 +204,7 @@ if (!isset($_SESSION['logged_in'])) {
 			else
 			{
 				// There are no items for this user
-				print "<h2>No Disliked Items</h2>\n";
+				print "<p>No disliked items found :)</p>\n";
 			}
 
 			oci_close($conn);
