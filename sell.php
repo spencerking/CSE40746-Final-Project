@@ -37,7 +37,7 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
-	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/font-awesome.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -87,7 +87,7 @@ if (!isset($_SESSION['logged_in'])) {
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
-							<li><a href="">Sign out</a></li>
+							<li><a href="signout_backend.php">Sign out</a></li>
 						</ul>
 					</li>
 				</ul>

@@ -89,13 +89,17 @@ if (!isset($_SESSION['logged_in'])) {
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
-							<li><a href="">Sign out</a></li>
+							<li><a href="signout_backend.php">Sign out</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
+
+	<div class="greeter">
+		<h3>Welcome to NDbay - for your dorm-living needs</h3>
+	</div>
 
 	<div class="container">
 		<h2>Newest Available Items:</h2>

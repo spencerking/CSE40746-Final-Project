@@ -25,7 +25,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 100px;
+			padding-top: 120px;
 			padding-bottom: 20px;
 		}
 		footer {
@@ -68,7 +68,7 @@ if (!isset($_SESSION['logged_in'])) {
 	</style>
 	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
-	<link href="styles/bootstrap.min.css" rel="stylesheet">
+	<link href="styles/font-awesome.min.css" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -190,7 +190,7 @@ if (!isset($_SESSION['logged_in'])) {
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.php">Account</a></li>
-							<li><a href="">Sign out</a></li>
+							<li><a href="signout_backend.php">Sign out</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -299,11 +299,10 @@ if (!isset($_SESSION['logged_in'])) {
 						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
 						$href_close = "</a>";
 						$fbtn_text = "Favorite This Item";
-						$fbtn_type = "btn-success";
 						if ($item_status == 1)
 						{
 							// The item is already favorited, switch to "Unfavorite"
-							$fbtn_text = "Unfavorite This Item";
+							$fbtn_text = "Remove Favorite Status";
 							$fbtn_class = "btn btn-default";
 							$href_open = "<a href=\"favorite_backend.php?fav=2&iid=$iid\">";
 						}
@@ -318,16 +317,24 @@ if (!isset($_SESSION['logged_in'])) {
 					</div>
 					<div class="col-sm-4">
 						<?php
-						$btn_class = "btn btn-danger";
-						$href_open = "<a href=\"favorite_backend.php?fav=1&iid=$iid\">";
+						$dbtn_class = "btn btn-danger";
+						$href_open = "<a href=\"favorite_backend.php?fav=0&iid=$iid\">";
 						$href_close = "</a>";
+						$dbtn_text = "Dislike this Item";
+						if ($item_status == 0)
+						{
+							// The item is already favorited, switch to "Unfavorite"
+							$dbtn_text = "Remove Dislike Status";
+							$dbtn_class = "btn btn-default";
+							$href_open = "<a href=\"favorite_backend.php?fav=2&iid=$iid\">";
+						}
 						if ($vendor_is_user)
 						{
-							$btn_class .= " disabled";
+							$dbtn_class .= " disabled";
 							$href_open = "";
 							$href_close = "";
 						} 
-						print "$href_open <button class=\"$btn_class\" type=\"button\">Dislike This Item</button> $href_close \n";
+						print "$href_open <button class=\"$dbtn_class\" type=\"button\">$dbtn_text</button> $href_close \n";
 						?>        
 					</div>
 				</div>
