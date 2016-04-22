@@ -129,7 +129,7 @@ header .intro-text .skills {
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
-        background-color: #000040;
+        background-color: #0F1624;
     }
 
     .navbar-fixed-top .navbar-brand {
@@ -141,7 +141,7 @@ header .intro-text .skills {
 
     .navbar-fixed-top.navbar-shrink {
         padding: 10px 0;
-        background-color: #000040;
+        background-color: #0F1624;
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
