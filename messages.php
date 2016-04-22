@@ -126,14 +126,19 @@ $user_id = $_SESSION["user_id"];
 			    <div class="buttons">
 			      <button class="new-message fa-envelope-o"></button><button class="search fa-search"></button>
 			    </div>
-			    <ul>
-			      <li></li>
-			      <li></li>
-			      <li></li>
-			      <li></li>
-			    </ul>
+			    <div class="output_contacts">
+				    <ul>
+				      <!-- On click each of these will query the db for the messages -->
+				      <li></li>
+				      <li></li>
+				      <li></li>
+				      <li></li>
+				    </ul>
+				</div>
 			  </div>
 			  <div class="messages">
+			  	<!-- Generate this list based on the clicked chat -->
+			  	<!-- Possibly use jquery remove() to clear this out between chats -->
 			    <ul>
 			      <li>
 			        Example Message 1
@@ -169,14 +174,31 @@ $user_id = $_SESSION["user_id"];
 
   <?php
   echo "<script>";
+
+  echo "function initSocket(socket) {";
+  	echo "socket.on('update', function(data) {";
+  		// query the db
+  		// add a new list item with the returned message text
+    echo "});";
+  echo "}";
+
   echo "var posting = $.post('52.34.131.50:8163/', {user_id: ";
   echo $user_id;
   echo "});";
 
-  echo "posting.done(function( data ) {";
-  echo "var content = $( data ).find( '#result' );";
-  echo "$( '#result' ).empty().append( content );";
+  // echo "posting.done(function( data ) {";
+  // echo "var content = $( data ).find( '#result' );";
+  // echo "$( '#result' ).empty().append( content );";
+  // echo "});";
+
+  echo "posting.done(function ( data ) {";
+  echo "var content = $( data ).find( '#output_contacts' );";
+  // need to figure out how to generate the list
+  // don't want to just output straight from the db
   echo "});";
+
+  echo "init();";
+
   echo "</script>";
   ?>
 
