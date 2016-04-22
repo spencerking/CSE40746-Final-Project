@@ -55,7 +55,7 @@ if (!isset($_SESSION['logged_in'])) {
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<form class="navbar-form" action="search_backend.php" role="search" method="post">
+						<form class="navbar-form" action="search.php" role="search" method="post">
 							<div class="form-group">
 								<input type="text" class="form-control" name="search" placeholder="Search Items">
 							</div>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['logged_in'])) {
 					</li>
 					<li><a href="sell.php">Sell</a></li>
 					<li class="active"><a href="browse.php">Browse</a></li>
-					<li><a href="favorites_list.php">Favorites</a></li>
+					<li><a href="favorites.php">Favorites</a></li>
 					<li><a href="messages.php">Messages</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" roles="button" aria-haspopup="true" aria-expanded="false">
