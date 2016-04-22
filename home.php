@@ -113,6 +113,17 @@ if (!isset($_SESSION['logged_in'])) {
 	</nav>
 
 	<div class="container">
+		<?php
+		// Import the function from alerts.php
+		include 'alerts.php';
+		use NDBay_Alerts as Alerts;
+
+		// If there is an alert message passed in, call print_alerts
+		if (isset($_GET['c']))
+		{
+			Alerts\print_alert($_GET['c']);
+		}
+		?>
 		<div id="greeter">
 			<h2>Welcome to NDbay - for your dorm life needs</h2>
 		</div>

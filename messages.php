@@ -107,6 +107,17 @@ $user_id = $_SESSION["user_id"];
 	<br>
 
 	<div class="container">
+		<?php
+		// Import the function from alerts.php
+		include 'alerts.php';
+		use NDBay_Alerts as Alerts;
+
+		// If there is an alert message passed in, call print_alerts
+		if (isset($_GET['c']))
+		{
+			Alerts\print_alert($_GET['c']);
+		}
+		?>
 		<div id = "result">
 			<!-- display message -->
 			<!-- Borrowed from http://codepen.io/rileyjshaw/ -->

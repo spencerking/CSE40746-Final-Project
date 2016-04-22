@@ -201,6 +201,17 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<div class="container">
 		<?php
+		// Import the function from alerts.php
+		include 'alerts.php';
+		use NDBay_Alerts as Alerts;
+
+		// If there is an alert message passed in, call print_alerts
+		if (isset($_GET['c']))
+		{
+			Alerts\print_alert($_GET['c']);
+		}
+		?>
+		<?php
 		if ($vendor_is_user) {
 			print "
 			<h1 class=\"cover-heading text-center\"><strong>Edit My Item</strong></h1>
