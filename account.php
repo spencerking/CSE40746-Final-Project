@@ -128,7 +128,7 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 			print "</table>";
 			if (oci_num_rows($stmt) == 0) {
-				print "<p>No transactions found :(</p>";
+				print "<div class=\"row\"><p>No transactions found :(</p></div>";
 			}
 			oci_close($conn);
 			?>

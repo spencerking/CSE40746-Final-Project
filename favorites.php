@@ -164,7 +164,7 @@ if (!isset($_SESSION['logged_in'])) {
 			?>
 		</div>
 
-		<h2 class="text-center">Disliked Items:</h2>
+		<h2 class="text-center">Dislikes:</h2>
 		<hr/>
 		<div class="row">
 			<?php
