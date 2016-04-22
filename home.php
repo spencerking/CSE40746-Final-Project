@@ -31,14 +31,21 @@ if (!isset($_SESSION['logged_in'])) {
 		#greeter {
 			position: absolute;
 			width: 100%;
+			height: 400px;
 			left: 0;
 			background-color: #033050;
 			color: white;
 			text-align: center;
 			padding-bottom: 5px;
+			background-image: url("images/nd.jpg");
+			background-size: 100% 400px;
+		}
+		#greeter h3 {
+			height: 400px;
+			line-height: 360px;
 		}
 		.container-2 {
-			padding-top: 56px;
+			padding-top: 400px;
 		}
 		footer {
 			text-align: center;
@@ -106,7 +113,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<div class="container">
 		<div id="greeter">
-			<h3>Welcome to NDbay - for your dorm life needs</h3>
+			<p>Welcome to NDbay - for your dorm life needs</p>
 		</div>
 
 		<div class="container-2">
