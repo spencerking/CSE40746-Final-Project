@@ -28,13 +28,11 @@ if (!isset($_SESSION['logged_in'])) {
 			padding-bottom: 20px;
 			display: flex;
 		}
+		.greeter {
+			background-color: #033050;
+		}
 		footer {
 			text-align: center;
-		}
-		div.greeter {
-			width: 100%;
-			height: 400px;
-			background-color: #033050;
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="styles/listing.css"/>
@@ -97,11 +95,10 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-	<div class="greeter">
-		<h3>Welcome to NDbay - for your dorm-living needs</h3>
-	</div>
-
-	<div class="container">
+	<div class="container-fluid">
+		<div class="greeter">
+			<h3>Welcome to NDbay - for your dorm-living needs</h3>
+		</div>
 		<h2>Newest Available Items:</h2>
 		<div class="row">
 			<?php
