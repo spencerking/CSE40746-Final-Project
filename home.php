@@ -35,8 +35,7 @@ if (!isset($_SESSION['logged_in'])) {
 			background-color: #033050;
 			color: white;
 			text-align: center;
-			margin-top: 15px;
-			margin-bottom: 15px;
+			padding-bottom: 5px;
 		}
 		.container-2 {
 			padding-top: 56px;
