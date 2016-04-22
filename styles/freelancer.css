@@ -22,7 +22,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #0F1624;
+    color: #006080;
 }
 
 h1,
@@ -34,6 +34,7 @@ h6 {
     text-transform: uppercase;
     font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+    background-color: #0F1624;
 }
 
 hr.star-light,
