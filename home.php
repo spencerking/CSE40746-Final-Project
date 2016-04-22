@@ -248,7 +248,7 @@ if (!isset($_SESSION['logged_in'])) {
 			{
 				// There are no items for this user
 				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>You are not selling any items</a></h2>\n";
+				print "\t<p>You are not selling any items</p>\n";
 				print "</div>\n";
 			}
 
@@ -310,7 +310,7 @@ if (!isset($_SESSION['logged_in'])) {
 			{
 				// There are no items for this user
 				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Favorited Items</a></h2>\n";
+				print "\t<p><a>No favorited items found :(</p>\n";
 				print "</div>\n";
 			}
 

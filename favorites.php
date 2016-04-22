@@ -157,9 +157,7 @@ if (!isset($_SESSION['logged_in'])) {
 			else
 			{
 				// There are no items for this user
-				print "<div class=\"col-md-4\">\n";
-				print "<h2><a>No Favorited Items</a></h2>\n";
-				print "</div>\n";
+				print "<p>No favorited items found :(</p>\n";
 			}
 
 			oci_close($conn);
