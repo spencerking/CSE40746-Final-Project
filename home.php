@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 100px;
+			padding-top: 156px;
 			padding-bottom: 20px;
 			display: flex;
 		}
@@ -33,6 +33,10 @@ if (!isset($_SESSION['logged_in'])) {
 			width: 100%;
 			left: 0;
 			background-color: #033050;
+			color: white;
+			text-align: center;
+			margin-top: 15px;
+			margin-bottom: 15px;
 		}
 		footer {
 			text-align: center;
