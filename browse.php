@@ -96,12 +96,12 @@ if (!isset($_SESSION['logged_in'])) {
 		<?php
 		// Import the function from alerts.php
 		include 'alerts.php';
-		use NDBay_Alerts as alerts;
+		use NDBay_Alerts as Alerts;
 
 		// If there is an alert message passed in, call print_alerts
 		if (isset($_GET['c']))
 		{
-			print_alert($_GET['c']);
+			Alerts\print_alert($_GET['c']);
 		}
 		?>
 		<h2 class="text-center">All Items</h2>
