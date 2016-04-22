@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 156px;
+			padding-top: 100px;
 			padding-bottom: 20px;
 			display: flex;
 		}
@@ -37,6 +37,9 @@ if (!isset($_SESSION['logged_in'])) {
 			text-align: center;
 			margin-top: 15px;
 			margin-bottom: 15px;
+		}
+		.container-2 {
+			padding-top: 56px;
 		}
 		footer {
 			text-align: center;
@@ -107,6 +110,7 @@ if (!isset($_SESSION['logged_in'])) {
 			<h3>Welcome to NDbay - for your dorm life needs</h3>
 		</div>
 
+		<div class="container-2">
 		<h2>Newest Available Items:</h2>
 		<div class="row">
 			<?php
@@ -168,6 +172,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 			oci_close($conn);
 			?>
+		</div>
 		</div>
 
 		<h2>Your Listed Items:</h2>
