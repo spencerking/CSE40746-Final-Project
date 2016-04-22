@@ -40,7 +40,7 @@ if (!isset($_SESSION['logged_in'])) {
 			background-size: 100% auto;
 			background-repeat: no-repeat;
 		}
-		#greeter h3 {
+		#greeter h2 {
 			font-family: Montserrat;
 			height: 400px;
 			line-height: 360px;
@@ -114,7 +114,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<div class="container">
 		<div id="greeter">
-			<h3>Welcome to NDbay - for your dorm life needs</h3>
+			<h2>Welcome to NDbay - for your dorm life needs</h2>
 		</div>
 
 		<div class="container-2">
