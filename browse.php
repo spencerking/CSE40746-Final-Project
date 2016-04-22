@@ -112,7 +112,7 @@ if (!isset($_SESSION['logged_in'])) {
 			$conn = oci_connect("guest", "guest", "xe")
 			or die("Couldn't connect");
 
-			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
+			$query2  = "SELECT DISTINCT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i, favorite f ";
 			$query2 .= "WHERE (f.user_id!=". $_SESSION['user_id'] ." OR f.status!=0) ";
 			$query2 .= "AND f.item_id=i.item_id AND i.seller_id!=". $_SESSION['user_id'];
