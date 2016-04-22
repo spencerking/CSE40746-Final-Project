@@ -35,9 +35,11 @@ if (!isset($_SESSION['logged_in'])) {
 			left: 0;
 			color: white;
 			text-align: center;
+			font-family: Montserrat;
 			padding-bottom: 5px;
 			background-image: url("images/nd.jpg");
 			background-size: 100% auto;
+			background-repeat: no-repeat;
 		}
 		#greeter h3 {
 			height: 400px;
