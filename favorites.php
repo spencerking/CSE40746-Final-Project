@@ -106,13 +106,13 @@ if (!isset($_SESSION['logged_in'])) {
 			Alerts\print_alert($_GET['c']);
 		}
 		?>
-		<h2 class="text-center">Favorites:</h2>
+		<h2 class="text-center">Favorite Items:</h2>
 		<hr/>
 		<div class="row">
 			<?php
 			// Grab all of the items favorited by this user.
 			$conn = oci_connect("guest", "guest", "xe")
-			or die("Couldn't connect");
+				or die("Couldn't connect");
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i, favorite f ";
@@ -157,14 +157,14 @@ if (!isset($_SESSION['logged_in'])) {
 			else
 			{
 				// There are no items for this user
-				print "<p>No favorited items found :(</p>\n";
+				print "<p>No favorited items found.</p>\n";
 			}
 
 			oci_close($conn);
 			?>
 		</div>
 
-		<h2 class="text-center">Dislikes:</h2>
+		<h2 class="text-center">Disliked Items:</h2>
 		<hr/>
 		<div class="row">
 			<?php
@@ -215,7 +215,7 @@ if (!isset($_SESSION['logged_in'])) {
 			else
 			{
 				// There are no items for this user
-				print "<p>No disliked items found :)</p>\n";
+				print "<p>No disliked items found.</p>\n";
 			}
 
 			oci_close($conn);
