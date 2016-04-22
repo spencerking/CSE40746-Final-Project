@@ -143,7 +143,7 @@ if (!isset($_SESSION['logged_in'])) {
 					<div class=\"alert alert-success\">
 					<p>
 						<strong>Your item listing was successfully posted!</strong>
-					<\p>
+					</p>
 					</div>
 				";
 				break;
