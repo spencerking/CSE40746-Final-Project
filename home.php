@@ -29,6 +29,9 @@ if (!isset($_SESSION['logged_in'])) {
 			display: flex;
 		}
 		#greeter {
+			position: absolute;
+			width: 100%;
+			left: 0;
 			background-color: #033050;
 		}
 		footer {
@@ -95,10 +98,11 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 	</nav>
 
-	<div class="container-fluid" id="greeter">
-		<h3>Welcome to NDbay - for your dorm-living needs</h3>
-	</div>
 	<div class="container">
+		<div id="greeter">
+			<h3>Welcome to NDbay - for your dorm life needs</h3>
+		</div>
+
 		<h2>Newest Available Items:</h2>
 		<div class="row">
 			<?php
