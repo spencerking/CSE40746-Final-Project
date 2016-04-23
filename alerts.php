@@ -66,6 +66,16 @@
 			break;
 		default:
 			break;
+		case 7:
+			print "
+			<div class=\"alert alert-warning\">
+				<p>
+					<strong>WARNING! Your item listing was posted without the image!</strong><br/>
+					To upload other images, navigate to that item's web page.
+				</p>
+			</div>
+			";
+			break;
 		}
 	}
 ?>
