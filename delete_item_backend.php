@@ -36,6 +36,6 @@
 	// We don't need SQL anymore, shut it down
 	oci_close($conn);
 
-	header("Location: home.php");
+	header("Location: home.php?c=9");
 
 ?>

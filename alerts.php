@@ -82,6 +82,14 @@
 				</p>
 			</div>
 			";
+		case 9:
+			print "
+			<div class=\"alert alert-danger\">
+				<p>
+					<strong>The item has been deleted from our website.</strong><br/>
+				</p>
+			</div>
+			";
 			break;
 		default:
 			break;
