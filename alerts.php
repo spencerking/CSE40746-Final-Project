@@ -76,6 +76,15 @@
 			</div>
 			";
 			break;
+		case 8:
+			print "
+			<div class=\"alert alert-info\">
+				<p>
+					<strong>Preferences have been removed from this item.</strong><br/>
+				</p>
+			</div>
+			";
+			break;
 		}
 	}
 ?>

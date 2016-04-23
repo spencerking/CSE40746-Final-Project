@@ -9,6 +9,8 @@
         trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
     }
 
+    $successval = 8;
+
     // Get the variables
     $iid = $_GET['iid'];
     $fav_status = $_GET['fav'];
@@ -40,6 +42,8 @@
 	            printf("\n%".($e['offset']+1)."s", "^");
 	            print  "\n</pre>\n";
 	        }
+
+	        $successval = 3;
 	    }
 	    else
 	    {
@@ -58,6 +62,8 @@
 	            printf("\n%".($e['offset']+1)."s", "^");
 	            print  "\n</pre>\n";
 	        }
+
+	        $successval = 4;
 	    }
 	}
 	else if ($fav == 2)
@@ -67,6 +73,6 @@
     // We don't need SQL anymore, shut it down
     oci_close($conn);
 
-    header("Location: item.php?iid=$iid");
+    header("Location: item.php?iid=$iid&c=".$successval);
 
 ?>

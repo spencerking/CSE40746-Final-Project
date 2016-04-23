@@ -151,7 +151,7 @@
 		}
 		if ($uploadOk == 0)
 		{
-			$successval = 7;
+			$successval = 1;
 		}
 	}
 
