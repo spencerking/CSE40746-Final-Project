@@ -86,7 +86,7 @@
 			print "
 			<div class=\"alert alert-danger\">
 				<p>
-					<strong>The item has been deleted from our website.</strong><br/>
+					<strong>The item listing has been removed.</strong><br/>
 				</p>
 			</div>
 			";
