@@ -15,6 +15,19 @@
     $iid = $_GET['iid'];
     $fav_status = $_GET['fav'];
 
+    if ($fav_status == 1)
+    {
+    	$successval = 3;
+    }
+    else if ($fav_status == 0)
+    {
+    	$successval = 4;
+    }
+    else if ($fav_status == 2)
+    {
+    	$successval = 8;
+    }
+
     $query1 = "SELECT COUNT(*) c FROM favorite WHERE item_id=$iid AND user_id=".$_SESSION['user_id'];
     $stmt1 = oci_parse($conn, $query1);
     oci_define_by_name($stmt1,"C", $fav_count);
@@ -42,8 +55,6 @@
 	            printf("\n%".($e['offset']+1)."s", "^");
 	            print  "\n</pre>\n";
 	        }
-
-	        $successval = 3;
 	    }
 	    else
 	    {
@@ -62,8 +73,6 @@
 	            printf("\n%".($e['offset']+1)."s", "^");
 	            print  "\n</pre>\n";
 	        }
-
-	        $successval = 4;
 	    }
 	}
 	else if ($fav == 2)

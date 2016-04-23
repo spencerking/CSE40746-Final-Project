@@ -64,8 +64,6 @@
 			</div>
 			";
 			break;
-		default:
-			break;
 		case 7:
 			print "
 			<div class=\"alert alert-warning\">
@@ -84,6 +82,8 @@
 				</p>
 			</div>
 			";
+			break;
+		default:
 			break;
 		}
 	}
