@@ -159,6 +159,6 @@
 	oci_close($conn);
 
 
-	header('Location: home.php?c=$successval');
+	header('Location: home.php?c='.$successval);
 
 ?>
