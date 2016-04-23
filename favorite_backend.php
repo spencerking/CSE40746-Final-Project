@@ -17,7 +17,7 @@
 
     if ($fav_status == 1)
     {
-    	$successval = 3;
+    	$successval = ;
     }
     else if ($fav_status == 0)
     {

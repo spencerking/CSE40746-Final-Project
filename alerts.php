@@ -28,7 +28,7 @@
 			break;
 		case 3:
 			print "
-			<div class=\"alert alert-info\">
+			<div class=\"alert alert-success\">
 				<p>
 					<strong>This item will now be in your favorites list!</strong><br/>
 					Favorite items can viewed on the favorites page and up to eight of them will be previewed on the home page.
