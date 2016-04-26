@@ -31,6 +31,13 @@ oci_fetch($query);
 echo $email;
 echo $new_email;
 
+$new_email_check = strstr($new_email, '@');
+if (!strcmp($new_email_check, "@nd.edu")){
+	$_SESSION['msg'] = 'Not a ND email address';
+	header('Location: signin.html');
+	die();
+}
+
 // If the email already exists return an error message to the user
 if (!strcmp($new_email, $email)) {
 	// return an error
