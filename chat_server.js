@@ -28,7 +28,7 @@ app.post('/chat', function(req, res) {
         conn.execute(
           'SELECT chat_id FROM chat ' +
           'WHERE buyer_id = :b_id AND seller_id = :s_id',
-          [buyer_id, seller_id],
+          [b_id, s_id],
           function(err, result) {
             if (err) {
               console.error(err.message);

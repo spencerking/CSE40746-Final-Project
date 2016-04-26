@@ -21,10 +21,12 @@ if (!isset($_SESSION['logged_in'])) {
 	<link href="styles/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="styles/listing.css"/>
+	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<style>
 		/* Move down content because we have a fixed navbar that is 50px tall */
 		body {
-			padding-top: 120px;
+			padding-top: 100px;
 			padding-bottom: 20px;
 			display: flex;
 		}
@@ -49,8 +51,6 @@ if (!isset($_SESSION['logged_in'])) {
 			padding-top: 400px;
 		}
 	</style>
-	<link rel="stylesheet" href="styles/listing.css"/>
-	<link rel="stylesheet" href="styles/freelancer.css"/>
 	<!-- Custom Fonts -->
 	<link href="styles/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -182,7 +182,7 @@ if (!isset($_SESSION['logged_in'])) {
 			{
 				// There are no items for this user
 				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>You are not selling any items</a></h2>\n";
+				print "\t<p>You are not selling any items</p>\n";
 				print "</div>\n";
 			}
 
