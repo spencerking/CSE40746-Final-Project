@@ -124,11 +124,6 @@ $user_id = $_SESSION["user_id"];
         <button type="submit" class="message-submit">Send</button>
       </div>
     </div>
-    <hr>
-
-    <footer>
-      <p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
-    </footer>
   </div>
 
 
