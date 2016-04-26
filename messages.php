@@ -99,21 +99,6 @@ $user_id = $_SESSION["user_id"];
     </div>
   </nav>
 
-  <div class="container">
-    <?php
-    // Import the function from alerts.php
-    include 'alerts.php';
-    use NDBay_Alerts as Alerts;
-
-    // If there is an alert message passed in, call print_alerts
-    if (isset($_GET['c']))
-    {
-      Alerts\print_alert($_GET['c']);
-    }
-    ?>
-    
-  </div>
-
   <div class="chat">
     <div class="chat-title">
       <h1>dwu4@nd.edu</h1>
@@ -128,13 +113,13 @@ $user_id = $_SESSION["user_id"];
     </div>
   </div>
 
-
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="js/jquery-2.2.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/socket.io.js"></script>
+  <script src="js/messages.js"></script>
 
   <?php
   echo "<script>";
