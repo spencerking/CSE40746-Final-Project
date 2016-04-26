@@ -1,9 +1,12 @@
 var app = require('express')();
 var http = require('http').Server(app);
+var bp = require('body-parser');
 var io = require('socket.io')(http);
 var db = require('oracledb');
 
 var conn_attrs = { user: 'guest', password: 'guest', connectString: 'localhost/XE' };
+
+app.use(bp.json());
 
 app.get('/', function(req, res) {
   res.end('Hi');
@@ -11,6 +14,7 @@ app.get('/', function(req, res) {
 
 // User starts chat with seller
 app.post('/chat', function(req, res) {
+  console.log(req.body);
   db.getConnection(conn_attrs, function(err, conn) {
     if (err) { console.error(err.message); return; }
     var start_date = new Date();
