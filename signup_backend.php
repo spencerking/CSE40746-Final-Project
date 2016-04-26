@@ -32,7 +32,7 @@ echo $email;
 echo $new_email;
 
 $new_email_check = strstr($new_email, '@');
-if (!strcmp($new_email_check, "@nd.edu")){
+if (strcmp($new_email_check, "@nd.edu")){
 	$_SESSION['msg'] = 'Not a ND email address';
 	header('Location: signin.html');
 	die();
