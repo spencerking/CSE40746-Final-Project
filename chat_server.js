@@ -17,10 +17,22 @@ app.post('/chat', function(req, res) {
     conn.execute(
       'INSERT INTO chat ' +
       'VALUES (:buyer_id, :seller_id, :start_date, :update_date)',
-      [buyer_id, seller_id, start_date, start_date],
+      [b_id, s_id, start_date, start_date],
       function(err, result) {
         if (err) { console.error(err.message); return; }
-        res.end(/*chat_id*/);
+        conn.execute(
+          'SELECT chat_id FROM chat ' +
+          'WHERE buyer_id = :b_id AND seller_id = :s_id',
+          [buyer_id, seller_id],
+          function(err, result) {
+            if (err) {
+              console.error(err.message);
+              res.end('Error: failed to start chat');
+              return;
+            }
+            res.end(result.rows);
+            doRelease(conn);
+          });
       }
     );
   });
