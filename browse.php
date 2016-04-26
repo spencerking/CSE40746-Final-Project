@@ -155,8 +155,9 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 			else
 			{
+				// There are no items
 				print "<div class=\"col-md-4\">\n";
-				print "\t<h2><a>No Favorited Items</a></h2>\n";
+				print "\t<h2><a>No Items</a></h2>\n";
 				print "</div>\n";
 			}
 
