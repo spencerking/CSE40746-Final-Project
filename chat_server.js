@@ -14,7 +14,8 @@ app.get('/', function(req, res) {
 
 // User starts chat with seller
 app.post('/chat', function(req, res) {
-  console.log(req.body);
+  var b_id = req.body.buyer_id;
+  var s_id = req.body.seller_id;
   db.getConnection(conn_attrs, function(err, conn) {
     if (err) { console.error(err.message); return; }
     var start_date = new Date();
