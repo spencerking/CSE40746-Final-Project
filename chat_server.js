@@ -5,6 +5,10 @@ var db = require('oracledb');
 
 var conn_attrs = { user: 'guest', password: 'guest', connectString: 'localhost/XE' };
 
+app.get('/', function(req, res) {
+  res.end('Hi');
+});
+
 // User starts chat with seller
 app.post('/chat', function(req, res) {
   db.getConnection(conn_attrs, function(err, conn) {
