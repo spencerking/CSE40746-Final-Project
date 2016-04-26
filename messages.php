@@ -105,7 +105,17 @@ $user_id = $_SESSION["user_id"];
 
   <div class="chat">
     <div class="chat-title">
-      <h1>dwu4@nd.edu</h1>
+      <?php
+      $conn = oci_connect("guest", "guest", "xe")
+      or die("Couldn't connect");
+      $query1 = "SELECT email email FROM domer WHERE user_id='".$_SESSION['user_id']."'";
+      $stmt1 = oci_parse($conn, $query1);
+      oci_define_by_name($stmt1, "EMAIL", $email);
+      oci_execute($stmt1);
+      oci_fetch($stmt1);
+      print "<h1>$email</h1>";
+      oci_close($conn);
+      ?>
       <h2>Online</h2>
     </div>
     <div class="messages">
