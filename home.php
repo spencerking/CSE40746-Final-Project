@@ -180,9 +180,8 @@ if (!isset($_SESSION['logged_in'])) {
 			}
 			else
 			{
-				// There are no items for this user
 				print "<div class=\"col-md-4\">\n";
-				print "\t<p>You are not selling any items</p>\n";
+				print "\t<p>No new items</p>\n";
 				print "</div>\n";
 			}
 

@@ -1,4 +1,4 @@
-! function() {
+(function() {
   var container = document.querySelector('.container');
   var stackWrap = document.querySelector('.stack-wrap');
   var contacts = document.querySelector('.contacts');
@@ -27,4 +27,4 @@
   });
 
   relayout();
-}();
+})();

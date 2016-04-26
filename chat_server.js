@@ -5,6 +5,7 @@ var io = require('socket.io')(http);
 var db = require('oracledb');
 
 var conn_attrs = { user: 'guest', password: 'guest', connectString: 'localhost/XE' };
+var online_users = [];
 
 app.use(bp.json());
 
@@ -24,20 +25,12 @@ app.post('/chat', function(req, res) {
       'VALUES (:buyer_id, :seller_id, :start_date, :update_date)',
       [b_id, s_id, start_date, start_date],
       function(err, result) {
-        if (err) { console.error(err.message); return; }
-        conn.execute(
-          'SELECT chat_id FROM chat ' +
-          'WHERE buyer_id = :b_id AND seller_id = :s_id',
-          [b_id, s_id],
-          function(err, result) {
-            if (err) {
-              console.error(err.message);
-              res.end('Error: failed to start chat');
-              return;
-            }
-            res.end(result.rows);
-            doRelease(conn);
-          });
+        if (err) { 
+          console.error(err.message);
+          res.end('Error: Failed to create chat');
+          return;
+        }
+        res.end('Chat created');
       }
     );
   });
@@ -61,11 +54,17 @@ io.on('connection', function(socket) {
             socket.emit('user_connect_error');
             return;
           }
-          socket.emit(result);
+          socket.emit(result.rows);
           console.log('User connected');
         }
       );
     });
+  });
+
+  // User selects chat
+  socket.on('select_chat', function(socket) {
+    // TODO: query database for messages for this chat
+    //       send message dictionary to user
   });
 
   // User sends message

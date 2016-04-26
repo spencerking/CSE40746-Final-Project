@@ -99,13 +99,6 @@ $user_id = $_SESSION["user_id"];
 		</div>
 	</nav>
 
-	<!-- Apply roughly this many breaks of padding -->
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
 	<div class="container">
 		<?php
 		// Import the function from alerts.php
@@ -170,7 +163,6 @@ $user_id = $_SESSION["user_id"];
   <script src="js/jquery-2.2.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/socket.io.js"></script>
-  <script src="js/messages.js"></script>
 
   <?php
   echo "<script>";

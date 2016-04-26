@@ -165,8 +165,6 @@ if (!isset($_SESSION['logged_in'])) {
 			?>
 		</div>
 
-
-
 		<hr/>
 		<footer>
 			<p>Made with &lt;3 at Notre Dame, by Thomas, Spencer, and David.</p>
