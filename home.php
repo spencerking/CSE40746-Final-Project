@@ -144,7 +144,7 @@ if (!isset($_SESSION['logged_in'])) {
 			oci_execute($stmt7);
 			
 			$row = oci_fetch_assoc($stmt7);
-			if ($row != false)
+			if ($row == false)
 			{
 				$new_items_on_page = 0;
 				while ($row != false && $new_items_on_page < 4)
