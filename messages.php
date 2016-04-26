@@ -30,6 +30,7 @@ $user_id = $_SESSION["user_id"];
   <link href="styles/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
+  <link href="styles/messages.css" rel="stylesheet">
   <style>
     /* Move down content because we have a fixed navbar that is 50px tall */
     body {
@@ -44,7 +45,6 @@ $user_id = $_SESSION["user_id"];
     }
   </style>
   <link rel="stylesheet" href="styles/freelancer.css"/>
-  <link href="styles/messages.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="styles/font-awesome.min.css" rel="stylesheet">
