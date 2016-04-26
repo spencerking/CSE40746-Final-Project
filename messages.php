@@ -39,6 +39,9 @@ $user_id = $_SESSION["user_id"];
     footer {
       text-align: center;
     }
+    .chat-title h1 {
+      color: white;
+    }
   </style>
   <link rel="stylesheet" href="styles/freelancer.css"/>
   <link href="styles/messages.css" rel="stylesheet">
