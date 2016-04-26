@@ -111,18 +111,20 @@ $user_id = $_SESSION["user_id"];
       Alerts\print_alert($_GET['c']);
     }
     ?>
-    <div class="chat">
-      <div class="chat-title">
-        <h1>dwu4@nd.edu</h1>
-        <h2>Online</h2>
-      </div>
-      <div class="messages">
-        <div class="messages-content"></div>
-      </div>
-      <div class="message-box">
-        <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
-        <button type="submit" class="message-submit">Send</button>
-      </div>
+    
+  </div>
+
+  <div class="chat">
+    <div class="chat-title">
+      <h1>dwu4@nd.edu</h1>
+      <h2>Online</h2>
+    </div>
+    <div class="messages">
+      <div class="messages-content"></div>
+    </div>
+    <div class="message-box">
+      <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+      <button type="submit" class="message-submit">Send</button>
     </div>
   </div>
 
