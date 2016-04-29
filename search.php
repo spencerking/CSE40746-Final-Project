@@ -125,8 +125,6 @@ if (!isset($_SESSION['logged_in'])) {
 		$query .= " 	WHERE (user_id=5 AND status=0)";
 		$query .= ")";
 
-		print $query;
-
 		$stid = oci_parse($conn, $query);
 		$r = oci_execute($stid);
 
