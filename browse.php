@@ -108,14 +108,17 @@ if (!isset($_SESSION['logged_in'])) {
 		<hr/>
 		<div class="row">
 			<?php
-			// Grab all of the items favorited by this user.
+			// Grab all of the items favorited by thsi user.
 			$conn = oci_connect("guest", "guest", "xe")
 			or die("Couldn't connect");
 
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
-			$query2 .= "FROM item i";
-			//$query2 .= "WHERE (f.user_id!=". $_SESSION['user_id'] ." OR f.status!=0) ";
-			//$query2 .= "AND f.item_id=i.item_id AND i.seller_id!=". $_SESSION['user_id'];
+			$query2 .= "FROM item i ";
+			$query2 .= "WHERE i.item_id NOT IN (";
+			$query2 .= "	SELECT item_id "
+			$query2 .= "	FROM favorite "
+			$query2 .= "	WHERE (user_id=".$_SESSION['user_id']." AND f.status=0) ";
+			$query2 .= ") AND i.seller_id!=".$_SESSION['user_id'];
 
 			$stmt2 = oci_parse($conn, $query2);
 
