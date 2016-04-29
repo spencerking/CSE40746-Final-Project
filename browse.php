@@ -117,7 +117,7 @@ if (!isset($_SESSION['logged_in'])) {
 			$query2 .= "WHERE i.item_id NOT IN (";
 			$query2 .= "	SELECT item_id ";
 			$query2 .= "	FROM favorite ";
-			$query2 .= "	WHERE (user_id=".$_SESSION['user_id']." AND f.status=0) ";
+			$query2 .= "	WHERE (user_id=".$_SESSION['user_id']." AND status=0) ";
 			$query2 .= ") AND i.seller_id!=".$_SESSION['user_id'];
 
 			$stmt2 = oci_parse($conn, $query2);
