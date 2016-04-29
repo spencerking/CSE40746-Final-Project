@@ -115,8 +115,8 @@ if (!isset($_SESSION['logged_in'])) {
 			$query2  = "SELECT i.item_id iid, i.description des, i.name name ";
 			$query2 .= "FROM item i ";
 			$query2 .= "WHERE i.item_id NOT IN (";
-			$query2 .= "	SELECT item_id "
-			$query2 .= "	FROM favorite "
+			$query2 .= "	SELECT item_id ";
+			$query2 .= "	FROM favorite ";
 			$query2 .= "	WHERE (user_id=".$_SESSION['user_id']." AND f.status=0) ";
 			$query2 .= ") AND i.seller_id!=".$_SESSION['user_id'];
 
