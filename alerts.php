@@ -82,6 +82,7 @@
 				</p>
 			</div>
 			";
+			break;
 		case 9:
 			print "
 			<div class=\"alert alert-danger\">

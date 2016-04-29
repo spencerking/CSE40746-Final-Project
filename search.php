@@ -117,7 +117,13 @@ if (!isset($_SESSION['logged_in'])) {
 			$searchText = $_POST['search'];
 			$searchText = strtolower(str_replace("'", '', $searchText));
 		}
-		$query = 'SELECT name, condition, description, price, end_time, item_id FROM item WHERE LOWER(name) LIKE \'%'.$searchText.'%\'';
+		$query  = 'SELECT name, condition, description, price, end_time, item_id ';
+		$query .= "FROM item ";
+		$query .= "WHERE LOWER(name) LIKE \'%".$searchText."%\' AND item_id NOT IN (";
+		$query .= "	SELECT item_id ";
+		$query .= "	FROM favorite ";
+		$query .= " WHERE (user_id=5 AND status=0)";
+		$query .= ")";
 		$stid = oci_parse($conn, $query);
 		$r = oci_execute($stid);
 
