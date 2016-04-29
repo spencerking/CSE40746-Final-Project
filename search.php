@@ -120,10 +120,13 @@ if (!isset($_SESSION['logged_in'])) {
 		$query  = 'SELECT name, condition, description, price, end_time, item_id ';
 		$query .= "FROM item ";
 		$query .= "WHERE LOWER(name) LIKE \'%".$searchText."%\' AND item_id NOT IN (";
-		$query .= "	SELECT item_id ";
-		$query .= "	FROM favorite ";
-		$query .= " WHERE (user_id=5 AND status=0)";
+		$query .= "		SELECT item_id ";
+		$query .= "		FROM favorite ";
+		$query .= " 	WHERE (user_id=5 AND status=0)";
 		$query .= ")";
+
+		print $query;
+
 		$stid = oci_parse($conn, $query);
 		$r = oci_execute($stid);
 
