@@ -30,6 +30,7 @@ app.post('/chat', function(req, res) {
           res.end('Error: Failed to create chat');
           return;
         }
+        console.log(result);
         res.end('Chat created');
       }
     );

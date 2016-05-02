@@ -125,6 +125,8 @@ $user_id = $_SESSION["user_id"];
       <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
       <button type="submit" class="message-submit">Send</button>
     </div>
+
+    <div class="bg"></div>
   </div>
 
   <!-- Bootstrap core JavaScript
@@ -145,7 +147,7 @@ $user_id = $_SESSION["user_id"];
     echo "});";
   echo "}";
 
-  echo "var posting = $.post('52.34.131.50:8163/', {user_id: ";
+  echo "var posting = $.post('http://52.34.131.50:8163/', {user_id: ";
   echo $user_id;
   echo "});";
 
