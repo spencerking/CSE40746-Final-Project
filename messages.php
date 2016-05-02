@@ -125,14 +125,14 @@ $user_id = $_SESSION["user_id"];
       <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
       <button type="submit" class="message-submit">Send</button>
     </div>
-
-    <div class="bg"></div>
   </div>
+  <div class="bg"></div>
 
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="js/jquery-2.2.2.min.js"></script>
+  <script src="js/jquery.mCustomScrollbar.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/socket.io.js"></script>
   <script src="js/messages.js"></script>
