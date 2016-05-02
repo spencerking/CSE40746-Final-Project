@@ -62,7 +62,7 @@ $user_id = $_SESSION["user_id"];
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="home.php"><img style="position:relative; top:-12.5px;" height="50px" width="auto" src="images/NDBayLogo.png"/></a>
+        <a class="navbar-brand" href="home.php"><img style="position:relative; top:-12.5px;" height="50px" width="auto" src="images/logo.png"/></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -113,7 +113,7 @@ $user_id = $_SESSION["user_id"];
       oci_define_by_name($stmt1, "EMAIL", $email);
       oci_execute($stmt1);
       oci_fetch($stmt1);
-      print "<h1>$email</h1>";
+      print "<h1>$email</h1>\n";
       oci_close($conn);
       ?>
       <h2>Online</h2>
@@ -136,17 +136,18 @@ $user_id = $_SESSION["user_id"];
   <script src="js/bootstrap.min.js"></script>
   <script src="js/socket.io.js"></script>
   <script src="js/messages.js"></script>
+  <script>
+  var socket = io();
 
-  <?php
-  echo "<script>";
-
-  echo "function initSocket(socket) {";
-    echo "socket.on('update', function(data) {";
+  function initSocket(socket) {
+    socket.on('update', function(data) {
       // query the db
       // add a new list item with the returned message text
-    echo "});";
-  echo "}";
-
+    });
+  }
+  </script>
+  <?php
+  echo "<script>";
   echo "var posting = $.post('http://52.34.131.50:8163/', {user_id: ";
   echo $user_id;
   echo "});";
@@ -161,8 +162,6 @@ $user_id = $_SESSION["user_id"];
   // need to figure out how to generate the list
   // don't want to just output straight from the db
   echo "});";
-
-  echo "init();";
 
   echo "</script>";
   ?>

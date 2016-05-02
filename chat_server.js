@@ -4,7 +4,11 @@ var bp = require('body-parser');
 var io = require('socket.io')(http);
 var db = require('oracledb');
 
-var conn_attrs = { user: 'guest', password: 'guest', connectString: 'localhost/XE' };
+var conn_attrs = {
+  user: 'guest',
+  password: 'guest',
+  connectString: 'localhost/XE'
+};
 var online_users = [];
 
 app.use(bp.json());
@@ -42,6 +46,7 @@ io.on('connection', function(socket) {
   socket.on('user_connect', function(user_id) {
     // TODO: query database for chats with this user_id,
     //       send chat dictionary to user
+    console.log('User connected');
     db.getConnection(conn_attrs, function(err, conn) {
       if (err) { console.error(err.message); return; }
       conn.execute(
@@ -57,7 +62,7 @@ io.on('connection', function(socket) {
           }
           socket.emit(result.rows);
           console.log(result.rows);
-          console.log('User connected');
+          console.log('User found in database');
         }
       );
     });
