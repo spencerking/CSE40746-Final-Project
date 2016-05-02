@@ -137,17 +137,24 @@ $user_id = $_SESSION["user_id"];
   <script src="js/socket.io.js"></script>
   <script src="js/messages.js"></script>
   <script>
-  var socket = io();
-
   function initSocket(socket) {
     socket.on('update', function(data) {
       // query the db
       // add a new list item with the returned message text
     });
+
+    socket.on('user_connect_error', function() {
+      errorMessage(0);
+    });
+
+    socket.on('msg_error', function() {
+      errorMessage(1);
+    });
   }
   </script>
   <?php
   echo "<script>";
+  echo "var socket = io.connect('http://52.34.131.50:8163');";
   echo "var posting = $.post('http://52.34.131.50:8163/', {user_id: ";
   echo $user_id;
   echo "});";
@@ -162,7 +169,7 @@ $user_id = $_SESSION["user_id"];
   // need to figure out how to generate the list
   // don't want to just output straight from the db
   echo "});";
-
+  echo "initSocket(socket);";
   echo "</script>";
   ?>
 

@@ -1,5 +1,5 @@
 var $messages = $('.messages-content'),
-    d, h, m,
+    d, m,
     i = 0;
 
 $(window).load(function() {
@@ -79,5 +79,18 @@ function fakeMessage() {
     updateScrollbar();
     i++;
   }, 1000 + (Math.random() * 20) * 100);
+}
 
+function errorMessage(err) {
+  var msg;
+  switch (err) {
+    case 0:
+      msg = 'Couldn\'t connect to server';
+      break;
+    case 1:
+      msg = 'Couldn\'t send message';
+      break;
+  }
+  $('<div class="message new">' + msg + '<span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
 }
