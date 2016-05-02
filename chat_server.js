@@ -25,12 +25,12 @@ app.post('/chat', function(req, res) {
       'VALUES (:buyer_id, :seller_id, :start_date, :update_date)',
       [b_id, s_id, start_date, start_date],
       function(err, result) {
-        if (err) { 
+        if (err) {
           console.error(err.message);
           res.end('Error: Failed to create chat');
           return;
         }
-        console.log(result);
+        console.log(result.rows);
         res.end('Chat created');
       }
     );
@@ -56,6 +56,7 @@ io.on('connection', function(socket) {
             return;
           }
           socket.emit(result.rows);
+          console.log(result.rows);
           console.log('User connected');
         }
       );
@@ -84,6 +85,7 @@ io.on('connection', function(socket) {
             socket.emit('msg_error');
             return;
           }
+          console.log(result.rows);
           console.log('Message received');
         }
       );
