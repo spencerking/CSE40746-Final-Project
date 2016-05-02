@@ -50,19 +50,17 @@ $(window).on('keydown', function(e) {
 });
 
 var Fake = [
-  'Hi there, I\'m Fabio and you?',
+  'Hi there, I\'m Spencer and you?',
   'Nice to meet you',
   'How are you?',
   'Not too bad, thanks',
-  'What do you do?',
+  'Where do you want to meet?',
   'That\'s awesome',
-  'Codepen is a nice place to stay',
-  'I think you\'re a nice person',
+  'NDbay is pretty cool',
   'Why do you think that?',
   'Can you explain?',
   'Anyway I\'ve gotta go now',
-  'It was a pleasure chat with you',
-  'Time to make a new codepen',
+  'It was a pleasure chatting with you',
   'Bye',
   ':)'
 ];
