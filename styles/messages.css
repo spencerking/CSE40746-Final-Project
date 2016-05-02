@@ -74,7 +74,7 @@ Chat Title
   color: #fff;
   text-transform: uppercase;
   text-align: left;
-  padding: 10px 10px 10px 50px;
+  padding: 10px 10px 10px 10px;
 }
 .chat-title h1, .chat-title h2 {
   font-weight: normal;
@@ -99,10 +99,6 @@ Chat Title
   margin: 0;
   padding: 0;
   border: 2px solid rgba(255, 255, 255, 0.24);
-}
-.chat-title .avatar img {
-  width: 100%;
-  height: auto;
 }
 
 /*--------------------
@@ -134,7 +130,6 @@ Messages
   margin: 8px 0;
   font-size: 11px;
   line-height: 1.4;
-  margin-left: 35px;
   position: relative;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
@@ -189,12 +184,9 @@ Messages
   margin-bottom: 30px;
 }
 .messages .message.new {
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-animation: bounce 500ms linear both;
-          animation: bounce 500ms linear both;
+  transform: scale(0);
+  transform-origin: 0 0;
+  animation: bounce 500ms linear both;
 }
 .messages .message.loading::before {
   position: absolute;
